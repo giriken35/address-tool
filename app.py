@@ -9,10 +9,18 @@ import unicodedata
 #  ページ設定（最初に呼ぶ必要あり）
 # ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="住所表記揺れ 一括正規化ツール",
-    page_icon="🗾",
+    page_title="住所表記揺れ一括正規化ツール | CSV・Excelの住所統一を無料変換",
+    page_icon="🗺️",
     layout="wide",
     initial_sidebar_state="collapsed",
+)
+
+st.markdown(
+    """
+    <meta name="description" content="CSVやExcelの住所データの表記揺れを一括で正規化・統一する無料ツールです。発送業務や顧客管理を効率化します。">
+    <meta name="keywords" content="住所,表記揺れ,一括変換,正規化,CSV,無料,Excel,統一,発送業務,効率化">
+    """,
+    unsafe_allow_html=True
 )
 
 # ─────────────────────────────────────────────
