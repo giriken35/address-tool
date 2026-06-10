@@ -534,6 +534,7 @@ with col_left:
     <!DOCTYPE html>
     <html>
     <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <style>
       body { margin:0; padding:0; background:transparent; display:flex; justify-content:center; }
     </style>
@@ -554,6 +555,7 @@ with col_right:
     <!DOCTYPE html>
     <html>
     <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <style>
       body { margin:0; padding:0; background:transparent; display:flex; justify-content:center; }
     </style>
