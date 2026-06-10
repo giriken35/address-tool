@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import re
 import io
@@ -528,39 +529,43 @@ col_left, col_center, col_right = st.columns([1, 5, 1])
 
 # ── 左広告 ──
 with col_left:
-    st.markdown("""
-    <div class="ad-column">
-      <div class="ad-block">
-        <div class="ad-placeholder-icon">📢</div>
-        <div class="ad-label">Advertisement</div>
-        <div class="ad-size">160×600</div>
-        <div style="margin-top:0.5rem;font-size:0.65rem;color:#555">Google AdSense<br>スカイスクレイパー</div>
-      </div>
-      <div class="ad-block" style="margin-top:1rem">
-        <div class="ad-placeholder-icon">🎯</div>
-        <div class="ad-label">Advertisement</div>
-        <div class="ad-size">160×300</div>
-      </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="ad-column" style="padding-top:0.5rem">', unsafe_allow_html=True)
+    components.html("""
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <style>
+      body { margin:0; padding:0; background:transparent; display:flex; justify-content:center; }
+    </style>
+    </head>
+    <body>
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/cac2809c006d7b949922df562a16638e"></script>
+    <!-- admax -->
+    </body>
+    </html>
+    """, height=620, scrolling=False)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # ── 右広告 ──
 with col_right:
-    st.markdown("""
-    <div class="ad-column">
-      <div class="ad-block">
-        <div class="ad-placeholder-icon">📢</div>
-        <div class="ad-label">Advertisement</div>
-        <div class="ad-size">160×600</div>
-        <div style="margin-top:0.5rem;font-size:0.65rem;color:#555">Google AdSense<br>スカイスクレイパー</div>
-      </div>
-      <div class="ad-block" style="margin-top:1rem">
-        <div class="ad-placeholder-icon">🎯</div>
-        <div class="ad-label">Advertisement</div>
-        <div class="ad-size">160×300</div>
-      </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="ad-column" style="padding-top:0.5rem">', unsafe_allow_html=True)
+    components.html("""
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <style>
+      body { margin:0; padding:0; background:transparent; display:flex; justify-content:center; }
+    </style>
+    </head>
+    <body>
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/cac2809c006d7b949922df562a16638e"></script>
+    <!-- admax -->
+    </body>
+    </html>
+    """, height=620, scrolling=False)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # ── 中央コンテンツ ──
 with col_center:
@@ -784,7 +789,7 @@ with col_center:
                     data=csv_full.encode("utf-8-sig"),
                     file_name="addresses_normalized_full.csv",
                     mime="text/csv",
-                    use_container_width=True,
+                    width="stretch",
                 )
                 st.caption("元のすべての列＋正規化列を追加したCSV")
 
@@ -799,7 +804,7 @@ with col_center:
                     data=csv_replaced.encode("utf-8-sig"),
                     file_name="addresses_normalized_replaced.csv",
                     mime="text/csv",
-                    use_container_width=True,
+                    width="stretch",
                 )
                 st.caption("住所列を正規化済みで上書きしたCSV")
 
@@ -842,7 +847,7 @@ with col_center:
             data=sample_data.encode("utf-8-sig"),
             file_name="sample_addresses.csv",
             mime="text/csv",
-            use_container_width=False,
+            width="content",
         )
 
     # フッター
