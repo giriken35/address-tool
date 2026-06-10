@@ -19,6 +19,7 @@ st.markdown(
     """
     <meta name="description" content="CSVやExcelの住所データの表記揺れを一括で正規化・統一する無料ツールです。発送業務や顧客管理を効率化します。">
     <meta name="keywords" content="住所,表記揺れ,一括変換,正規化,CSV,無料,Excel,統一,発送業務,効率化">
+    <meta name="google-site-verification" content="0oIGdE-k6VZaVRX2lmAUGfTyJY2vohq0Q2uljOGmLT4" />
     """,
     unsafe_allow_html=True
 )
