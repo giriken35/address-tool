@@ -865,9 +865,9 @@ with col_center:
     st.markdown('<div style="display:flex; justify-content:center; margin-top:2rem;">', unsafe_allow_html=True)
     components.html(
         """
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B5SK9+7OUL2Q+2DS2+BZGEP" rel="nofollow">
-        <img border="0" width="300" height="250" alt="" src="https://www23.a8.net/svt/bgt?aid=260610777465&wid=001&eno=01&mid=s00000011117002013000&mc=1"></a>
-        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4B5SK9+7OUL2Q+2DS2+BZGEP" alt="">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4B5SK9+7OUL2Q+2DS2+BZGEP" rel="nofollow" target="_blank">
+        <img border="0" width="300" height="250" alt="" src="https://www21.a8.net/svt/bgt?aid=260610777465&wid=001&eno=01&mid=s00000011117002013000&mc=1"></a>
+        <img border="0" width="1" height="1" src="https://www13.a8.net/0.gif?a8mat=4B5SK9+7OUL2Q+2DS2+BZGEP" alt="">
         """,
         width=300,
         height=250,
