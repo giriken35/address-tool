@@ -19,7 +19,7 @@ export default function Page() {
               無料・登録不要ですぐに試せる
             </div>
             
-            <a href="#normalizer" className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline">
+            <a href="#pricing" className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline">
               料金プラン / 開発者APIはこちら →
             </a>
           </div>
@@ -56,6 +56,74 @@ export default function Page() {
           <CharacterPanel side="right" name="マップ君" role="住所チェッカー" />
         </aside>
       </div>
+
+      {/* 料金プラン（さりげない説明） */}
+      <section id="pricing" className="mt-12 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
+        <div className="text-center">
+          <h2 className="text-xl font-bold text-foreground sm:text-2xl">料金プラン / 開発者API</h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            個人利用や小規模なデータ整理は、ずっと無料でお使いいただけます。
+          </p>
+        </div>
+        
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          {/* Free Plan */}
+          <div className="relative rounded-2xl border border-border bg-surface p-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-foreground">Free</h3>
+              <p className="mt-2 flex items-baseline gap-2">
+                <span className="text-3xl font-bold">¥0</span>
+                <span className="text-xs text-muted-foreground">/ ずっと</span>
+              </p>
+            </div>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand"></span>
+                1回あたり <strong className="text-foreground">最大100件</strong> まで処理可能
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand"></span>
+                ブラウザ上のCSV変換ツール
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand"></span>
+                登録不要ですぐに利用可能
+              </li>
+            </ul>
+          </div>
+          
+          {/* Pro Plan */}
+          <div className="relative rounded-2xl border border-brand/40 bg-gradient-to-br from-brand/5 to-brand-2/5 p-6 shadow-[0_0_30px_-10px_rgba(108,99,255,0.2)]">
+            <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-[10px] font-bold text-white shadow-md">
+              ビジネス向け
+            </div>
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-brand">Pro / API</h3>
+              <p className="mt-2 flex items-baseline gap-2">
+                <span className="text-3xl font-bold text-foreground">¥5,000</span>
+                <span className="text-xs text-muted-foreground">/ 月</span>
+              </p>
+            </div>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
+                <strong className="text-foreground">無制限</strong> のCSV一括処理
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
+                自社システム連携用 <strong className="text-foreground">正規化API</strong>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
+                優先的なカスタマーサポート
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-6 text-center text-xs text-muted-foreground">
+          ※100件を超えるデータをアップロードすると、自動的にProプランへのアップグレードボタンが表示されます。
+        </div>
+      </section>
 
       {/* 下部広告バナー（名刺印刷 / A8.net） */}
       <div className="mt-10 flex flex-col items-center">
