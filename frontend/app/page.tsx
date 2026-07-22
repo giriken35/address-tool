@@ -44,11 +44,11 @@ export default function Page() {
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「港区」「新宿区」など、いきなり市区町村から始まって抜けている「都道府県」を自動補完
+                「港区」「新宿区」など、市区町村から始まって抜けている「都道府県」を自動で補完
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                全角の「１」と半角の「1」、種類が違うハイフン（ー、-、—）などの細かなズレも一括補正
+                全角/半角の「1」や、種類が違うハイフン（ー、-、—）などの細かなズレも一括で補正
               </li>
             </ul>
           </div>
