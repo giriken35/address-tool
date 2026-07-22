@@ -35,21 +35,20 @@ export default function Page() {
 
           <div className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base text-pretty">
             <p className="mb-4">
-              「１丁目２番地」と「1-2」の混在など、エクセルでの面倒な目視チェックはもう不要。<br className="hidden sm:block" />
               CSVをドロップするだけで、表記揺れのひどい顧客データを瞬時に美しく整えます。
             </p>
             <ul className="space-y-1.5 text-sm text-foreground/80 font-medium">
               <li className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-brand"></span>
+                <span className="h-1 w-1 shrink-0 rounded-full bg-brand"></span>
+                「１丁目２番地」や「1-2」などフォーマットの混在を完全統一
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1 w-1 shrink-0 rounded-full bg-brand"></span>
                 抜けている「都道府県」を自動で判別・補完
               </li>
               <li className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-brand"></span>
-                全角/半角、種類が違うハイフンのズレを一括修正
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-brand"></span>
-                名寄せやDM発送における業務工数を劇的に削減
+                <span className="h-1 w-1 shrink-0 rounded-full bg-brand"></span>
+                名寄せやDM発送における面倒な業務工数を劇的に削減
               </li>
             </ul>
           </div>
