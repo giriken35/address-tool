@@ -52,12 +52,22 @@ export function NormalizerTool() {
   const [processedCols, setProcessedCols] = useState<string[]>([])
   const [changeCount, setChangeCount] = useState(0)
   const [loading, setLoading] = useState(false)
+  const [isLimited, setIsLimited] = useState(false)
 
   async function handleFile(file: File) {
     setError(null)
     try {
       const data = await parseCsvFile(file)
-      setParsed(data)
+      
+      let finalRows = data.rows
+      if (finalRows.length > 100) {
+        finalRows = finalRows.slice(0, 100)
+        setIsLimited(true)
+      } else {
+        setIsLimited(false)
+      }
+
+      setParsed({ ...data, rows: finalRows })
       setFileName(file.name)
       setAddressCols(data.columns.length > 0 ? [data.columns[0]] : [])
       setResultRows(null)
@@ -77,6 +87,7 @@ export function NormalizerTool() {
     setResultRows(null)
     setProcessedCols([])
     setError(null)
+    setIsLimited(false)
   }
 
   async function handleRun() {
@@ -234,6 +245,39 @@ export function NormalizerTool() {
           <Panel>
             <StepHeader n={3} title="一括正規化を実行" />
             <div className="mt-4 pl-0 sm:pl-10">
+              {isLimited && (
+                <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
+                    <div>
+                      <h4 className="font-bold">無料版の制限（100件）に到達しました</h4>
+                      <p className="mt-1 text-xs text-amber-800">
+                        101件目以降のデータはカットされています。無制限のCSV一括処理や、自社システムに直接つなぎ込める「開発者向けAPI」をご希望の場合は、プロプランへのアップグレードをご検討ください。
+                      </p>
+                      <Button
+                        variant="default"
+                        className="mt-3 bg-amber-500 hover:bg-amber-600 font-bold text-white shadow-sm"
+                        onClick={async () => {
+                          try {
+                            const res = await fetch('/api/checkout', { method: 'POST' });
+                            const data = await res.json();
+                            if (data.url) {
+                              window.location.href = data.url;
+                            } else {
+                              alert('Stripeの決済設定がまだ完了していません。Vercelの環境変数を設定してください。');
+                            }
+                          } catch (e) {
+                            alert('エラーが発生しました');
+                          }
+                        }}
+                      >
+                        プロプランにアップグレード (月額5,000円)
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <Button
                 onClick={handleRun}
                 disabled={(!options.prefecture && !options.width && !options.hyphen) || loading}
