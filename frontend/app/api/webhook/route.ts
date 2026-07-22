@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
+
+const redis = Redis.fromEnv();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_dummy', {
   apiVersion: '2024-06-20',
@@ -31,9 +33,9 @@ export async function POST(req: Request) {
     const customerId = session.customer as string;
 
     if (apiKey) {
-      // Vercel KV データベースにAPIキーを保存 (有効化)
+      // Upstash Redis データベースにAPIキーを保存 (有効化)
       // 値としてカスタマーIDを入れておく（将来の解約処理などのため）
-      await kv.set(`apikey:${apiKey}`, customerId);
+      await redis.set(`apikey:${apiKey}`, customerId);
       console.log(`API Key ${apiKey} activated for customer ${customerId}`);
     }
   }

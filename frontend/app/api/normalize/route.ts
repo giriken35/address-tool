@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { normalize } from '@geolonia/normalize-japanese-addresses';
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
+
+const redis = Redis.fromEnv();
 
 export async function POST(req: Request) {
   try {
@@ -20,8 +22,8 @@ export async function POST(req: Request) {
     
     if (authHeader && authHeader.startsWith('Bearer ')) {
       const apiKey = authHeader.substring(7);
-      // Vercel KVからAPIキーの有効性を確認
-      const isValid = await kv.get(`apikey:${apiKey}`);
+      // Upstash RedisからAPIキーの有効性を確認
+      const isValid = await redis.get(`apikey:${apiKey}`);
       if (isValid) {
         isPro = true;
       } else {
