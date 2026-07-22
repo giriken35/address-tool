@@ -1,4 +1,5 @@
 import { Map } from "lucide-react"
+import Link from "next/link"
 import { FeatureBadges } from "@/components/feature-badges"
 import { CharacterPanel } from "@/components/character-panel"
 import { NormalizerTool } from "@/components/normalizer-tool"
@@ -137,6 +138,10 @@ export default function Page() {
 
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
+        <div className="mb-4 flex justify-center gap-6">
+          <Link href="/contact" className="hover:text-brand transition-colors">お問い合わせ</Link>
+          {/* 今後「利用規約」や「特定商取引法に基づく表記」などを増やす場合はここに追加します */}
+        </div>
         <p>
           住所表記揺れ 一括正規化ツール　|　
           データは正規化処理のため安全にAPIへ送信されますが、一切保存されません。
