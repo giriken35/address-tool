@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FeatureBadges } from "@/components/feature-badges"
 import { CharacterPanel } from "@/components/character-panel"
 import { NormalizerTool } from "@/components/normalizer-tool"
-import { UpgradeButton } from "@/components/upgrade-button"
+import { ProPlanCard } from "@/components/pro-plan-card"
 import { AdSlot, BANNER_HTML } from "@/components/ad-slot"
 
 export default function Page() {
@@ -95,33 +95,7 @@ export default function Page() {
           </div>
           
           {/* Pro Plan */}
-          <div className="relative rounded-2xl border border-brand/40 bg-gradient-to-br from-brand/5 to-brand-2/5 p-6 shadow-[0_0_30px_-10px_rgba(108,99,255,0.2)]">
-            <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-[10px] font-bold text-white shadow-md">
-              ビジネス向け
-            </div>
-            <div className="mb-4">
-              <h3 className="text-lg font-semibold text-brand">Pro / API</h3>
-              <p className="mt-2 flex items-baseline gap-2">
-                <span className="text-3xl font-bold text-foreground">¥5,000</span>
-                <span className="text-xs text-muted-foreground">/ 月</span>
-              </p>
-            </div>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
-                <strong className="text-foreground">無制限</strong> のCSV一括処理
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
-                自社システム連携用 <strong className="text-foreground">正規化API</strong>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
-                メールによる優先テクニカルサポート
-              </li>
-            </ul>
-            <UpgradeButton />
-          </div>
+          <ProPlanCard />
         </div>
       </section>
 
