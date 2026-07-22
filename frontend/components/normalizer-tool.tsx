@@ -159,7 +159,8 @@ export function NormalizerTool() {
       <Panel>
         <StepHeader n={1} title="CSVファイルをアップロード" />
         <p className="mb-4 mt-1 pl-10 text-xs text-muted-foreground">
-          UTF-8 / Shift-JIS の CSV に対応しています
+          UTF-8 / Shift-JIS の CSV に対応しています。
+          <span className="block mt-1 opacity-80">※無料お試し版は1回の処理につき最大100件まで。（無制限のAPI/Proプランは右上のリンクから）</span>
         </p>
         <FileDropzone onFile={handleFile} fileName={fileName} onClear={handleClear} />
 

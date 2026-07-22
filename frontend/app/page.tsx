@@ -13,9 +13,18 @@ export default function Page() {
         <div className="pointer-events-none absolute -bottom-24 left-1/3 h-56 w-56 rounded-full bg-brand-2/15 blur-3xl" />
 
         <div className="relative">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-background/40 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-2" />
-            無料・登録不要・ブラウザ完結
+          <div className="mb-4 flex items-center justify-between">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/40 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-2" />
+              無料・登録不要ですぐに試せる
+            </div>
+            
+            <a href="#pro-plan" onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }} className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline">
+              料金プラン / 開発者APIはこちら →
+            </a>
           </div>
 
           <h1 className="flex items-center gap-3 text-2xl font-bold leading-tight text-balance sm:text-4xl">
@@ -65,9 +74,12 @@ export default function Page() {
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
         <p>
           住所表記揺れ 一括正規化ツール　|　
-          データはブラウザのメモリ上のみで処理され、一切サーバーに送信・保存されません
+          データは正規化処理のため安全にAPIへ送信されますが、一切保存されません。
         </p>
-        <p className="mt-1">Built with Next.js &amp; Tailwind CSS</p>
+        <p className="mt-1 text-[10px] opacity-70">
+          ※本サービスは、デジタル庁の「アドレス・ベース・レジストリ」および国土地理院のオープンデータを利用しています。
+        </p>
+        <p className="mt-3">Built with Next.js &amp; Tailwind CSS</p>
       </footer>
     </main>
   )
