@@ -21,6 +21,10 @@ const faqs = [
     answer: "100件という上限がなくなり、数万件規模のデータを一度に処理できるようになります。さらに、自社のデータベースやシステムに直接組み込める「開発者向けAPI」の利用が可能になり、業務工数を劇的に削減できます。"
   },
   {
+    question: "「UTF-8 / Shift-JISのCSVに対応」とはどういう意味ですか？（確認方法は？）",
+    answer: "文字化けを防ぐための「ファイルの保存形式（文字コード）」のことです。日本で一般的に使われる両方の形式に自動で対応しているため、基本的にはそのままアップロードして問題ありません。\n【確認方法】Windowsの「メモ帳」でCSVファイルを開き、右下に「UTF-8」または「ANSI（Shift-JISのこと）」と表示されていれば対応しています。エクセルで保存する場合は「CSV（コンマ区切り）」または「CSV（UTF-8（コンマ区切り））」を選んで保存してください。"
+  },
+  {
     question: "プロプランの解約はいつでも可能ですか？",
     answer: "はい、いつでも解約可能です。契約期間の縛りはなく、解約手続き後も次回の更新日までは引き続きプロプランの全機能をご利用いただけます。"
   }
@@ -59,7 +63,7 @@ export function FaqAccordion() {
               }`}
             >
               <div className="overflow-hidden">
-                <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+                <div className="whitespace-pre-wrap px-6 pb-6 pt-1 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
                   {faq.answer}
                 </div>
               </div>
