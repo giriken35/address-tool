@@ -3,6 +3,7 @@ import Link from "next/link"
 import { FeatureBadges } from "@/components/feature-badges"
 import { CharacterPanel } from "@/components/character-panel"
 import { NormalizerTool } from "@/components/normalizer-tool"
+import { UpgradeButton } from "@/components/upgrade-button"
 import { AdSlot, BANNER_HTML } from "@/components/ad-slot"
 
 export default function Page() {
@@ -119,10 +120,8 @@ export default function Page() {
                 メールによる優先テクニカルサポート
               </li>
             </ul>
+            <UpgradeButton />
           </div>
-        </div>
-        <div className="mt-6 text-center text-xs text-muted-foreground">
-          ※100件を超えるデータをアップロードすると、自動的にProプランへのアップグレードボタンが表示されます。
         </div>
       </section>
 
