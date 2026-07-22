@@ -18,7 +18,7 @@ const FEATURES: Feature[] = [
   {
     icon: Zap,
     title: "ワンクリック処理",
-    desc: "数千件も瞬時に一括正規化",
+    desc: "最大100件まで無料で一括正規化",
     tone: "brand",
   },
   {
