@@ -44,7 +44,7 @@ export default function Page() {
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「新宿区」「横浜市」など、いきなり市区町村から始まって抜けている「都道府県」を自動補完
+                「港区」「新宿区」など、いきなり市区町村から始まって抜けている「都道府県」を自動補完
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
