@@ -30,13 +30,29 @@ export default function Page() {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand-2 text-white shadow-lg sm:h-14 sm:w-14">
               <Map className="h-6 w-6 sm:h-8 sm:w-8" />
             </span>
-            <span className="text-gradient">住所表記揺れ 一括正規化ツール</span>
+            <span className="text-gradient">住所データ自動整形ツール</span>
           </h1>
 
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base text-pretty">
-            CSVをアップロードするだけ — 都道府県・全角半角・番地ハイフンの表記揺れを瞬時に統一。
-            発送業務や顧客データの管理を効率化します。
-          </p>
+          <div className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base text-pretty">
+            <p className="mb-4">
+              「１丁目２番地」と「1-2」の混在など、エクセルでの面倒な目視チェックはもう不要。<br className="hidden sm:block" />
+              CSVをドロップするだけで、表記揺れのひどい顧客データを瞬時に美しく整えます。
+            </p>
+            <ul className="space-y-1.5 text-sm text-foreground/80 font-medium">
+              <li className="flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-brand"></span>
+                抜けている「都道府県」を自動で判別・補完
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-brand"></span>
+                全角/半角、種類が違うハイフンのズレを一括修正
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-brand"></span>
+                名寄せやDM発送における業務工数を劇的に削減
+              </li>
+            </ul>
+          </div>
 
           <div className="mt-6">
             <FeatureBadges />
