@@ -28,7 +28,7 @@ export function ProPlanCard() {
   return (
     <div 
       onClick={handleUpgrade}
-      className={`relative rounded-2xl border border-brand/40 bg-gradient-to-br from-brand/5 to-brand-2/5 p-6 shadow-[0_0_30px_-10px_rgba(108,99,255,0.2)] cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.4)] ${loading ? 'opacity-80 pointer-events-none' : ''}`}
+      className={`relative rounded-2xl border-2 border-brand/60 bg-gradient-to-br from-brand/5 to-brand-2/10 p-6 shadow-[0_0_30px_-5px_rgba(108,99,255,0.3)] cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.5)] sm:scale-105 sm:z-10 ${loading ? 'opacity-80 pointer-events-none' : ''}`}
     >
       {loading && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl bg-background/50 backdrop-blur-sm">

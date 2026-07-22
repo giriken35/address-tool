@@ -1,10 +1,9 @@
 import { Map } from "lucide-react"
 import Link from "next/link"
 import { FeatureBadges } from "@/components/feature-badges"
-import { CharacterPanel } from "@/components/character-panel"
 import { NormalizerTool } from "@/components/normalizer-tool"
+import { UseCases } from "@/components/use-cases"
 import { ProPlanCard } from "@/components/pro-plan-card"
-import { AdSlot, BANNER_HTML } from "@/components/ad-slot"
 
 export default function Page() {
   return (
@@ -60,20 +59,12 @@ export default function Page() {
         </div>
       </header>
 
-      {/* 3カラムレイアウト */}
-      <div className="flex items-start gap-6">
-        <aside className="hidden w-[300px] shrink-0 xl:block">
-          <CharacterPanel side="left" name="ナビ子" role="正規化アシスタント" />
-        </aside>
-
-        <div className="min-w-0 flex-1">
-          <NormalizerTool />
-        </div>
-
-        <aside className="hidden w-[300px] shrink-0 xl:block">
-          <CharacterPanel side="right" name="マップ君" role="住所チェッカー" />
-        </aside>
+      <div className="mx-auto max-w-5xl">
+        <NormalizerTool />
       </div>
+
+      {/* ユースケース */}
+      <UseCases />
 
       {/* 料金プラン（さりげない説明） */}
       <section id="pricing" className="mt-12 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
@@ -115,15 +106,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 下部広告バナー（名刺印刷 / A8.net） */}
-      <div className="mt-10 flex flex-col items-center">
-        <p className="mb-2 text-[10px] font-medium uppercase tracking-wider text-muted-foreground/70">
-          Sponsored
-        </p>
-        <div className="overflow-hidden rounded-2xl border border-border bg-card/50 p-3 backdrop-blur-sm">
-          <AdSlot html={BANNER_HTML} width={300} height={250} title="名刺印刷 広告バナー" />
-        </div>
-      </div>
+
 
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
