@@ -1,0 +1,46 @@
+name: Keep Streamlit App Alive
+
+on:
+  schedule:
+    # 毎日日本時間 08:00 (UTC 23:00) に実行
+    # 必要に応じて時間設定を調整してください
+    - cron: '0 23 * * *'
+  workflow_dispatch: # GitHub上で手動実行も可能にします
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install playwright
+        playwright install chromium
+
+    - name: Run keep-alive script
+      env:
+        # 自動アクセスしたいStreamlitの公開URLをここに設定します。
+        # GitHubリポジトリの Settings > Secrets and variables > Actions で
+        # リポジトリ変数またはSecretとして TARGET_URL を設定すると安全です。
+        TARGET_URL: ${{ secrets.TARGET_URL || 'https://share.streamlit.io/' }}
+      run: python keep_alive.py
+
+    # 万が一エラーが発生した場合、デバッグ用にスクリーンショットを保存します
+    - name: Upload screenshot if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: error-screenshot
+        path: |
+          screenshot.png
+          error_screenshot.png
+        if-no-files-found: ignore

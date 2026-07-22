@@ -1,0 +1,135 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ブランドカラー */
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-warning: var(--warning);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --font-sans: var(--font-noto-sans-jp), 'Inter', sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 12px);
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 1rem;
+
+  --background: #0f1117;
+  --foreground: #e8eaf0;
+
+  --surface: #1a1d27;
+  --surface-2: #161824;
+  --card: #1e2130;
+  --card-foreground: #e8eaf0;
+  --popover: #1a1d27;
+  --popover-foreground: #e8eaf0;
+
+  --primary: #6c63ff;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1d27;
+  --secondary-foreground: #e8eaf0;
+
+  --muted: #1a1d27;
+  --muted-foreground: #9399b2;
+  --accent: #1e2130;
+  --accent-foreground: #e8eaf0;
+
+  --destructive: #ff6b6b;
+  --warning: #f5a623;
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: #6c63ff;
+
+  /* アクセント */
+  --brand: #6c63ff;
+  --brand-2: #00d4aa;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* 背景のアンビエントグロー */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(700px circle at 15% -5%, rgba(108, 99, 255, 0.14), transparent 60%),
+    radial-gradient(600px circle at 90% 0%, rgba(0, 212, 170, 0.1), transparent 55%),
+    radial-gradient(900px circle at 50% 110%, rgba(108, 99, 255, 0.08), transparent 60%);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #6c63ff 55%, #00d4aa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 99, 255, 0.6);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
