@@ -15,9 +15,12 @@ export default function Page() {
 
         <div className="relative">
           <div className="mb-4 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/40 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-2" />
-              無料・登録不要ですぐに試せる
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/50 bg-brand/10 px-3 py-1.5 text-xs font-bold text-brand shadow-[0_0_15px_-3px_rgba(108,99,255,0.3)] backdrop-blur">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
+              </span>
+              無料・登録不要
             </div>
             
             <a href="#pricing" className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline">
