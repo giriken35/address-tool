@@ -128,8 +128,8 @@ export default function Page() {
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
         <div className="mb-4 flex justify-center gap-6">
+          <Link href="/faq" className="hover:text-brand transition-colors">よくある質問 (FAQ)</Link>
           <Link href="/contact" className="hover:text-brand transition-colors">お問い合わせ</Link>
-          {/* 今後「利用規約」や「特定商取引法に基づく表記」などを増やす場合はここに追加します */}
         </div>
         <p>
           住所表記揺れ 一括正規化ツール　|　
