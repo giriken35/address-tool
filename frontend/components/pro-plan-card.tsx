@@ -13,7 +13,8 @@ export function ProPlanCard() {
       const res = await fetch('/api/checkout', { method: 'POST' })
       const data = await res.json()
       if (data.url) {
-        window.location.href = data.url
+        window.open(data.url, '_blank')
+        setLoading(false)
       } else {
         alert('Stripeの決済設定がまだ完了していません。Vercelの環境変数を設定してください。')
         setLoading(false)
