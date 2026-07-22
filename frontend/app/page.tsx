@@ -36,19 +36,19 @@ export default function Page() {
             <ul className="space-y-2.5 text-sm text-foreground/80 sm:text-base font-medium">
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                CSVをドロップするだけで、表記揺れのひどい顧客データを一括クレンジング
+                目視で何時間もかかっていたエクセルの表記揺れチェックを、ドロップ数秒で完了
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「１丁目２番地」や「1-2」などフォーマットの混在を完全統一
+                「１丁目２番地」や「1-2」など、担当者によってバラバラな入力フォーマットを完全統一
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                抜けている「都道府県」を自動で判別・補完
+                「新宿区」「横浜市」など、いきなり市区町村から始まって抜けている「都道府県」を自動補完
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                名寄せやDM発送における面倒な業務工数を劇的に削減
+                全角の「１」と半角の「1」、種類が違うハイフン（ー、-、—）などの細かなズレも一括補正
               </li>
             </ul>
           </div>
