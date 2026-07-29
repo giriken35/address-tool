@@ -67,8 +67,8 @@ export async function POST(req: Request) {
               }
 
               newRow[`${col}_正規化済`] = normalizedValue;
-              newRow[`${col}_緯度`] = result.lat ? String(result.lat) : '';
-              newRow[`${col}_経度`] = result.lng ? String(result.lng) : '';
+              newRow[`${col}_緯度`] = result.point?.lat ? String(result.point.lat) : '';
+              newRow[`${col}_経度`] = result.point?.lng ? String(result.point.lng) : '';
               newRow[`${col}_精度レベル`] = String(result.level);
 
               if (originalValue !== normalizedValue) {
