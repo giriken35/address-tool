@@ -40,6 +40,8 @@ export const viewport: Viewport = {
   userScalable: true,
 }
 
+import { Header } from '@/components/header'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,6 +51,7 @@ export default function RootLayout({
     <html lang="ja" className="dark bg-background">
       <body className={`${notoSansJP.variable} ${geistMono.variable} font-sans antialiased`}>
         <div className="ambient-bg" aria-hidden="true" />
+        <Header />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

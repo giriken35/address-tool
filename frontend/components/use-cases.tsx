@@ -1,4 +1,4 @@
-import { PackageSearch, Mail, Database } from "lucide-react"
+import { PackageSearch, Mail, Database, MapPin } from "lucide-react"
 
 export function UseCases() {
   return (
@@ -7,7 +7,7 @@ export function UseCases() {
         <h2 className="text-xl font-bold text-foreground sm:text-2xl">こんな業務の効率化に最適です</h2>
       </div>
       
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl border border-border bg-card p-6">
           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
             <PackageSearch className="h-6 w-6" />
@@ -35,6 +35,16 @@ export function UseCases() {
           <h3 className="mb-2 font-bold text-foreground">SFA/CRMのデータ統合</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
             営業管理ツールや顧客データベースに取り込む前にサクッとクレンジング。常に綺麗なデータ基盤を維持できます。
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+            <MapPin className="h-6 w-6" />
+          </div>
+          <h3 className="mb-2 font-bold text-foreground">商圏分析・マップ連携</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            顧客リストをTableau等のBIツールや地図アプリに読み込ませるだけで、日本地図上に一瞬でピンをプロットできます。
           </p>
         </div>
       </div>
