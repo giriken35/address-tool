@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" className="dark bg-background">
+    <html lang="ja" className="bg-background">
       <body className={`${notoSansJP.variable} ${geistMono.variable} font-sans antialiased`}>
         <div className="ambient-bg" aria-hidden="true" />
         <Header />

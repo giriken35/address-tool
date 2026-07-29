@@ -11,8 +11,8 @@ interface Feature {
 const FEATURES: Feature[] = [
   {
     icon: ShieldCheck,
-    title: "サーバー保存なし",
-    desc: "データはブラウザのメモリ内でのみ処理",
+    title: "安心のデータ非保持",
+    desc: "データは処理のためAPIへ送信されますが、一切保存・蓄積されません",
     tone: "teal",
   },
   {

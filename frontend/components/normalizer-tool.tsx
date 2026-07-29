@@ -54,14 +54,16 @@ export function NormalizerTool() {
   const [loading, setLoading] = useState(false)
   const [isLimited, setIsLimited] = useState(false)
 
+  const [progress, setProgress] = useState(0)
+
   async function handleFile(file: File) {
     setError(null)
     try {
       const data = await parseCsvFile(file)
       
       let finalRows = data.rows
-      if (finalRows.length > 100) {
-        finalRows = finalRows.slice(0, 100)
+      if (finalRows.length > 10000) {
+        finalRows = finalRows.slice(0, 10000)
         setIsLimited(true)
       } else {
         setIsLimited(false)
@@ -72,6 +74,7 @@ export function NormalizerTool() {
       setAddressCols(data.columns.length > 0 ? [data.columns[0]] : [])
       setResultRows(null)
       setProcessedCols([])
+      setProgress(0)
     } catch {
       setError(
         "エンコーディングを判別できませんでした。UTF-8 または Shift-JIS の CSV をご利用ください。",
@@ -88,39 +91,55 @@ export function NormalizerTool() {
     setProcessedCols([])
     setError(null)
     setIsLimited(false)
+    setProgress(0)
   }
 
   async function handleRun() {
     if (!parsed || addressCols.length === 0) return
     setLoading(true)
     setError(null)
+    setProgress(0)
     
     try {
-      const response = await fetch("/api/normalize", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          data: parsed.rows,
-          address_cols: addressCols,
-          do_prefecture: options.prefecture,
-          do_width: options.width,
-          do_hyphen: options.hyphen
+      const CHUNK_SIZE = 100
+      let allResults: Record<string, string>[] = []
+      let totalChangeCount = 0
+
+      for (let i = 0; i < parsed.rows.length; i += CHUNK_SIZE) {
+        const chunk = parsed.rows.slice(i, i + CHUNK_SIZE)
+        
+        const response = await fetch("/api/normalize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            data: chunk,
+            address_cols: addressCols,
+            do_prefecture: options.prefecture,
+            do_width: options.width,
+            do_hyphen: options.hyphen
+          })
         })
-      })
-      
-      const data = await response.json()
-      if (data.status === "error") {
-        setError("エラーが発生しました: " + data.message)
-      } else {
-        setResultRows(data.data)
-        setProcessedCols([...addressCols])
-        setChangeCount(data.change_count)
+        
+        const data = await response.json()
+        if (data.status === "error") {
+          throw new Error(data.message)
+        }
+        
+        allResults = allResults.concat(data.data)
+        totalChangeCount += data.change_count
+        
+        setProgress(Math.min(100, Math.round(((i + chunk.length) / parsed.rows.length) * 100)))
       }
-    } catch (err) {
+      
+      setResultRows(allResults)
+      setProcessedCols([...addressCols])
+      setChangeCount(totalChangeCount)
+    } catch (err: any) {
       console.error(err)
-      setError("通信エラーが発生しました。バックエンド(FastAPI)が起動しているか確認してください。")
+      setError("エラーが発生しました: " + (err.message || "通信エラー"))
     } finally {
       setLoading(false)
+      if (progress < 100 && !error) setProgress(100)
     }
   }
 
@@ -294,14 +313,29 @@ export function NormalizerTool() {
                 </div>
               )}
 
-              <Button
-                onClick={handleRun}
-                disabled={(!options.prefecture && !options.width && !options.hyphen) || loading}
-                className="h-11 w-full bg-gradient-to-r from-brand to-[#8b85ff] text-white shadow-[0_6px_24px_-6px_rgba(108,99,255,0.7)] transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_32px_-6px_rgba(108,99,255,0.8)] sm:w-auto sm:px-8"
-              >
-                <Rocket className={`mr-2 h-4 w-4 ${loading ? 'animate-pulse' : ''}`} />
-                {loading ? '一括正規化を実行中...' : '一括正規化を実行する'}
-              </Button>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <Button
+                  onClick={handleRun}
+                  disabled={(!options.prefecture && !options.width && !options.hyphen) || loading}
+                  className="h-11 w-full bg-gradient-to-r from-brand to-[#8b85ff] text-white shadow-[0_6px_24px_-6px_rgba(108,99,255,0.7)] transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_32px_-6px_rgba(108,99,255,0.8)] sm:w-auto sm:px-8"
+                >
+                  <Rocket className={`mr-2 h-4 w-4 ${loading ? 'animate-pulse' : ''}`} />
+                  {loading ? '一括正規化を実行中...' : '一括正規化を実行する'}
+                </Button>
+                {loading && (
+                  <div className="flex-1 w-full flex items-center gap-3">
+                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-surface-2 border border-border">
+                      <div
+                        className="h-full bg-brand transition-all duration-300"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                    <span className="text-xs font-semibold text-muted-foreground w-10 text-right">
+                      {progress}%
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
           </Panel>
 

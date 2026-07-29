@@ -113,8 +113,25 @@ export default function Page() {
         </div>
       </section>
 
-
-
+      {/* SEO Section */}
+      <section className="mt-20 mx-auto max-w-4xl px-4 sm:px-6 pb-8">
+        <div className="rounded-2xl border border-border bg-surface/40 p-6 sm:p-10">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 text-center">
+            なぜエクセルの住所正規化や「緯度・経度」の変換（ジオコーディング）が必要なのか？
+          </h2>
+          <div className="text-sm text-muted-foreground leading-relaxed space-y-4">
+            <p>
+              顧客リストなどのエクセル（CSV）データを管理する際、「1丁目2番地」と「1-2」や、全角・半角の違いといった<strong>住所の表記揺れ</strong>は、名寄せ時の重複登録やDMの配送エラーの大きな原因となります。当ツールを利用することで、バラバラのフォーマットを無料で一括変換し、常にクリーンなデータ基盤を保つことができます。
+            </p>
+            <p>
+              さらに、正規化と同時に<strong>「緯度・経度」を自動抽出（ジオコーディング）</strong>できるため、整理された顧客データをTableauやGoogleマイマップなどの地図アプリに取り込み、エリアマーケティングや商圏分析を瞬時に行うことが可能になります。
+            </p>
+            <p>
+              専用の開発者向けAPI（月額5,000円〜）も提供しており、自社のCRMやSFAシステムに直接組み込んで、入力された住所データをリアルタイムで正規化・空間データ化することも可能です。
+            </p>
+          </div>
+        </div>
+      </section>
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
         <div className="mb-4 flex justify-center gap-6">
