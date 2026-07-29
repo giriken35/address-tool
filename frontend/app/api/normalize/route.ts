@@ -67,6 +67,9 @@ export async function POST(req: Request) {
               }
 
               newRow[`${col}_正規化済`] = normalizedValue;
+              newRow[`${col}_緯度`] = result.lat ? String(result.lat) : '';
+              newRow[`${col}_経度`] = result.lng ? String(result.lng) : '';
+              newRow[`${col}_精度レベル`] = String(result.level);
 
               if (originalValue !== normalizedValue) {
                 change_count++;
@@ -74,9 +77,15 @@ export async function POST(req: Request) {
             } catch (err) {
               // エラーが起きた場合は元の値をそのまま返す
               newRow[`${col}_正規化済`] = originalValue;
+              newRow[`${col}_緯度`] = '';
+              newRow[`${col}_経度`] = '';
+              newRow[`${col}_精度レベル`] = '0';
             }
           } else {
             newRow[`${col}_正規化済`] = '';
+            newRow[`${col}_緯度`] = '';
+            newRow[`${col}_経度`] = '';
+            newRow[`${col}_精度レベル`] = '';
           }
         }
         return newRow;

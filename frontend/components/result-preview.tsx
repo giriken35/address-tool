@@ -125,9 +125,26 @@ export function ResultPreview({
                       <td className="px-4 py-2.5">
                         {originalCols.map(col => {
                           const isColChanged = r[col] !== r[`${col}_正規化済`]
+                          const lat = r[`${col}_緯度`]
+                          const lng = r[`${col}_経度`]
+                          const level = r[`${col}_精度レベル`]
+                          
                           return (
-                            <div key={col} className={`mb-1.5 last:mb-0 ${isColChanged ? "text-foreground font-medium" : "text-muted-foreground"}`}>
-                              {r[`${col}_正規化済`]}
+                            <div key={col} className={`mb-2.5 last:mb-0`}>
+                              <div className={`${isColChanged ? "text-foreground font-medium" : "text-muted-foreground"}`}>
+                                {r[`${col}_正規化済`]}
+                              </div>
+                              {lat && lng && (
+                                <div className="mt-1 flex items-center gap-2 text-[10px] text-brand/80">
+                                  <span className="flex items-center gap-0.5 rounded bg-brand/10 px-1.5 py-0.5">
+                                    <MapPin className="h-3 w-3" />
+                                    {lat}, {lng}
+                                  </span>
+                                  <span className="rounded bg-surface-2 px-1.5 py-0.5 text-muted-foreground/80">
+                                    精度Lv.{level}
+                                  </span>
+                                </div>
+                              )}
                             </div>
                           )
                         })}

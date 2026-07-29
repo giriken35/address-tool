@@ -126,25 +126,40 @@ export function NormalizerTool() {
 
   function downloadFull() {
     if (!resultRows || !parsed) return
-    const extraCols = processedCols.map((c) => `${c}_正規化済`)
+    const extraCols = processedCols.flatMap((c) => [
+      `${c}_正規化済`,
+      `${c}_緯度`,
+      `${c}_経度`,
+      `${c}_精度レベル`,
+    ])
     const columns = [...parsed.columns, ...extraCols]
     downloadCsv(rowsToCsv(resultRows, columns), "addresses_normalized_full.csv")
   }
 
   function downloadReplaced() {
     if (!resultRows || !parsed) return
-    const columns = parsed.columns
+    
+    // Create new columns list where original column is replaced, followed by lat/lng/level
+    const newColumns: string[] = []
+    for (const col of parsed.columns) {
+      newColumns.push(col)
+      if (processedCols.includes(col)) {
+        newColumns.push(`${col}_緯度`, `${col}_経度`, `${col}_精度レベル`)
+      }
+    }
+
     const rows = resultRows.map((r) => {
       const copy = { ...r }
       for (const col of processedCols) {
         if (`${col}_正規化済` in copy) {
-          copy[col] = copy[`${col}_正規化済`]
+          copy[col] = copy[`${col}_正規化済`] // Overwrite original column with normalized
           delete copy[`${col}_正規化済`]
         }
       }
       return copy
     })
-    downloadCsv(rowsToCsv(rows, columns), "addresses_normalized_replaced.csv")
+    
+    downloadCsv(rowsToCsv(rows, newColumns), "addresses_normalized_replaced.csv")
   }
 
   function tryStack() {
