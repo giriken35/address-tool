@@ -13,7 +13,7 @@ export function Header() {
             <Map className="h-4 w-4" />
           </div>
           <span className="text-sm font-bold tracking-tight text-foreground sm:text-base">
-            GIRI-Lab Address Tool
+            住所データ自動整形ツール
           </span>
         </Link>
         <nav className="flex items-center gap-4 text-sm font-medium text-muted-foreground">

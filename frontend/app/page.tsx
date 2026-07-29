@@ -53,9 +53,9 @@ export default function Page() {
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
                 全角/半角の「1」や、種類が違うハイフン（ー、-、—）などの細かなズレも一括で補正
               </li>
-              <li className="flex items-start gap-2.5 font-bold text-brand-2">
+              <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-2 shadow-[0_0_8px_rgba(0,212,170,0.8)]"></span>
-                📍 住所から「緯度・経度」を自動抽出し、Tableauや地図アプリ用の空間データに一瞬で変換
+                住所から「緯度・経度」を自動抽出し、Tableauや地図アプリ用の空間データに一瞬で変換
               </li>
             </ul>
           </div>
