@@ -1,4 +1,4 @@
-import { Map } from "lucide-react"
+import { Map, DatabaseZap, Terminal } from "lucide-react"
 import Link from "next/link"
 import { FeatureBadges } from "@/components/feature-badges"
 import { NormalizerTool } from "@/components/normalizer-tool"
@@ -114,21 +114,43 @@ export default function Page() {
       </section>
 
       {/* SEO Section */}
-      <section className="mt-20 mx-auto max-w-4xl px-4 sm:px-6 pb-8">
+      <section className="mt-20 mx-auto max-w-5xl px-4 sm:px-6 pb-8">
         <div className="rounded-2xl border border-border bg-surface/40 p-6 sm:p-10">
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">
             なぜエクセルの住所正規化や「緯度・経度」の変換（ジオコーディング）が必要なのか？
           </h2>
-          <div className="text-sm text-muted-foreground leading-relaxed space-y-4">
-            <p>
-              顧客リストなどのエクセル（CSV）データを管理する際、「1丁目2番地」と「1-2」や、全角・半角の違いといった<strong>住所の表記揺れ</strong>は、名寄せ時の重複登録やDMの配送エラーの大きな原因となります。当ツールを利用することで、バラバラのフォーマットを無料で一括変換し、常にクリーンなデータ基盤を保つことができます。
-            </p>
-            <p>
-              さらに、正規化と同時に<strong>「緯度・経度」を自動抽出（ジオコーディング）</strong>できるため、整理された顧客データをTableauやGoogleマイマップなどの地図アプリに取り込み、エリアマーケティングや商圏分析を瞬時に行うことが可能になります。
-            </p>
-            <p>
-              専用の開発者向けAPI（月額5,000円〜）も提供しており、自社のCRMやSFAシステムに直接組み込んで、入力された住所データをリアルタイムで正規化・空間データ化することも可能です。
-            </p>
+          <div className="grid gap-6 sm:grid-cols-3">
+            
+            <div className="flex flex-col gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                <DatabaseZap className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-foreground text-sm">重複・配送エラーの防止</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                「1丁目2番地」と「1-2」といった<strong>住所の表記揺れ</strong>は、名寄せ時の重複登録やDMの配送エラーの大きな原因に。無料で一括変換し、クリーンなデータ基盤を保ちます。
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-2/10 text-brand-2">
+                <Map className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-foreground text-sm">瞬時の商圏分析（ジオコーディング）</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                正規化と同時に<strong>「緯度・経度」を自動抽出</strong>。TableauやGoogleマイマップなどの地図アプリに取り込むことで、エリアマーケティングや商圏分析がすぐに行えます。
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
+                <Terminal className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-foreground text-sm">自社システムへの組み込み</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                専用の開発者向けAPIを活用し、自社のCRMやSFAシステムに直接連携。入力された住所データをリアルタイムで正規化・空間データ化します。
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
