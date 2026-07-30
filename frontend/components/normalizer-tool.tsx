@@ -403,7 +403,12 @@ export function NormalizerTool() {
                 <p className="mt-2 text-xs text-muted-foreground">※ 半角数字・ハイフンあり（例: 123-4567）の標準形式に自動整形されます。</p>
               </div>
 
-              <OptionToggles options={options} onChange={setOptions} />
+              <div className="pt-2 border-t border-border/50">
+                <label className="mb-3 block text-sm font-semibold text-foreground">
+                  住所の追加フォーマット設定（チェックで有効化）
+                </label>
+                <OptionToggles options={options} onChange={setOptions} />
+              </div>
             </div>
           </Panel>
 
