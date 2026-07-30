@@ -53,23 +53,23 @@ export default async function Page() {
             <ul className="space-y-2.5 text-sm text-foreground/80 sm:text-base font-medium">
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                目視で何時間もかかっていたエクセルの表記揺れチェックを、ドロップ数秒で完了
+                目視で何時間もかかっていたエクセルの表記揺れチェックを、ドロップ<strong>数秒で完了</strong>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「１丁目２番地」や「1-2」など、担当者によってバラバラな入力フォーマットを完全統一
+                「１丁目２番地」や「1-2」など、担当者によってバラバラな入力フォーマットを<strong>完全統一</strong>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「港区」「新宿区」など、市区町村から始まって抜けている「都道府県」を自動で補完
+                「港区」「新宿区」など、市区町村から始まって抜けている「都道府県」を<strong>自動で補完</strong>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                全角/半角の「1」や、種類が違うハイフン（ー、-、—）などの細かなズレも一括で補正
+                全角/半角の「1」や、種類が違うハイフン（ー、-、—）などの細かなズレも<strong>一括で補正</strong>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                住所から「緯度・経度」を自動抽出し、Tableauや地図アプリ用の空間データに一瞬で変換
+                住所から「緯度・経度」を<strong>自動抽出</strong>し、Tableauや地図アプリ用の空間データに<strong>一瞬で変換</strong>
               </li>
             </ul>
           </div>
@@ -98,7 +98,7 @@ export default async function Page() {
         
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {/* Free Plan */}
-          <div className="relative rounded-2xl border border-border bg-surface p-6">
+          <div className="relative flex flex-col rounded-2xl border border-border bg-surface p-6">
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-foreground">Free</h3>
               <p className="mt-2 flex items-baseline gap-2">
@@ -106,7 +106,7 @@ export default async function Page() {
                 <span className="text-xs text-muted-foreground">/ ずっと</span>
               </p>
             </div>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="mb-8 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand"></span>
                 1回あたり <strong className="text-foreground">最大100件</strong> まで処理可能
@@ -120,6 +120,11 @@ export default async function Page() {
                 登録不要ですぐに利用可能
               </li>
             </ul>
+            <div className="mt-auto">
+              <a href="#" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:bg-brand/10">
+                ページ上部で今すぐ試す（無料）
+              </a>
+            </div>
           </div>
           
           {/* Pro Plan */}

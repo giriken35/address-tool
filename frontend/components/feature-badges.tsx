@@ -1,6 +1,6 @@
 "use client"
 
-import { ShieldCheck, Zap, GitCompareArrows, MoonStar } from "lucide-react"
+import { ShieldCheck, Zap, GitCompareArrows, MapPin } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 interface Feature {
@@ -30,9 +30,9 @@ const FEATURES: Feature[] = [
     tone: "brand",
   },
   {
-    icon: MoonStar,
-    title: "ダークモード設計",
-    desc: "目にやさしい近未来 UI",
+    icon: MapPin,
+    title: "緯度・経度の自動付与",
+    desc: "住所から座標データを自動抽出",
     tone: "teal",
   },
 ]

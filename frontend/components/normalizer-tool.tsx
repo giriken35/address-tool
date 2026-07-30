@@ -295,14 +295,22 @@ export function NormalizerTool() {
         )}
 
         {!parsed && (
-          <button
-            type="button"
-            onClick={tryStack}
-            className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-brand transition-colors hover:text-brand-2"
-          >
-            <FileDown className="h-3.5 w-3.5" />
-            サンプルCSVで試す
-          </button>
+          <div className="mt-6 flex flex-col items-center gap-3 rounded-xl border border-dashed border-brand/40 bg-brand/5 px-5 py-5 text-center sm:flex-row sm:justify-between sm:text-left">
+            <div>
+              <p className="text-sm font-bold text-brand">まずは試してみる</p>
+              <p className="mt-0.5 text-xs text-muted-foreground text-pretty">
+                表記揺れを含んだダミーデータを使って、一瞬で住所が綺麗になる動作を体験できます。
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={tryStack}
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand/30 bg-white px-4 py-2.5 text-sm font-bold text-brand shadow-sm transition-all hover:bg-brand/10 hover:shadow-md hover:shadow-brand/10"
+            >
+              <FileDown className="h-4 w-4" />
+              ワンクリックで動作を試す
+            </button>
+          </div>
         )}
       </Panel>
 

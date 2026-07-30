@@ -66,23 +66,6 @@ export function HowToSteps() {
         ))}
       </ol>
 
-      {/* サンプルCSVダウンロード */}
-      <div className="mt-6 flex flex-col items-center gap-3 rounded-xl border border-dashed border-border bg-surface/50 px-4 py-5 text-center sm:flex-row sm:justify-between sm:text-left">
-        <div>
-          <p className="text-sm font-medium text-foreground">まずは試してみる</p>
-          <p className="mt-0.5 text-xs text-muted-foreground text-pretty">
-            表記揺れを含んだサンプルCSVをダウンロードして動作を確認できます。
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => downloadCsv(SAMPLE_CSV, "sample_addresses.csv")}
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand/40 bg-brand/10 px-4 py-2.5 text-sm font-semibold text-brand transition-all hover:bg-brand/20 hover:shadow-lg hover:shadow-brand/10"
-        >
-          <FileDown className="h-4 w-4" />
-          サンプルCSVをダウンロードして試す
-        </button>
-      </div>
     </div>
   )
 }
