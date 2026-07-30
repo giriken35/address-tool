@@ -314,7 +314,7 @@ export function NormalizerTool() {
             <div className="mt-4 space-y-4 pl-0 sm:pl-10">
               <div>
                 <label className="mb-3 block text-sm font-semibold text-foreground">
-                  住所データが入っている列を選択してください
+                  処理対象の住所列（複数選択可）
                 </label>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                   {parsed.columns.map((c) => {
@@ -357,7 +357,7 @@ export function NormalizerTool() {
 
               <div className="pt-2 border-t border-border/50">
                 <label className="mb-3 block text-sm font-semibold text-foreground">
-                  郵便番号データが入っている列を選択してください
+                  【任意】郵便番号も正規化する場合はチェックを入れてください
                 </label>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                   {parsed.columns.map((c) => {
