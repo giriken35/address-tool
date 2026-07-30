@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { normalize } from '@geolonia/normalize-japanese-addresses';
+import { normalizeWidth, normalizeHyphen } from '@/lib/address-normalizer';
 import { Redis } from '@upstash/redis';
 
 const redis = Redis.fromEnv();
@@ -91,10 +92,14 @@ export async function POST(req: Request) {
         for (const col of address_cols) {
           if (row[col]) {
             const originalValue = String(row[col]);
-            
+            // ユーザー設定による事前クレンジング
+            let targetStr = originalValue;
+            if (do_width) targetStr = normalizeWidth(targetStr);
+            if (do_hyphen) targetStr = normalizeHyphen(targetStr);
+
             // Geoloniaのエンジンで正規化
             try {
-              const result = await normalize(originalValue);
+              const result = await normalize(targetStr);
               
               // 復元した住所を結合
               // 例: pref: '東京都', city: '千代田区', town: '丸の内一丁目', addr: '9-1'
@@ -103,9 +108,7 @@ export async function POST(req: Request) {
               if (result.city) normalizedValue += result.city;
               if (result.town) normalizedValue += result.town;
               if (result.addr) normalizedValue += result.addr;
-
-              // 古いコードのオプション(do_prefecture等)はGeoloniaが全て完璧にやってくれるため、
-              // 基本的に統合された最高精度の結果をそのまま使う
+              if (result.other) normalizedValue += result.other; // 残りの番地や建物名を結合
               
               if (!normalizedValue) {
                 normalizedValue = originalValue;
