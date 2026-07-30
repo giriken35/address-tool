@@ -7,7 +7,7 @@ const redis = Redis.fromEnv();
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { data, address_cols, do_prefecture, do_width, do_hyphen } = body;
+    const { data, address_cols = [], zip_cols = [], do_prefecture, do_width, do_hyphen } = body;
 
     if (!data || !Array.isArray(data)) {
       return NextResponse.json(
@@ -133,6 +133,34 @@ export async function POST(req: Request) {
             newRow[`${col}_精度レベル`] = '';
           }
         }
+
+        // 郵便番号の整形処理
+        for (const col of zip_cols) {
+          if (row[col]) {
+            const originalValue = String(row[col]);
+            // 全角数字を半角に変換
+            let half = originalValue.replace(/[０-９]/g, (s) => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
+            // 数字以外を削除
+            half = half.replace(/\D/g, '');
+            // 7桁ならハイフンを入れる
+            if (half.length === 7) {
+              const formatted = `${half.slice(0, 3)}-${half.slice(3)}`;
+              newRow[`${col}_整形済`] = formatted;
+              if (originalValue !== formatted) {
+                change_count++;
+              }
+            } else if (half.length > 0) {
+              // 7桁以外でもとりあえず半角数字にしておく
+              newRow[`${col}_整形済`] = half;
+              if (originalValue !== half) change_count++;
+            } else {
+              newRow[`${col}_整形済`] = originalValue;
+            }
+          } else {
+            newRow[`${col}_整形済`] = '';
+          }
+        }
+        
         return newRow;
       })
     );

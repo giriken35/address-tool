@@ -45,6 +45,7 @@ export function NormalizerTool() {
   const [fileName, setFileName] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [addressCols, setAddressCols] = useState<string[]>([])
+  const [zipCols, setZipCols] = useState<string[]>([])
   const [options, setOptions] = useState<NormalizeOptions>({
     prefecture: true,
     width: true,
@@ -53,6 +54,7 @@ export function NormalizerTool() {
 
   const [resultRows, setResultRows] = useState<Record<string, string>[] | null>(null)
   const [processedCols, setProcessedCols] = useState<string[]>([])
+  const [processedZipCols, setProcessedZipCols] = useState<string[]>([])
   const [changeCount, setChangeCount] = useState(0)
   const [loading, setLoading] = useState(false)
   const [isLimited, setIsLimited] = useState(false)
@@ -115,13 +117,20 @@ export function NormalizerTool() {
       
       // 住所らしいカラム名を自動選択（住所, 所在地, address など）
       const addressKeywords = ['住所', '所在地', 'address', '県', '市', '町', '村']
-      const defaultCols = data.columns.filter(col => 
+      const defaultAddressCols = data.columns.filter(col => 
         addressKeywords.some(keyword => col.toLowerCase().includes(keyword))
       )
-      setAddressCols(defaultCols)
+      setAddressCols(defaultAddressCols)
+
+      const zipKeywords = ['郵便番号', 'zip', 'postcode', 'postal']
+      const defaultZipCols = data.columns.filter(col => 
+        zipKeywords.some(keyword => col.toLowerCase().includes(keyword))
+      )
+      setZipCols(defaultZipCols)
       
       setResultRows(null)
       setProcessedCols([])
+      setProcessedZipCols([])
       setProgress(0)
     } catch {
       setError(
@@ -137,6 +146,7 @@ export function NormalizerTool() {
     setFileName(null)
     setResultRows(null)
     setProcessedCols([])
+    setProcessedZipCols([])
     setError(null)
     setIsLimited(false)
     setProgress(0)
@@ -162,6 +172,7 @@ export function NormalizerTool() {
           body: JSON.stringify({
             data: chunk,
             address_cols: addressCols,
+            zip_cols: zipCols,
             do_prefecture: options.prefecture,
             do_width: options.width,
             do_hyphen: options.hyphen
@@ -181,6 +192,7 @@ export function NormalizerTool() {
       
       setResultRows(allResults)
       setProcessedCols([...addressCols])
+      setProcessedZipCols([...zipCols])
       setChangeCount(totalChangeCount)
       
       toast.success("正規化が完了しました！", {
@@ -197,20 +209,22 @@ export function NormalizerTool() {
 
   function downloadFull() {
     if (!resultRows || !parsed) return
-    const extraCols = processedCols.flatMap((c) => [
+    const extraAddressCols = processedCols.flatMap((c) => [
       `${c}_正規化済`,
       `${c}_緯度`,
       `${c}_経度`,
       `${c}_精度レベル`,
     ])
-    const columns = [...parsed.columns, ...extraCols]
+    const extraZipCols = processedZipCols.map((c) => `${c}_整形済`)
+    
+    const columns = [...parsed.columns, ...extraAddressCols, ...extraZipCols]
     downloadCsv(rowsToCsv(resultRows, columns), "addresses_normalized_full.csv")
   }
 
   function downloadReplaced() {
     if (!resultRows || !parsed) return
     
-    // Create new columns list where original column is replaced, followed by lat/lng/level
+    // Create new columns list where original column is replaced
     const newColumns: string[] = []
     for (const col of parsed.columns) {
       newColumns.push(col)
@@ -223,8 +237,14 @@ export function NormalizerTool() {
       const copy = { ...r }
       for (const col of processedCols) {
         if (`${col}_正規化済` in copy) {
-          copy[col] = copy[`${col}_正規化済`] // Overwrite original column with normalized
+          copy[col] = copy[`${col}_正規化済`]
           delete copy[`${col}_正規化済`]
+        }
+      }
+      for (const col of processedZipCols) {
+        if (`${col}_整形済` in copy) {
+          copy[col] = copy[`${col}_整形済`]
+          delete copy[`${col}_整形済`]
         }
       }
       return copy
@@ -331,6 +351,52 @@ export function NormalizerTool() {
                     )
                   })}
                 </div>
+              </div>
+
+              <div className="pt-2 border-t border-border/50">
+                <label className="mb-3 block text-sm font-semibold text-foreground">
+                  郵便番号データが入っている列を選択してください
+                </label>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+                  {parsed.columns.map((c) => {
+                    const forbiddenKeywords = ['氏名', '名前', 'name', '電話', 'tel', 'メール', 'mail', '年齢', '番号', 'id', '住所', '所在地', '県', '市', '町', '村']
+                    // "郵便番号" の "番号" がひっかからないように調整
+                    const isForbidden = forbiddenKeywords.some(kw => {
+                      if (kw === '番号' && c.toLowerCase().includes('郵便番号')) return false;
+                      return c.toLowerCase().includes(kw);
+                    })
+                    
+                    return (
+                      <label
+                        key={c}
+                        className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                          isForbidden 
+                            ? "opacity-50 cursor-not-allowed bg-surface/30 border-border/50" 
+                            : `cursor-pointer hover:bg-surface-2 ${zipCols.includes(c) ? "border-brand bg-brand/5 text-foreground" : "border-border bg-surface text-muted-foreground"}`
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-border bg-surface-2 text-brand focus:ring-brand focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                          checked={zipCols.includes(c)}
+                          disabled={isForbidden}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setZipCols((prev) => [...prev, c])
+                            } else {
+                              setZipCols((prev) => prev.filter((col) => col !== c))
+                            }
+                          }}
+                        />
+                        <span className="truncate leading-none pt-0.5">
+                          {c}
+                          {isForbidden && <span className="text-[10px] text-muted-foreground ml-1">(対象外)</span>}
+                        </span>
+                      </label>
+                    )
+                  })}
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">※ 半角数字・ハイフンあり（例: 123-4567）の標準形式に自動整形されます。</p>
               </div>
 
               <OptionToggles options={options} onChange={setOptions} />
