@@ -312,10 +312,15 @@ export function NormalizerTool() {
           <Panel>
             <StepHeader n={2} title="住所カラムと処理内容を選択" />
             <div className="mt-4 space-y-4 pl-0 sm:pl-10">
-              <div>
-                <label className="mb-3 block text-sm font-semibold text-foreground">
-                  処理対象の住所列（複数選択可）
-                </label>
+              <div className="mb-4">
+                <div className="mb-3">
+                  <label className="block text-sm font-bold text-foreground">
+                    【対象の住所列】
+                  </label>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    複数ある場合はすべて選択できます
+                  </p>
+                </div>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                   {parsed.columns.map((c) => {
                     const forbiddenKeywords = ['氏名', '名前', 'name', '電話', 'tel', 'メール', 'mail', '郵便番号', 'zip', '年齢', '番号', 'id']
@@ -355,10 +360,15 @@ export function NormalizerTool() {
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-border/50">
-                <label className="mb-3 block text-sm font-semibold text-foreground">
-                  【任意】郵便番号も正規化する場合はチェックを入れてください
-                </label>
+              <div className="pt-4 border-t border-border/50">
+                <div className="mb-3">
+                  <label className="block text-sm font-bold text-foreground">
+                    【対象の郵便番号列】
+                  </label>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    任意：正規化したい場合は選択してください
+                  </p>
+                </div>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                   {parsed.columns.map((c) => {
                     const forbiddenKeywords = ['氏名', '名前', 'name', '電話', 'tel', 'メール', 'mail', '年齢', '番号', 'id', '住所', '所在地', '県', '市', '町', '村']
@@ -403,10 +413,15 @@ export function NormalizerTool() {
                 <p className="mt-2 text-xs text-muted-foreground">※ 半角数字・ハイフンあり（例: 123-4567）の標準形式に自動整形されます。</p>
               </div>
 
-              <div className="pt-2 border-t border-border/50">
-                <label className="mb-3 block text-sm font-semibold text-foreground">
-                  住所の追加フォーマット設定（チェックで有効化）
-                </label>
+              <div className="pt-4 border-t border-border/50">
+                <div className="mb-3">
+                  <label className="block text-sm font-bold text-foreground">
+                    【追加オプション】
+                  </label>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    任意：不要な処理はチェックを外してください
+                  </p>
+                </div>
                 <OptionToggles options={options} onChange={setOptions} />
               </div>
             </div>
