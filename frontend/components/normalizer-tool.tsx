@@ -112,7 +112,14 @@ export function NormalizerTool() {
 
       setParsed({ ...data, rows: finalRows })
       setFileName(file.name)
-      setAddressCols(data.columns.length > 0 ? [data.columns[0]] : [])
+      
+      // 住所らしいカラム名を自動選択（住所, 所在地, address など）
+      const addressKeywords = ['住所', '所在地', 'address', '県', '市', '町', '村']
+      const defaultCols = data.columns.filter(col => 
+        addressKeywords.some(keyword => col.toLowerCase().includes(keyword))
+      )
+      setAddressCols(defaultCols)
+      
       setResultRows(null)
       setProcessedCols([])
       setProgress(0)
