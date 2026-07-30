@@ -119,36 +119,39 @@ export default function Page() {
           <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">
             なぜエクセルの住所正規化や「緯度・経度」の変換（ジオコーディング）が必要なのか？
           </h2>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3">
             
-            <div className="flex flex-col gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_4px_20px_-4px_rgba(14,165,233,0.15)]">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
                 <DatabaseZap className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-foreground text-sm">重複・配送エラーの防止</h3>
+              <h3 className="mb-2 font-bold text-foreground text-sm">重複・配送エラーの防止</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 「1丁目2番地」と「1-2」といった<strong>住所の表記揺れ</strong>は、名寄せ時の重複登録やDMの配送エラーの大きな原因に。無料で一括変換し、クリーンなデータ基盤を保ちます。
               </p>
+              <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
             </div>
 
-            <div className="flex flex-col gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-2/10 text-brand-2">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-2/30 hover:shadow-[0_4px_20px_-4px_rgba(34,197,94,0.15)]">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-2/10 text-brand-2">
                 <Map className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-foreground text-sm">瞬時の商圏分析（ジオコーディング）</h3>
+              <h3 className="mb-2 font-bold text-foreground text-sm">瞬時の商圏分析（ジオコーディング）</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 正規化と同時に<strong>「緯度・経度」を自動抽出</strong>。TableauやGoogleマイマップなどの地図アプリに取り込むことで、エリアマーケティングや商圏分析がすぐに行えます。
               </p>
+              <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-2/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
             </div>
 
-            <div className="flex flex-col gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_4px_20px_-4px_rgba(59,130,246,0.15)]">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
                 <Terminal className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-foreground text-sm">自社システムへの組み込み</h3>
+              <h3 className="mb-2 font-bold text-foreground text-sm">自社システムへの組み込み</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 専用の開発者向けAPIを活用し、自社のCRMやSFAシステムに直接連携。入力された住所データをリアルタイムで正規化・空間データ化します。
               </p>
+              <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-blue-500/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
             </div>
 
           </div>
