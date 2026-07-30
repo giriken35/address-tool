@@ -293,8 +293,8 @@ export function NormalizerTool() {
             <StepHeader n={2} title="住所カラムと処理内容を選択" />
             <div className="mt-4 space-y-4 pl-0 sm:pl-10">
               <div>
-                <label className="mb-2 block text-xs font-bold text-destructive">
-                  ⚠️ 住所が書かれている列のみを選択してください（氏名等を選ぶと誤作動します）
+                <label className="mb-3 block text-sm font-semibold text-foreground">
+                  住所データが入っている列を選択してください
                 </label>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                   {parsed.columns.map((c) => {
