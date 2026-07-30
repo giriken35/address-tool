@@ -28,7 +28,7 @@ const OPTIONS: OptionDef[] = [
     key: "hyphen",
     icon: Hash,
     title: "番地ハイフンの統一",
-    example: "「1丁目2番地3号」→「1-2-3」に統一",
+    example: "「二丁目2番地3号」→「二丁目2-3」に統一",
   },
 ]
 
