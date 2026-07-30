@@ -327,9 +327,9 @@ export function NormalizerTool() {
                     <div>
                       {isAnon ? (
                         <>
-                          <h4 className="font-bold">最初の30件を無料でお試しいただけます！✨</h4>
+                          <h4 className="font-bold">無料のお試し枠（30件）を越える件数が入っています</h4>
                           <p className="mt-1 text-xs text-amber-800">
-                            31件目以降のデータは一時的にカットされていますが、無料アカウントを作成してログインすると、今すぐ100件まで一括で処理できるようになります。まずはこのまま30件の処理をお試しください！
+                            31件目以降のデータはカットされます。無料で100件まで処理するには、アカウントを作成してログインしてください。
                           </p>
                           <Button asChild variant="default" className="mt-3 bg-amber-500 hover:bg-amber-600 font-bold text-white shadow-sm">
                             <Link href="/login">無料でアカウント作成・ログイン</Link>
