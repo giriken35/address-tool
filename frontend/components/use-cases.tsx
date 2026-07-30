@@ -90,10 +90,10 @@ export function UseCases() {
   return (
     <section className="mt-16 mx-auto max-w-5xl px-4 sm:px-6">
       <div className="text-center mb-10">
-        <h2 className="text-xl font-bold text-foreground sm:text-2xl mb-6">こんな業務の効率化に最適です</h2>
-        <div className="animate-bounce inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-brand/10 text-brand text-xs font-bold border border-brand/20 shadow-sm">
-          ▼ クリックして詳細をチェック
-        </div>
+        <h2 className="text-xl font-bold text-foreground sm:text-2xl mb-4">こんな業務の効率化に最適です</h2>
+        <p className="text-sm text-muted-foreground font-medium">
+          ▼ 各カードをクリックして詳細をチェック
+        </p>
       </div>
       
       {/* Tabs */}
