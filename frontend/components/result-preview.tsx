@@ -34,6 +34,7 @@ export function ResultPreview({
   changeCount,
 }: ResultPreviewProps) {
   const [changedOnly, setChangedOnly] = useState(true)
+  const [showLevelHelp, setShowLevelHelp] = useState(false)
 
   const totalRows = rows.length
   const unchanged = totalRows - changeCount
@@ -80,6 +81,16 @@ export function ResultPreview({
           {displayRows.length.toLocaleString()} 件を表示
           {!changedOnly && totalRows > 1000 && "（上位1000件）"}
         </span>
+        
+        <div className="ml-auto">
+          <button
+            onClick={() => setShowLevelHelp(true)}
+            className="flex items-center gap-1.5 text-sm font-medium text-brand hover:text-brand/80 transition-colors"
+          >
+            <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[10px]">?</span>
+            精度レベル(Lv)の読み方
+          </button>
+        </div>
       </div>
 
       {displayRows.length > 0 ? (
@@ -160,6 +171,62 @@ export function ResultPreview({
         <div className="flex items-center gap-2 rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm text-muted-foreground">
           <Info className="h-4 w-4" />
           変更対象となった住所がありませんでした。
+        </div>
+      )}
+
+      {/* 精度レベル解説モーダル */}
+      {showLevelHelp && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+          <div className="w-full max-w-md rounded-2xl border bg-background p-6 shadow-2xl animate-in fade-in zoom-in duration-200">
+            <h3 className="mb-2 text-lg font-bold text-foreground">精度レベル(Lv)について</h3>
+            <p className="mb-4 text-sm text-muted-foreground">
+              Geoloniaエンジンの解析結果の信頼度を示すスコアです。
+            </p>
+            
+            <div className="space-y-2 text-sm">
+              <div className="flex items-start gap-3 rounded-lg bg-surface-2 p-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand font-bold">8</div>
+                <div>
+                  <p className="font-semibold text-foreground">号・建物まで特定（最高精度）</p>
+                  <p className="text-muted-foreground text-xs mt-0.5">データベースと完全一致しました。</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border p-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface-2 font-bold text-muted-foreground">7</div>
+                <div>
+                  <p className="font-semibold text-foreground">街区・番地まで特定</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border p-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface-2 font-bold text-muted-foreground">3</div>
+                <div>
+                  <p className="font-semibold text-foreground">町名・丁目まで特定</p>
+                  <p className="text-muted-foreground text-xs mt-0.5">※番地以降は推測で結合されています。</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border p-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface-2 font-bold text-muted-foreground">2</div>
+                <div>
+                  <p className="font-semibold text-foreground">市区町村まで特定</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border p-3 opacity-70">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface-2 font-bold text-muted-foreground">0</div>
+                <div>
+                  <p className="font-semibold text-foreground">解析不可</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 flex justify-end">
+              <button
+                onClick={() => setShowLevelHelp(false)}
+                className="rounded-lg bg-brand px-6 py-2 text-sm font-medium text-white shadow hover:bg-brand/90 transition-colors"
+              >
+                閉じる
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

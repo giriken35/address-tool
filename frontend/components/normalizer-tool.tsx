@@ -533,6 +533,7 @@ export function NormalizerTool() {
       ) : (
         <HowToSteps />
       )}
+
     </div>
   )
 }
