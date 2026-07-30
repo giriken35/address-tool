@@ -43,7 +43,7 @@ export function StickyHeader() {
         isVisible ? "translate-y-4 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
-      <div className="flex w-full max-w-5xl items-center justify-between rounded-2xl border border-border/50 bg-surface/80 px-4 py-3 shadow-lg backdrop-blur-md">
+      <div className="flex w-full max-w-5xl items-center justify-between rounded-2xl border border-border/40 bg-surface/40 px-4 py-3 shadow-lg backdrop-blur-xl">
         
         {/* 左側：ロゴとタイトル */}
         <div 
