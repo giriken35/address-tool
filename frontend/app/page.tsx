@@ -4,8 +4,12 @@ import { FeatureBadges } from "@/components/feature-badges"
 import { NormalizerTool } from "@/components/normalizer-tool"
 import { UseCases } from "@/components/use-cases"
 import { ProPlanCard } from "@/components/pro-plan-card"
+import { createClient } from '@/utils/supabase/server'
 
-export default function Page() {
+export default async function Page() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
   return (
     <main className="mx-auto min-h-screen w-full max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8">
       {/* ヒーローヘッダー */}
@@ -22,10 +26,20 @@ export default function Page() {
               </span>
               無料・登録不要
             </div>
-            
-            <a href="#pricing" className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline">
-              料金プラン / 開発者APIはこちら →
-            </a>
+            <div className="flex items-center gap-4">
+              <a href="#pricing" className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline hidden sm:inline-block">
+                料金プラン / 開発者API
+              </a>
+              {user ? (
+                <Link href="/dashboard" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-colors">
+                  マイページへ
+                </Link>
+              ) : (
+                <Link href="/login" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-colors">
+                  ログイン / 登録
+                </Link>
+              )}
+            </div>
           </div>
 
           <h1 className="flex items-center gap-3 text-2xl font-bold leading-tight text-balance sm:text-4xl">
