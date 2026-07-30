@@ -4,6 +4,7 @@ import { FeatureBadges } from "@/components/feature-badges"
 import { NormalizerTool } from "@/components/normalizer-tool"
 import { UseCases } from "@/components/use-cases"
 import { ProPlanCard } from "@/components/pro-plan-card"
+import { StickyHeader } from "@/components/sticky-header"
 import { createClient } from '@/utils/supabase/server'
 
 export default async function Page() {
@@ -11,7 +12,9 @@ export default async function Page() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <main className="mx-auto min-h-screen w-full max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8">
+    <>
+      <StickyHeader />
+      <main className="mx-auto min-h-screen w-full max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8">
       {/* ヒーローヘッダー */}
       <header className="relative mb-6 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface via-card to-[#1a2040] px-6 py-8 shadow-2xl sm:px-10 sm:py-10">
         <div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-brand/25 blur-3xl" />
@@ -195,6 +198,7 @@ export default async function Page() {
         <p className="mt-3">Built with Next.js &amp; Tailwind CSS</p>
       </footer>
     </main>
+    </>
   )
 }
 
