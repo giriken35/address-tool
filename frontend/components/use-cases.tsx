@@ -42,29 +42,29 @@ export function UseCases() {
         return {
           iconBg: "bg-brand/10 text-brand",
           orb: "bg-brand/20",
-          hoverBorder: "hover:border-brand/50",
-          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)]"
+          hoverBorder: "hover:border-brand/50 active:border-brand/50",
+          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] active:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)]"
         }
       case "brand-2":
         return {
           iconBg: "bg-brand-2/10 text-brand-2",
           orb: "bg-brand-2/20",
-          hoverBorder: "hover:border-brand-2/50",
-          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(13,148,136,0.4)]"
+          hoverBorder: "hover:border-brand-2/50 active:border-brand-2/50",
+          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(13,148,136,0.4)] active:shadow-[0_12px_40px_-12px_rgba(13,148,136,0.4)]"
         }
       case "blue":
         return {
           iconBg: "bg-blue-500/10 text-blue-500",
           orb: "bg-blue-500/20",
-          hoverBorder: "hover:border-blue-500/50",
-          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(59,130,246,0.4)]"
+          hoverBorder: "hover:border-blue-500/50 active:border-blue-500/50",
+          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(59,130,246,0.4)] active:shadow-[0_12px_40px_-12px_rgba(59,130,246,0.4)]"
         }
       case "amber":
         return {
           iconBg: "bg-amber-500/10 text-amber-500",
           orb: "bg-amber-500/20",
-          hoverBorder: "hover:border-amber-500/50",
-          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(245,158,11,0.4)]"
+          hoverBorder: "hover:border-amber-500/50 active:border-amber-500/50",
+          hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(245,158,11,0.4)] active:shadow-[0_12px_40px_-12px_rgba(245,158,11,0.4)]"
         }
     }
   }
@@ -81,7 +81,8 @@ export function UseCases() {
           return (
             <div
               key={title}
-              className={`group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 ${colors.hoverBorder} ${colors.hoverShadow}`}
+              className={`group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 ${colors.hoverBorder} ${colors.hoverShadow}`}
+              onTouchStart={() => {}}
             >
               <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${colors.iconBg}`}>
                 <Icon className="h-6 w-6" />
@@ -91,7 +92,7 @@ export function UseCases() {
                 {desc}
               </p>
               <div
-                className={`pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${colors.orb}`}
+                className={`pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-active:opacity-100 ${colors.orb}`}
               />
             </div>
           )
