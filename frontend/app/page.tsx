@@ -159,7 +159,10 @@ export default function Page() {
       </section>
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
-        <div className="mb-4 flex justify-center gap-6">
+        <div className="mb-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <Link href="/terms" className="hover:text-brand transition-colors">利用規約</Link>
+          <Link href="/privacy" className="hover:text-brand transition-colors">プライバシーポリシー</Link>
+          <Link href="/legal" className="hover:text-brand transition-colors">特定商取引法に基づく表記</Link>
           <Link href="/faq" className="hover:text-brand transition-colors">よくある質問 (FAQ)</Link>
           <Link href="/contact" className="hover:text-brand transition-colors">お問い合わせ</Link>
         </div>
