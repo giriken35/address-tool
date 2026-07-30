@@ -321,6 +321,8 @@ export function NormalizerTool() {
                     const forbiddenKeywords = ['氏名', '名前', 'name', '電話', 'tel', 'メール', 'mail', '郵便番号', 'zip', '年齢', '番号', 'id']
                     const isForbidden = forbiddenKeywords.some(kw => c.toLowerCase().includes(kw))
                     
+                    if (isForbidden) return null;
+
                     return (
                       <label
                         key={c}
@@ -366,6 +368,8 @@ export function NormalizerTool() {
                       return c.toLowerCase().includes(kw);
                     })
                     
+                    if (isForbidden) return null;
+
                     return (
                       <label
                         key={c}
