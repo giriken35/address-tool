@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Link from "next/link"
 import {
   CheckCircle2,
   ChevronDown,
@@ -17,6 +18,7 @@ import { ResultPreview } from "@/components/result-preview"
 import { HowToSteps } from "@/components/how-to-steps"
 import { parseCsvFile, rowsToCsv, downloadCsv, SAMPLE_CSV, type ParsedCsv } from "@/lib/csv"
 import { normalizeAddress, type NormalizeOptions } from "@/lib/address-normalizer"
+import { createClient } from "@/utils/supabase/client"
 
 function StepHeader({ n, title }: { n: number; title: string }) {
   return (
@@ -55,6 +57,35 @@ export function NormalizerTool() {
   const [isLimited, setIsLimited] = useState(false)
 
   const [progress, setProgress] = useState(0)
+  const [session, setSession] = useState<any>(null)
+  const [remainingLimit, setRemainingLimit] = useState(100)
+  const [isAnon, setIsAnon] = useState(true)
+
+  useEffect(() => {
+    async function checkUser() {
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        setIsAnon(false)
+        setSession(user)
+        const startOfMonth = new Date()
+        startOfMonth.setDate(1)
+        startOfMonth.setHours(0, 0, 0, 0)
+        
+        const { data } = await supabase
+          .from('usage_logs')
+          .select('rows_processed')
+          .gte('created_at', startOfMonth.toISOString())
+          
+        let used = 0
+        if (data) {
+          used = data.reduce((acc, row) => acc + row.rows_processed, 0)
+        }
+        setRemainingLimit(Math.max(0, 100 - used))
+      }
+    }
+    checkUser()
+  }, [])
 
   async function handleFile(file: File) {
     setError(null)
@@ -62,11 +93,20 @@ export function NormalizerTool() {
       const data = await parseCsvFile(file)
       
       let finalRows = data.rows
-      if (finalRows.length > 10000) {
-        finalRows = finalRows.slice(0, 10000)
-        setIsLimited(true)
+      if (isAnon) {
+        if (finalRows.length > 30) {
+          finalRows = finalRows.slice(0, 30)
+          setIsLimited(true)
+        } else {
+          setIsLimited(false)
+        }
       } else {
-        setIsLimited(false)
+        if (finalRows.length > remainingLimit) {
+          finalRows = finalRows.slice(0, remainingLimit)
+          setIsLimited(true)
+        } else {
+          setIsLimited(false)
+        }
       }
 
       setParsed({ ...data, rows: finalRows })
@@ -285,29 +325,43 @@ export function NormalizerTool() {
                   <div className="flex items-start gap-3">
                     <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
                     <div>
-                      <h4 className="font-bold">無料版の制限（100件）に到達しました</h4>
-                      <p className="mt-1 text-xs text-amber-800">
-                        101件目以降のデータはカットされています。無制限のCSV一括処理や、自社システムに直接つなぎ込める「開発者向けAPI」をご希望の場合は、プロプランへのアップグレードをご検討ください。
-                      </p>
-                      <Button
-                        variant="default"
-                        className="mt-3 bg-amber-500 hover:bg-amber-600 font-bold text-white shadow-sm"
-                        onClick={async () => {
-                          try {
-                            const res = await fetch('/api/checkout', { method: 'POST' });
-                            const data = await res.json();
-                            if (data.url) {
-                              window.open(data.url, '_blank');
-                            } else {
-                              alert('Stripeの決済設定がまだ完了していません。Vercelの環境変数を設定してください。');
-                            }
-                          } catch (e) {
-                            alert('エラーが発生しました');
-                          }
-                        }}
-                      >
-                        プロプランにアップグレード (月額5,000円)
-                      </Button>
+                      {isAnon ? (
+                        <>
+                          <h4 className="font-bold">無料のお試し枠（30件）に到達しました</h4>
+                          <p className="mt-1 text-xs text-amber-800">
+                            31件目以降のデータはカットされています。無料で100件まで処理するには、アカウントを作成してログインしてください。
+                          </p>
+                          <Button asChild variant="default" className="mt-3 bg-amber-500 hover:bg-amber-600 font-bold text-white shadow-sm">
+                            <Link href="/login">無料でアカウント作成・ログイン</Link>
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <h4 className="font-bold">無料版の制限（月100件）に到達しました</h4>
+                          <p className="mt-1 text-xs text-amber-800">
+                            制限を超えたデータはカットされています。無制限のCSV一括処理をご希望の場合は、プロプランへのアップグレードをご検討ください。
+                          </p>
+                          <Button
+                            variant="default"
+                            className="mt-3 bg-amber-500 hover:bg-amber-600 font-bold text-white shadow-sm"
+                            onClick={async () => {
+                              try {
+                                const res = await fetch('/api/checkout', { method: 'POST' });
+                                const data = await res.json();
+                                if (data.url) {
+                                  window.open(data.url, '_blank');
+                                } else {
+                                  alert('Stripeの決済設定がまだ完了していません。Vercelの環境変数を設定してください。');
+                                }
+                              } catch (e) {
+                                alert('エラーが発生しました');
+                              }
+                            }}
+                          >
+                            プロプランにアップグレード (月額5,000円)
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

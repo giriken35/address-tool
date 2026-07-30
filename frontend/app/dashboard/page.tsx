@@ -10,15 +10,27 @@ export const metadata = {
 export default async function DashboardPage() {
   const supabase = await createClient()
 
-  // セッションの確認（middlewareでもチェックしていますが念のため）
+  // セッションの確認
   const { data: { user }, error } = await supabase.auth.getUser()
   if (error || !user) {
     redirect('/login')
   }
 
-  // ログアウト処理はServer Actionsとして定義する手もありますが、
-  // クライアントコンポーネントから呼ぶのが一般的なので、後ほど別コンポーネント化するか、
-  // 簡易的にform actionで処理します。
+  // 今月の利用件数を取得
+  const startOfMonth = new Date()
+  startOfMonth.setDate(1)
+  startOfMonth.setHours(0, 0, 0, 0)
+  
+  const { data: usageData } = await supabase
+    .from('usage_logs')
+    .select('rows_processed')
+    .gte('created_at', startOfMonth.toISOString())
+    
+  let used = 0
+  if (usageData) {
+    used = usageData.reduce((acc, row) => acc + row.rows_processed, 0)
+  }
+  const progressPercent = Math.min(100, Math.round((used / 100) * 100))
 
   return (
     <div className="min-h-screen bg-background">
@@ -36,7 +48,6 @@ export default async function DashboardPage() {
             <div className="text-sm text-muted-foreground hidden sm:block">
               {user.email}
             </div>
-            {/* ログアウトボタンは機能として後でクライアント側で実装します */}
             <form action="/auth/signout" method="post">
               <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors">
                 <LogOut className="w-5 h-5" />
@@ -69,10 +80,10 @@ export default async function DashboardPage() {
             <div className="bg-muted/50 rounded-xl p-5 mb-6 flex-1">
               <div className="flex justify-between items-end mb-2">
                 <span className="text-sm font-medium">今月のAPI/CSV処理件数</span>
-                <span className="text-sm"><strong className="text-lg">0</strong> / 100 件</span>
+                <span className="text-sm"><strong className="text-lg">{used}</strong> / 100 件</span>
               </div>
               <div className="w-full bg-border rounded-full h-2.5 overflow-hidden">
-                <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                <div className="bg-blue-500 h-2.5 rounded-full transition-all duration-500" style={{ width: `${progressPercent}%` }}></div>
               </div>
               <p className="text-xs text-muted-foreground mt-3">毎月1日にリセットされます。</p>
             </div>
