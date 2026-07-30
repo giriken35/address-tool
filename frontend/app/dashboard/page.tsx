@@ -27,7 +27,7 @@ export default async function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/" className="font-bold text-lg tracking-tight hover:opacity-80 transition-opacity">
-              Address Normalizer
+              住所データ自動整形ツール
             </Link>
             <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md font-medium">Dashboard</span>
           </div>
