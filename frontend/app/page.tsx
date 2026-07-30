@@ -53,23 +53,23 @@ export default async function Page() {
             <ul className="space-y-2.5 text-sm text-foreground/80 sm:text-base font-medium">
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                目視で何時間もかかっていたエクセルの表記揺れチェックを、ドロップ<strong>数秒で完了</strong>
+                <span>目視で何時間もかかっていたエクセルの表記揺れチェックを、ドロップ<strong>数秒で完了</strong></span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「１丁目２番地」や「1-2」など、担当者によってバラバラな入力フォーマットを<strong>完全統一</strong>
+                <span>「１丁目２番地」や「1-2」など、担当者によってバラバラな入力フォーマットを<strong>完全統一</strong></span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                「港区」「新宿区」など、市区町村から始まって抜けている「都道府県」を<strong>自動で補完</strong>
+                <span>「港区」「新宿区」など、市区町村から始まって抜けている「都道府県」を<strong>自動で補完</strong></span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                全角/半角の「1」や、種類が違うハイフン（ー、-、—）などの細かなズレも<strong>一括で補正</strong>
+                <span>全角/半角の「1」や、種類が違うハイフン（ー、-、—）などの細かなズレも<strong>一括で補正</strong></span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                住所から「緯度・経度」を<strong>自動抽出</strong>し、Tableauや地図アプリ用の空間データに<strong>一瞬で変換</strong>
+                <span>住所から「緯度・経度」を<strong>自動抽出</strong>し、Tableauや地図アプリ用の空間データに<strong>一瞬で変換</strong></span>
               </li>
             </ul>
           </div>
