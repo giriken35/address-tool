@@ -172,7 +172,7 @@ export function UseCases() {
                       <span>東京都港区芝公園4-2-8</span>
                       <span className="text-xs text-brand bg-brand/10 px-2 py-1 rounded">クレンジング済</span>
                     </div>
-                    <p className="text-xs text-muted-foreground mt-4 text-center">
+                    <p className="text-sm font-medium text-foreground mt-4 text-center leading-relaxed">
                       全角スペースやハイフンの揺れを瞬時に補正。<br/>ヤマト運輸や佐川急便の伝票システムへそのまま流し込めます。
                     </p>
                   </div>
@@ -222,7 +222,7 @@ export function UseCases() {
                 </tbody>
               </table>
               <div className="mt-6 flex justify-end">
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm font-medium text-foreground leading-relaxed">
                   表記違いによる「同一人物への複数回送付」を事前に検知し、DM発送コストを大幅に削減します。
                 </p>
               </div>
@@ -277,7 +277,7 @@ export function UseCases() {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground mt-4 text-center">
+            <p className="text-sm font-medium text-foreground mt-5 text-center leading-relaxed">
               SalesforceやHubSpotなどのAPIに繋ぐ前に中継させるだけで、住所データを自動で構造化。<br/>都道府県・市区町村レベルでの正確なセグメント配信や分析が可能になります。
             </p>
           </div>
@@ -324,7 +324,7 @@ export function UseCases() {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground mt-6 text-center">
+            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
               表記ゆれの修正と同時に、高精度な緯度・経度データを自動付与。<br/>TableauなどのBIツールに読み込ませるだけで、地図上への正確なプロットが即座に完了します。
             </p>
           </div>
