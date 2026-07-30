@@ -172,13 +172,13 @@ export function UseCases() {
                       <span>東京都港区芝公園4-2-8</span>
                       <span className="text-xs text-brand bg-brand/10 px-2 py-1 rounded">クレンジング済</span>
                     </div>
-                    <p className="text-sm font-medium text-foreground mt-4 text-center leading-relaxed">
-                      全角スペースやハイフンの揺れを瞬時に補正。<br/>ヤマト運輸や佐川急便の伝票システムへそのまま流し込めます。
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
+            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
+              全角スペースやハイフンの揺れを瞬時に補正。<br/>ヤマト運輸や佐川急便の伝票システムへそのまま流し込めます。
+            </p>
           </div>
         )}
 
@@ -221,12 +221,10 @@ export function UseCases() {
                   </tr>
                 </tbody>
               </table>
-              <div className="mt-6 flex justify-end">
-                <p className="text-sm font-medium text-foreground leading-relaxed">
-                  表記違いによる「同一人物への複数回送付」を事前に検知し、DM発送コストを大幅に削減します。
-                </p>
-              </div>
             </div>
+            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
+              表記違いによる「同一人物への複数回送付」を事前に検知し、DM発送コストを大幅に削減します。
+            </p>
           </div>
         )}
 
@@ -236,8 +234,9 @@ export function UseCases() {
               <Database className="h-5 w-5 text-blue-500" />
               SFA/CRM連携前のデータ自動クレンジング
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-xl overflow-hidden border border-border bg-[#0d1117]">
+            <div className="bg-surface/50 rounded-xl border border-border p-6 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="rounded-xl overflow-hidden border border-border bg-[#0d1117]">
                 <div className="bg-[#161b22] px-4 py-2 border-b border-[#30363d] flex items-center gap-2">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
@@ -276,8 +275,9 @@ export function UseCases() {
                   </pre>
                 </div>
               </div>
+              </div>
             </div>
-            <p className="text-sm font-medium text-foreground mt-5 text-center leading-relaxed">
+            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
               SalesforceやHubSpotなどのAPIに繋ぐ前に中継させるだけで、住所データを自動で構造化。<br/>都道府県・市区町村レベルでの正確なセグメント配信や分析が可能になります。
             </p>
           </div>
