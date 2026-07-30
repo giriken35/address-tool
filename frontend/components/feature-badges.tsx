@@ -1,3 +1,5 @@
+"use client"
+
 import { ShieldCheck, Zap, GitCompareArrows, MoonStar } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
