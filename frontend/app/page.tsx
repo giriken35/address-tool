@@ -83,7 +83,7 @@ export default async function Page() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl">
+      <div id="tool-section" className="mx-auto max-w-5xl scroll-mt-32">
         <NormalizerTool />
       </div>
 
@@ -124,7 +124,7 @@ export default async function Page() {
               </li>
             </ul>
             <div className="mt-auto">
-              <a href="#" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:bg-brand/10">
+              <a href="#tool-section" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:bg-brand/10">
                 ページ上部で今すぐ試す（無料）
               </a>
             </div>

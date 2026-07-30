@@ -39,8 +39,13 @@ export function StickyHeader() {
     })
   }, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+  const scrollToTool = () => {
+    const toolSection = document.getElementById("tool-section")
+    if (toolSection) {
+      toolSection.scrollIntoView({ behavior: "smooth" })
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }
   }
 
   return (
@@ -54,7 +59,7 @@ export function StickyHeader() {
         {/* 左側：ロゴとタイトル */}
         <div 
           className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-80"
-          onClick={scrollToTop}
+          onClick={scrollToTool}
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand to-brand-2 text-white shadow-sm">
             <Map className="h-4 w-4" />
@@ -83,7 +88,7 @@ export function StickyHeader() {
           )}
           
           <button
-            onClick={scrollToTop}
+            onClick={scrollToTool}
             className="flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-xs font-bold text-white shadow-md transition-all hover:bg-brand/90 hover:shadow-lg active:scale-95"
           >
             無料で試す
