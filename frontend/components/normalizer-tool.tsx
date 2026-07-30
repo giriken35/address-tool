@@ -293,34 +293,43 @@ export function NormalizerTool() {
             <StepHeader n={2} title="住所カラムと処理内容を選択" />
             <div className="mt-4 space-y-4 pl-0 sm:pl-10">
               <div>
-                <label className="mb-2 block text-xs text-muted-foreground">
-                  住所が入っているカラム（複数選択可）
+                <label className="mb-2 block text-xs font-bold text-destructive">
+                  ⚠️ 住所が書かれている列のみを選択してください（氏名等を選ぶと誤作動します）
                 </label>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-                  {parsed.columns.map((c) => (
-                    <label
-                      key={c}
-                      className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors hover:bg-surface-2 ${
-                        addressCols.includes(c)
-                          ? "border-brand bg-brand/5 text-foreground"
-                          : "border-border bg-surface text-muted-foreground"
-                      }`}
-                    >
-                      <input
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-border bg-surface-2 text-brand focus:ring-brand focus:ring-offset-0"
-                        checked={addressCols.includes(c)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            setAddressCols((prev) => [...prev, c])
-                          } else {
-                            setAddressCols((prev) => prev.filter((col) => col !== c))
-                          }
-                        }}
-                      />
-                      <span className="truncate leading-none pt-0.5">{c}</span>
-                    </label>
-                  ))}
+                  {parsed.columns.map((c) => {
+                    const forbiddenKeywords = ['氏名', '名前', 'name', '電話', 'tel', 'メール', 'mail', '郵便番号', 'zip', '年齢', '番号', 'id']
+                    const isForbidden = forbiddenKeywords.some(kw => c.toLowerCase().includes(kw))
+                    
+                    return (
+                      <label
+                        key={c}
+                        className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                          isForbidden 
+                            ? "opacity-50 cursor-not-allowed bg-surface/30 border-border/50" 
+                            : `cursor-pointer hover:bg-surface-2 ${addressCols.includes(c) ? "border-brand bg-brand/5 text-foreground" : "border-border bg-surface text-muted-foreground"}`
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-border bg-surface-2 text-brand focus:ring-brand focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                          checked={addressCols.includes(c)}
+                          disabled={isForbidden}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setAddressCols((prev) => [...prev, c])
+                            } else {
+                              setAddressCols((prev) => prev.filter((col) => col !== c))
+                            }
+                          }}
+                        />
+                        <span className="truncate leading-none pt-0.5">
+                          {c}
+                          {isForbidden && <span className="text-[10px] text-muted-foreground ml-1">(対象外)</span>}
+                        </span>
+                      </label>
+                    )
+                  })}
                 </div>
               </div>
 
