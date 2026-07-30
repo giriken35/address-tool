@@ -42,28 +42,28 @@ export function UseCases() {
         return {
           iconBg: "bg-brand/10 text-brand",
           orb: "bg-brand/20",
-          hoverBorder: "hover:border-brand/50 active:border-brand/50 focus:border-brand/50",
+          hoverBorder: "cursor-pointer hover:border-brand/50 active:border-brand/50 focus:border-brand/50",
           hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] active:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] focus:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)]"
         }
       case "brand-2":
         return {
           iconBg: "bg-brand-2/10 text-brand-2",
           orb: "bg-brand-2/20",
-          hoverBorder: "hover:border-brand-2/50 active:border-brand-2/50 focus:border-brand-2/50",
+          hoverBorder: "cursor-pointer hover:border-brand-2/50 active:border-brand-2/50 focus:border-brand-2/50",
           hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(13,148,136,0.4)] active:shadow-[0_12px_40px_-12px_rgba(13,148,136,0.4)] focus:shadow-[0_12px_40px_-12px_rgba(13,148,136,0.4)]"
         }
       case "blue":
         return {
           iconBg: "bg-blue-500/10 text-blue-500",
           orb: "bg-blue-500/20",
-          hoverBorder: "hover:border-blue-500/50 active:border-blue-500/50 focus:border-blue-500/50",
+          hoverBorder: "cursor-pointer hover:border-blue-500/50 active:border-blue-500/50 focus:border-blue-500/50",
           hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(59,130,246,0.4)] active:shadow-[0_12px_40px_-12px_rgba(59,130,246,0.4)] focus:shadow-[0_12px_40px_-12px_rgba(59,130,246,0.4)]"
         }
       case "amber":
         return {
           iconBg: "bg-amber-500/10 text-amber-500",
           orb: "bg-amber-500/20",
-          hoverBorder: "hover:border-amber-500/50 active:border-amber-500/50 focus:border-amber-500/50",
+          hoverBorder: "cursor-pointer hover:border-amber-500/50 active:border-amber-500/50 focus:border-amber-500/50",
           hoverShadow: "hover:shadow-[0_12px_40px_-12px_rgba(245,158,11,0.4)] active:shadow-[0_12px_40px_-12px_rgba(245,158,11,0.4)] focus:shadow-[0_12px_40px_-12px_rgba(245,158,11,0.4)]"
         }
     }

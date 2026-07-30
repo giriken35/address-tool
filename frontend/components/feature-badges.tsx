@@ -42,7 +42,7 @@ export function FeatureBadges() {
         <div
           key={title}
           tabIndex={0}
-          className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-4 outline-none backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 focus:-translate-y-1 hover:border-brand/50 active:border-brand/50 focus:border-brand/50 hover:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] active:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] focus:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)]"
+          className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-4 outline-none cursor-pointer backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 focus:-translate-y-1 hover:border-brand/50 active:border-brand/50 focus:border-brand/50 hover:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] active:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)] focus:shadow-[0_12px_40px_-12px_rgba(79,70,229,0.4)]"
           onTouchStart={() => {}}
         >
           <div
