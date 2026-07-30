@@ -19,6 +19,7 @@ import { HowToSteps } from "@/components/how-to-steps"
 import { parseCsvFile, rowsToCsv, downloadCsv, SAMPLE_CSV, type ParsedCsv } from "@/lib/csv"
 import { normalizeAddress, type NormalizeOptions } from "@/lib/address-normalizer"
 import { createClient } from "@/utils/supabase/client"
+import { toast } from "sonner"
 
 function StepHeader({ n, title }: { n: number; title: string }) {
   return (
@@ -174,6 +175,10 @@ export function NormalizerTool() {
       setResultRows(allResults)
       setProcessedCols([...addressCols])
       setChangeCount(totalChangeCount)
+      
+      toast.success("正規化が完了しました！", {
+        description: `${totalChangeCount.toLocaleString()}件のデータを綺麗に整形しました。`,
+      })
     } catch (err: any) {
       console.error(err)
       setError("エラーが発生しました: " + (err.message || "通信エラー"))
