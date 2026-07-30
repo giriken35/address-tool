@@ -11,6 +11,12 @@ export function StickyHeader() {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
+    // ブラウザのリロード時にスクロール位置を保持せず、一番上からスタートさせる
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
+
     // スクロール検知
     const handleScroll = () => {
       // ヒーローエリア（約400px）を超えたら表示
