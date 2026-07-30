@@ -294,23 +294,23 @@ export function UseCases() {
                 <MapPin className="h-32 w-32" />
               </div>
               <div className="relative z-10 max-w-lg mx-auto">
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-4 mb-3">
                   <div className="flex-1 p-3 bg-background rounded border border-border shadow-sm text-sm">
                     <span className="text-muted-foreground mr-2">住所:</span>
                     <span className="font-mono">愛知県名古屋市中区栄3-1-1</span>
                   </div>
                 </div>
-                <div className="flex justify-center mb-6">
-                  <div className="h-10 w-px bg-amber-500/30"></div>
+                <div className="flex justify-center mb-3">
+                  <div className="h-6 w-px bg-amber-500/30"></div>
                 </div>
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-600 border border-amber-500/20">
                     <Database className="h-3 w-3" />
                     自動ジオコーディング
                   </span>
                 </div>
-                <div className="flex justify-center mb-6">
-                  <div className="h-10 w-px bg-amber-500/30"></div>
+                <div className="flex justify-center mb-3">
+                  <div className="h-6 w-px bg-amber-500/30"></div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-background rounded-lg border border-amber-500/20 shadow-sm flex flex-col items-center">
