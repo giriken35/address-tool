@@ -21,17 +21,18 @@ export default function LegalPage() {
               <tbody className="divide-y divide-border">
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground w-1/3 border-r border-border">販売事業者</th>
-                  <td className="py-4 px-6 text-muted-foreground">[あなたの会社名/屋号/氏名]</td>
+                  <td className="py-4 px-6 text-muted-foreground">[屋号]（※法人の場合は会社名、個人の場合は屋号または本名）</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">運営統括責任者</th>
-                  <td className="py-4 px-6 text-muted-foreground">[代表者氏名]</td>
+                  <td className="py-4 px-6 text-muted-foreground">[本名を記載してください（※個人の場合は本名必須）]</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">所在地</th>
                   <td className="py-4 px-6 text-muted-foreground">
-                    〒[郵便番号]<br/>
-                    [都道府県市区町村 番地・建物名など]
+                    〒150-0043<br/>
+                    東京都渋谷区道玄坂1丁目10番8号<br/>
+                    渋谷道玄坂東急ビル2F−C
                   </td>
                 </tr>
                 <tr>
