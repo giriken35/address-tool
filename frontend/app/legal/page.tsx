@@ -21,11 +21,11 @@ export default function LegalPage() {
               <tbody className="divide-y divide-border">
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground w-1/3 border-r border-border">販売事業者</th>
-                  <td className="py-4 px-6 text-muted-foreground">[屋号]（※法人の場合は会社名、個人の場合は屋号または本名）</td>
+                  <td className="py-4 px-6 text-muted-foreground">片桐 健弥</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">運営統括責任者</th>
-                  <td className="py-4 px-6 text-muted-foreground">[本名を記載してください（※個人の場合は本名必須）]</td>
+                  <td className="py-4 px-6 text-muted-foreground">片桐 健弥</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">所在地</th>
