@@ -66,6 +66,38 @@ pandas>=2.0.0
 ```
 （`unicodedata`, `re`, `io` は Python 標準ライブラリ）
 
+## 🔄 Webツールの自動アクセス（スリープ回避・定期アクセス）
+
+Streamlit Community Cloud などの無料ホスティングサービスで、一定時間アクセスがないとアプリが休止（スリープ）状態になるのを防ぐため、毎日指定の時間に自動でブラウザ訪問する仕組みを提供しています。
+
+### 方法 1: GitHub Actions（おすすめ・完全クラウド自動化）
+
+GitHub にプッシュすることで、サーバーやローカルPCを起動したままにすることなく自動アクセスを実行できます。
+
+1. リポジトリの **Settings > Secrets and variables > Actions** に移動します。
+2. **Repository variables**（または Secrets）に `TARGET_URL` を追加し、値に対象の公開URL（例: `https://your-app.streamlit.app`）を設定します。
+3. [keep_alive.yml](file:///.github/workflows/keep_alive.yml) により、毎日午前8時（日本時間）に自動的にブラウザアクセスが実行されます。
+
+### 方法 2: Windows タスクスケジューラ（ローカル環境実行）
+
+1. **環境変数の設定**: コマンドプロンプトまたは環境変数設定で `TARGET_URL` に対象URLを設定します。
+   ```cmd
+   set TARGET_URL=https://your-app.streamlit.app
+   ```
+2. **スクリプトのテスト実行**:
+   ```cmd
+   pip install playwright
+   playwright install chromium
+   python keep_alive.py
+   ```
+3. **タスクスケジューラへの自動登録**:
+   PowerShell を管理者権限で開き、以下を実行します。
+   ```powershell
+   .\register_task.ps1
+   ```
+
+---
+
 ## 📄 ライセンス
 
 MIT License — 詳細は [LICENSE](LICENSE) を参照してください。
