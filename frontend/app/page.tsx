@@ -4,7 +4,7 @@ import { FeatureBadges } from "@/components/feature-badges"
 import { NormalizerTool } from "@/components/normalizer-tool"
 import { UseCases } from "@/components/use-cases"
 import { ProPlanCard } from "@/components/pro-plan-card"
-import { StickyHeader } from "@/components/sticky-header"
+
 import { ArchitectureSection } from "@/components/architecture-section"
 import { ComparisonSection } from "@/components/comparison-section"
 import { AiComparisonSection } from "@/components/ai-comparison-section"
@@ -18,7 +18,7 @@ export default async function Page() {
 
   return (
     <>
-      <StickyHeader />
+
       <main className="mx-auto min-h-screen w-full max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8">
       {/* ヒーローヘッダー */}
       <header className="relative mb-6 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface via-card to-[#1a2040] px-6 py-8 shadow-2xl sm:px-10 sm:py-10">
