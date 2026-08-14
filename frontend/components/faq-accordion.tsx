@@ -26,7 +26,24 @@ const faqs = [
   },
   {
     question: "決済の対象期間（有効期限）はどうなっていますか？",
-    answer: "Proプランは月額課金となり、お支払いを完了した日から起算して「1ヶ月間」が対象期間となります。以降は解約されるまで、1ヶ月ごとに自動更新となります。\n\n【ご請求スケジュールの例】\n[8月15日 初回決済] ━━━━━ [9月15日 自動更新] ━━━━━ [10月15日 自動更新]\n\n※毎月1日に一斉請求されるわけではなく、お客様がご利用を開始した日が基準となりますので、いつ始めても損をすることはありません。"
+    answer: (
+      <div className="space-y-4">
+        <p>Proプランは月額課金となり、お支払いを完了した日から起算して「1ヶ月間」が対象期間となります。以降は解約されるまで、1ヶ月ごとに自動更新となります。</p>
+        <div className="bg-background rounded-xl p-4 border border-border/50 shadow-inner">
+          <p className="text-xs font-bold mb-3 text-foreground">【ご請求スケジュールの例】</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs font-medium">
+            <div className="bg-brand/10 text-brand px-3 py-2 rounded-lg text-center w-full sm:w-auto border border-brand/20">8月15日<br/>初回決済</div>
+            <div className="text-brand/40 hidden sm:block">━━━━</div>
+            <div className="text-brand/40 sm:hidden">▼</div>
+            <div className="bg-brand/10 text-brand px-3 py-2 rounded-lg text-center w-full sm:w-auto border border-brand/20">9月15日<br/>自動更新</div>
+            <div className="text-brand/40 hidden sm:block">━━━━</div>
+            <div className="text-brand/40 sm:hidden">▼</div>
+            <div className="bg-brand/10 text-brand px-3 py-2 rounded-lg text-center w-full sm:w-auto border border-brand/20">10月15日<br/>自動更新</div>
+          </div>
+        </div>
+        <p className="text-xs opacity-80">※毎月1日に一斉請求されるわけではなく、お客様がご利用を開始した日が基準となりますので、いつ始めても損をすることはありません。</p>
+      </div>
+    )
   },
   {
     question: "プロプランの解約はいつでも可能ですか？",
@@ -35,16 +52,18 @@ const faqs = [
 ]
 
 export function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndices, setOpenIndices] = useState<number[]>([])
 
   const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
+    setOpenIndices((prev) => 
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    )
   }
 
   return (
     <div className="mx-auto mt-8 max-w-3xl space-y-4">
       {faqs.map((faq, index) => {
-        const isOpen = openIndex === index
+        const isOpen = openIndices.includes(index)
         return (
           <div 
             key={index} 
