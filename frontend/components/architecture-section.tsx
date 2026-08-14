@@ -1,106 +1,112 @@
-import { ShieldCheck, Database, Zap, Server, ArrowDown } from "lucide-react"
+import { ShieldCheck, Database, Zap, Server, ArrowDown, Lock, Trash2 } from "lucide-react"
 
 export function ArchitectureSection() {
   return (
     <section className="mt-12 mx-auto max-w-5xl px-4 sm:px-6 scroll-mt-32" id="security">
-      <div className="rounded-3xl border border-border bg-gradient-to-br from-surface to-card p-6 sm:p-12 shadow-sm relative overflow-hidden">
+      <div className="rounded-3xl border border-border bg-gradient-to-br from-surface to-card p-6 sm:p-12 shadow-xl relative overflow-hidden">
         {/* 背景の装飾 */}
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-brand-2/5 blur-3xl" />
         
-        <div className="text-center mb-10 relative z-10">
-          <div className="inline-flex items-center justify-center rounded-full bg-brand/10 p-2 mb-4 text-brand">
-            <ShieldCheck className="h-6 w-6" />
+        <div className="text-center mb-12 relative z-10">
+          <div className="inline-flex items-center justify-center rounded-full bg-brand/10 p-3 mb-4 text-brand shadow-sm">
+            <ShieldCheck className="h-8 w-8" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+          <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
             機密データを守る「ゼロ・リテンション」設計
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed">
             当システムはお客様の顧客データをサーバーに一切保存しません。金融機関や不動産など、厳格なセキュリティ要件が求められるエンタープライズ企業でも安心して導入いただけます。
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
-          {/* 左側：図解イメージ（フローチャート風に改善） */}
-          <div className="rounded-2xl border border-border/50 bg-background/50 p-8 backdrop-blur-sm flex flex-col items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+          {/* 左側：図解イメージ（視覚的なインパクトを強化） */}
+          <div className="rounded-2xl border border-border bg-background/60 p-6 sm:p-8 backdrop-blur-md flex flex-col items-center shadow-inner relative">
             
             {/* 入力 */}
-            <div className="w-full max-w-[280px] rounded-xl bg-card border border-border p-3 text-center text-sm font-bold text-foreground shadow-sm flex items-center justify-center gap-2">
-               <Server className="h-4 w-4 text-muted-foreground" />
+            <div className="w-full max-w-[280px] rounded-xl bg-gradient-to-r from-card to-surface border border-border p-4 text-center text-sm font-bold text-foreground shadow-md flex items-center justify-center gap-2 transition-transform hover:scale-105">
+               <Server className="h-5 w-5 text-brand" />
                お客様の環境 (自社システム等)
             </div>
 
-            {/* 矢印 1 */}
-            <div className="flex flex-col items-center my-2">
-              <div className="w-px h-6 bg-border"></div>
-              <div className="rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-medium text-muted-foreground shadow-sm relative z-10 -my-2">
-                HTTPS暗号化通信で送信
+            {/* 矢印 1 (太く強調) */}
+            <div className="flex flex-col items-center my-1 relative">
+              <div className="w-1 h-8 bg-gradient-to-b from-brand/20 to-brand/60 rounded-full"></div>
+              <div className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-[11px] font-bold text-brand shadow-sm flex items-center gap-1 backdrop-blur-sm">
+                <Lock className="h-3 w-3" /> HTTPS暗号化通信で送信
               </div>
-              <div className="w-px h-6 bg-border"></div>
-              <ArrowDown className="h-4 w-4 text-border -mt-1" />
+              <ArrowDown className="h-5 w-5 text-brand/80 -mt-1" />
             </div>
 
-            {/* 処理（揮発） */}
-            <div className="w-full max-w-[320px] relative rounded-xl border-2 border-brand/30 bg-brand/5 p-5 text-center shadow-[0_0_15px_-3px_rgba(108,99,255,0.15)]">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface px-3 py-0.5 rounded-full border border-brand/20 text-xs font-bold text-brand shadow-sm whitespace-nowrap">
-                メモリ上の揮発処理エリア
+            {/* 処理（揮発） - 目立たせる */}
+            <div className="w-full max-w-[340px] relative rounded-2xl border-2 border-brand/50 bg-gradient-to-b from-brand/10 to-transparent p-6 text-center shadow-[0_0_30px_-5px_rgba(108,99,255,0.25)]">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand text-white px-4 py-1 rounded-full text-xs font-black shadow-md whitespace-nowrap flex items-center gap-1.5">
+                <Zap className="h-3.5 w-3.5 fill-white" /> メモリ上の揮発処理エリア
               </div>
-              <div className="flex justify-center gap-3 mt-3 mb-4">
-                <div className="flex items-center gap-1.5 rounded-lg bg-background px-3 py-2 text-xs font-medium text-foreground shadow-sm border border-border">
-                  <Zap className="h-4 w-4 text-brand fill-brand/20" /> 高速API認証
+              
+              <div className="flex justify-center gap-3 mt-4 mb-5">
+                <div className="flex items-center gap-1.5 rounded-lg bg-background/80 backdrop-blur px-3 py-2 text-xs font-bold text-foreground shadow-sm border border-border">
+                  <ShieldCheck className="h-4 w-4 text-brand-2" /> 高速API認証
                 </div>
-                <div className="flex items-center gap-1.5 rounded-lg bg-background px-3 py-2 text-xs font-medium text-foreground shadow-sm border border-border">
-                  <ShieldCheck className="h-4 w-4 text-brand" /> 正規化処理
+                <div className="flex items-center gap-1.5 rounded-lg bg-background/80 backdrop-blur px-3 py-2 text-xs font-bold text-foreground shadow-sm border border-border">
+                  <Zap className="h-4 w-4 text-brand-2" /> 正規化処理
                 </div>
               </div>
-              <div className="text-xs font-bold text-brand bg-brand/10 py-1.5 px-2 rounded-md">
-                処理後、瞬時にメモリから完全破棄
+
+              {/* 破棄のアピールを強烈に */}
+              <div className="relative inline-flex items-center justify-center w-full">
+                <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full"></div>
+                <div className="relative flex items-center justify-center gap-1.5 text-xs sm:text-sm font-black text-red-600 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 py-2 px-3 rounded-lg shadow-sm w-full">
+                  <Trash2 className="h-4 w-4" />
+                  処理後、瞬時にメモリから完全破棄
+                </div>
               </div>
             </div>
 
-            {/* 矢印 2 */}
-            <div className="flex flex-col items-center my-2">
-              <div className="w-px h-6 bg-border"></div>
-              <div className="rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-medium text-muted-foreground shadow-sm relative z-10 -my-2">
+            {/* 矢印 2 (細く・点線で「データは送られない」ことを強調) */}
+            <div className="flex flex-col items-center my-1 relative">
+              <div className="w-0.5 h-8 bg-border border-l-2 border-dashed border-muted-foreground/30"></div>
+              <div className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-semibold text-muted-foreground shadow-sm">
                 処理件数(ログ)のみ記録
               </div>
-              <div className="w-px h-6 bg-border"></div>
-              <ArrowDown className="h-4 w-4 text-border -mt-1" />
+              <ArrowDown className="h-4 w-4 text-muted-foreground/50 -mt-1" />
             </div>
 
-            {/* 出力/DB */}
-            <div className="w-full max-w-[280px] rounded-xl bg-card border border-border p-3 flex items-center justify-center gap-2 text-sm font-semibold text-muted-foreground shadow-sm opacity-70">
+            {/* 出力/DB (半透明でデータが残らないことを強調) */}
+            <div className="w-full max-w-[280px] rounded-xl bg-card border-2 border-dashed border-border p-3 flex items-center justify-center gap-2 text-sm font-bold text-muted-foreground shadow-sm opacity-60">
               <Database className="h-4 w-4" /> データベース (Supabase)
             </div>
 
           </div>
 
           {/* 右側：3つのポイント */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand font-bold">1</div>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand font-black text-lg shadow-sm border border-brand/20">1</div>
               <div>
-                <h3 className="font-bold text-foreground">住所データは「その場」で破棄</h3>
-                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg font-black text-foreground">住所データは「その場」で破棄</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-medium">
                   送信されたデータは、正規化処理のために一時的にメモリ上に展開され、結果を返却した瞬間に完全に破棄されます。ストレージへの記録は一切行いません。
                 </p>
               </div>
             </div>
             
             <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand font-bold">2</div>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand font-black text-lg shadow-sm border border-brand/20">2</div>
               <div>
-                <h3 className="font-bold text-foreground">保存するのは「数値」だけ</h3>
-                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg font-black text-foreground">保存するのは「数値」だけ</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-medium">
                   システムの不正利用防止や制限枠の管理のためにデータベースに記録されるのは、「いつ」「何件処理したか」というメタデータ（数値ログ）のみです。
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand font-bold">3</div>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand font-black text-lg shadow-sm border border-brand/20">3</div>
               <div>
-                <h3 className="font-bold text-foreground">すべての通信を暗号化保護</h3>
-                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg font-black text-foreground">すべての通信を暗号化保護</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-medium">
                   お客様の環境から当システムまでの通信は、最新のTLS（SSL）暗号化技術によって強固に保護されており、経路での傍受や改ざんを防ぎます。
                 </p>
               </div>
