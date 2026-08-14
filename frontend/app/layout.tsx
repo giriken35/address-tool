@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: '住所表記揺れ 一括正規化ツール | CSVの住所統一を無料変換',
+  title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
   description:
-    'CSVの住所データの表記揺れを一括で正規化・統一する無料ツールです。都道府県・全角半角・番地ハイフンを瞬時に統一し、発送業務や顧客管理を効率化します。データはブラウザ内で処理されサーバーに保存されません。',
+    'エクセルの面倒な住所クレンジングを数秒で完了。「１丁目２番地」や「1-2」などの表記揺れを一括統一し、緯度・経度も自動抽出。ECの配送エラーやDMの名寄せ重複を防ぎます。完全無料で登録不要。',
   keywords: [
     '住所',
     '表記揺れ',
@@ -28,10 +28,22 @@ export const metadata: Metadata = {
     'CSV',
     '無料',
     '統一',
-    '発送業務',
-    '効率化',
+    '名寄せ',
+    'ジオコーディング',
   ],
-  generator: 'v0.app',
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: 'https://address-tool.com', // TODO: 実際のドメインに置き換えてください
+    siteName: '住所データ自動整形ツール',
+    title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
+    description: 'エクセルの面倒な住所クレンジングを数秒で完了。「１丁目２番地」や「1-2」などの表記揺れを一括統一し、緯度・経度も自動抽出。',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
+    description: '面倒なエクセルの住所クレンジングを数秒で完了。完全無料で登録不要！',
+  },
 }
 
 export const viewport: Viewport = {
