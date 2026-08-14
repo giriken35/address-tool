@@ -1,4 +1,4 @@
-import { CheckCircle2, XCircle, MinusCircle } from "lucide-react"
+// Icons removed in favor of text symbols
 
 export function ComparisonSection() {
   return (
@@ -34,15 +34,15 @@ export function ComparisonSection() {
             </tr>
             <tr>
               <td className="p-2 sm:p-4 font-medium">表記ゆれ補正<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（1-2 → 1丁目...）</span></td>
-              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-brand mx-auto" /></td>
-              <td className="p-2 sm:p-4 text-center"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-green-500 mx-auto" /></td>
-              <td className="p-2 sm:p-4 text-center"><MinusCircle className="inline h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground mx-auto" /><br/><span className="hidden sm:block text-[10px] text-muted-foreground mt-1">※郵便番号のみ</span></td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><span className="text-xl sm:text-2xl font-black text-brand">◯</span></td>
+              <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-black text-green-500">◯</span></td>
+              <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-bold text-muted-foreground">△</span><br/><span className="hidden sm:block text-[10px] text-muted-foreground mt-1">※郵便番号のみ</span></td>
             </tr>
             <tr>
               <td className="p-2 sm:p-4 font-medium">緯度経度抽出<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（ジオコーディング）</span></td>
-              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-brand mx-auto" /></td>
-              <td className="p-2 sm:p-4 text-center"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-green-500 mx-auto" /></td>
-              <td className="p-2 sm:p-4 text-center"><XCircle className="inline h-4 w-4 sm:h-5 sm:w-5 text-red-500 mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><span className="text-xl sm:text-2xl font-black text-brand">◯</span></td>
+              <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-black text-green-500">◯</span></td>
+              <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-bold text-red-500">✕</span></td>
             </tr>
             <tr>
               <td className="p-2 sm:p-4 font-medium">データ保存</td>
@@ -54,9 +54,9 @@ export function ComparisonSection() {
             </tr>
             <tr>
               <td className="p-2 sm:p-4 font-medium">API連携</td>
-              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-brand mx-auto" /></td>
-              <td className="p-2 sm:p-4 text-center"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-green-500 mx-auto" /></td>
-              <td className="p-2 sm:p-4 text-center"><MinusCircle className="inline h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><span className="text-xl sm:text-2xl font-black text-brand">◯</span></td>
+              <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-black text-green-500">◯</span></td>
+              <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-bold text-muted-foreground">△</span></td>
             </tr>
           </tbody>
         </table>
