@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
-import { LogOut, Key, Database, CreditCard, User as UserIcon } from 'lucide-react'
+import { LogOut, Key, Database, CreditCard, User as UserIcon, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { UpgradeButton } from '@/components/upgrade-button'
 
@@ -59,7 +59,11 @@ export default async function DashboardPage() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
+        <div className="mb-6">
+          <Link href="/" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-brand transition-colors mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            トップページへ戻る
+          </Link>
           <h1 className="text-2xl font-bold text-foreground">マイページ</h1>
           <p className="text-muted-foreground mt-1">アカウント情報とAPIキーの管理</p>
         </div>
