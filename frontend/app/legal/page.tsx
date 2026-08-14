@@ -48,7 +48,7 @@ export default function LegalPage() {
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">販売価格</th>
-                  <td className="py-4 px-6 text-muted-foreground">料金プランのページにて表示する価格。</td>
+                  <td className="py-4 px-6 text-muted-foreground">当サイトトップページの「料金プラン」セクションにて表示する価格。</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">商品代金以外に必要な料金</th>
@@ -60,7 +60,10 @@ export default function LegalPage() {
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">商品の引渡時期</th>
-                  <td className="py-4 px-6 text-muted-foreground">クレジットカード決済完了後、直ちにご利用いただけます。</td>
+                  <td className="py-4 px-6 text-muted-foreground">
+                    クレジットカード決済完了後、直ちにご利用いただけます。<br/>
+                    <span className="text-xs opacity-80 mt-1 inline-block">※月額課金となり、決済日から起算して1ヶ月間有効です。以降、解約されるまで1ヶ月ごとに自動更新となります。</span>
+                  </td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">返品・キャンセルに関する特約</th>
