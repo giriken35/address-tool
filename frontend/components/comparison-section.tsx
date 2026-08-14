@@ -3,11 +3,11 @@
 export function ComparisonSection() {
   return (
     <section className="mt-20 mx-auto max-w-5xl px-4 sm:px-6 scroll-mt-32" id="comparison">
-      <div className="text-center mb-10">
+      <div className="text-center mb-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
           他社サービスとの比較
         </h2>
-        <p className="mt-4 text-sm text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
           圧倒的なコストパフォーマンスで、企業の住所データ整備の課題を解決します。
         </p>
       </div>

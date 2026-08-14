@@ -104,14 +104,14 @@ export default async function Page() {
 
       {/* 料金プラン（さりげない説明） */}
       <section id="pricing" className="mt-20 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
-        <div className="text-center">
-          <h2 className="text-xl font-bold text-foreground sm:text-2xl">料金プラン / 開発者API</h2>
-          <p className="mt-3 text-sm text-muted-foreground">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">料金プラン / 開発者API</h2>
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             個人利用や小規模なデータ整理は、ずっと無料でお使いいただけます。
           </p>
         </div>
         
-        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           {/* Free Plan */}
           <div className="relative flex flex-col rounded-2xl border border-border bg-surface p-6">
             <div className="mb-4">
@@ -150,7 +150,7 @@ export default async function Page() {
       {/* SEO Section */}
       <section className="mt-20 mx-auto max-w-5xl px-4 sm:px-6 pb-8">
         <div className="rounded-2xl border border-border bg-surface/40 p-6 sm:p-10">
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-12 text-center">
             なぜエクセルの住所正規化や「緯度・経度」の変換（ジオコーディング）が必要なのか？
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
