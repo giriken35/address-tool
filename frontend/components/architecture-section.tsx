@@ -30,14 +30,15 @@ export function ArchitectureSection() {
                お客様の環境 (自社システム等)
             </div>
 
-            {/* 矢印 1 (太く強調・余白を確保) */}
-            <div className="flex flex-col items-center my-4">
-              <div className="w-1 h-6 bg-gradient-to-b from-brand/20 to-brand/40 rounded-t-full"></div>
-              <div className="whitespace-nowrap rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-[11px] font-bold text-brand shadow-sm flex items-center gap-1.5 backdrop-blur-sm z-10">
-                <Lock className="h-3 w-3" /> HTTPS暗号化通信で送信
+            {/* 矢印 1 (統一されたプロフェッショナルなデザイン) */}
+            <div className="flex flex-col items-center my-3">
+              <div className="w-[2px] h-6 bg-brand/30"></div>
+              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-[11px] font-bold text-foreground shadow-sm flex items-center gap-1.5 z-10">
+                <Lock className="h-3 w-3 text-brand" /> HTTPS暗号化通信で送信
               </div>
-              <div className="w-1 h-6 bg-gradient-to-b from-brand/40 to-brand/60"></div>
-              <ArrowDown className="h-5 w-5 text-brand/80 -mt-1.5" />
+              <div className="w-[2px] h-6 bg-brand/30"></div>
+              {/* CSSを使った完璧な三角形の矢印 */}
+              <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-brand/30"></div>
             </div>
 
             {/* 処理（揮発） - 目立たせる */}
@@ -65,14 +66,14 @@ export function ArchitectureSection() {
               </div>
             </div>
 
-            {/* 矢印 2 (細く・点線で「データは送られない」ことを強調) */}
-            <div className="flex flex-col items-center my-4">
-              <div className="w-0.5 h-6 bg-border border-l-2 border-dashed border-muted-foreground/30"></div>
-              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-[10px] font-semibold text-muted-foreground shadow-sm z-10">
+            {/* 矢印 2 (上の矢印と完全に統一されたデザイン) */}
+            <div className="flex flex-col items-center my-3">
+              <div className="w-[2px] h-6 bg-brand/30"></div>
+              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-[11px] font-bold text-muted-foreground shadow-sm z-10">
                 処理件数(ログ)のみ記録
               </div>
-              <div className="w-0.5 h-6 bg-border border-l-2 border-dashed border-muted-foreground/30"></div>
-              <ArrowDown className="h-4 w-4 text-muted-foreground/50 -mt-1.5" />
+              <div className="w-[2px] h-6 bg-brand/30"></div>
+              <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-brand/30"></div>
             </div>
 
             {/* 出力/DB (半透明でデータが残らないことを強調) */}
