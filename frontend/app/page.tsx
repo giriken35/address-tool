@@ -5,6 +5,8 @@ import { NormalizerTool } from "@/components/normalizer-tool"
 import { UseCases } from "@/components/use-cases"
 import { ProPlanCard } from "@/components/pro-plan-card"
 import { StickyHeader } from "@/components/sticky-header"
+import { ArchitectureSection } from "@/components/architecture-section"
+import { ComparisonSection } from "@/components/comparison-section"
 import { createClient } from '@/utils/supabase/server'
 
 export default async function Page() {
@@ -90,8 +92,14 @@ export default async function Page() {
       {/* ユースケース */}
       <UseCases />
 
+      {/* セキュリティ・アーキテクチャ */}
+      <ArchitectureSection />
+
+      {/* 競合比較 */}
+      <ComparisonSection />
+
       {/* 料金プラン（さりげない説明） */}
-      <section id="pricing" className="mt-12 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
+      <section id="pricing" className="mt-20 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
         <div className="text-center">
           <h2 className="text-xl font-bold text-foreground sm:text-2xl">料金プラン / 開発者API</h2>
           <p className="mt-3 text-sm text-muted-foreground">
