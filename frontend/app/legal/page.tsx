@@ -38,13 +38,13 @@ export default function LegalPage() {
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">電話番号</th>
                   <td className="py-4 px-6 text-muted-foreground">
-                    [電話番号]<br/>
+                    090-6127-3280<br/>
                     <span className="text-xs opacity-80">※サービスに関するお問い合わせは、原則としてメールにてお願いいたします。</span>
                   </td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">メールアドレス</th>
-                  <td className="py-4 px-6 text-muted-foreground">[連絡先メールアドレス]</td>
+                  <td className="py-4 px-6 text-muted-foreground">katarigikatarigi@gmail.com</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">販売価格</th>
@@ -69,9 +69,7 @@ export default function LegalPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-8 text-sm text-muted-foreground p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg">
-            <p>※上記内容はプレースホルダー（ダミーテキスト）です。本番公開前にお客様の実際の情報に書き換えてください。</p>
-          </div>
+
         </div>
       </div>
     </div>
