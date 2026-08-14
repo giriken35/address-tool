@@ -55,6 +55,7 @@ export const viewport: Viewport = {
 import { Header } from '@/components/header'
 import { Toaster } from 'sonner'
 import { BackToTop } from '@/components/back-to-top'
+import { RefreshNotifier } from '@/components/refresh-notifier'
 
 export default function RootLayout({
   children,
@@ -68,6 +69,7 @@ export default function RootLayout({
         <Header />
         {children}
         <BackToTop />
+        <RefreshNotifier />
         <Toaster position="top-center" richColors />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
