@@ -39,11 +39,11 @@ export default async function Page() {
                 料金プラン / 開発者API
               </a>
               {user ? (
-                <Link href="/dashboard" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-colors">
+                <Link href="/dashboard" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-all active:scale-95">
                   マイページへ
                 </Link>
               ) : (
-                <Link href="/login" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-colors">
+                <Link href="/login" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-all active:scale-95">
                   ログイン / 登録
                 </Link>
               )}
@@ -138,7 +138,7 @@ export default async function Page() {
               </li>
             </ul>
             <div className="mt-auto">
-              <a href="#tool-section" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:bg-brand/10">
+              <a href="#tool-section" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm font-semibold text-brand transition-all hover:bg-brand/10 active:scale-95">
                 ページ上部で今すぐ試す（無料）
               </a>
             </div>

@@ -305,7 +305,7 @@ export function NormalizerTool() {
             <button
               type="button"
               onClick={tryStack}
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand/30 bg-white px-4 py-2.5 text-sm font-bold text-brand shadow-sm transition-all hover:bg-brand/10 hover:shadow-md hover:shadow-brand/10"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand/30 bg-white px-4 py-2.5 text-sm font-bold text-brand shadow-sm transition-all hover:bg-brand/10 hover:shadow-md hover:shadow-brand/10 active:scale-95"
             >
               <FileDown className="h-4 w-4" />
               ワンクリックで動作を試す

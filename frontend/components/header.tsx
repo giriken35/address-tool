@@ -51,7 +51,7 @@ export function Header() {
 
         {/* Mobile Hamburger Button */}
         <button 
-          className="md:hidden flex items-center justify-center p-2 -mr-2 text-foreground z-50"
+          className="md:hidden flex items-center justify-center p-2 -mr-2 text-foreground z-50 transition-transform active:scale-95"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >

@@ -4,7 +4,7 @@ export function ProPlanCard() {
   return (
     <Link 
       href="/checkout"
-      className="relative block rounded-2xl border-2 border-brand/60 bg-gradient-to-br from-brand/5 to-brand-2/10 p-6 shadow-[0_0_30px_-5px_rgba(108,99,255,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.5)] sm:scale-105 sm:z-10"
+      className="relative block rounded-2xl border-2 border-brand/60 bg-gradient-to-br from-brand/5 to-brand-2/10 p-6 shadow-[0_0_30px_-5px_rgba(108,99,255,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.5)] sm:scale-105 sm:z-10 active:scale-[0.98] sm:active:scale-100"
     >
       <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-xs font-bold text-white shadow-md">
         ビジネス向け

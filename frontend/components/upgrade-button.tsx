@@ -4,7 +4,7 @@ export function UpgradeButton({ className, children }: { className?: string, chi
   return (
     <Link 
       href="/checkout"
-      className={`${className} flex items-center justify-center`}
+      className={`${className} flex items-center justify-center transition-transform active:scale-95`}
     >
       {children}
     </Link>

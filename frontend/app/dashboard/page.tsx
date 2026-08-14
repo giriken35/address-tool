@@ -50,7 +50,7 @@ export default async function DashboardPage() {
               {user.email}
             </div>
             <form action="/auth/signout" method="post">
-              <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors">
+              <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-all active:scale-95">
                 <LogOut className="w-5 h-5" />
               </button>
             </form>
@@ -141,7 +141,7 @@ export default async function DashboardPage() {
                   className="w-full bg-muted border border-border rounded-xl py-3 px-4 text-sm font-mono text-muted-foreground focus:outline-none"
                 />
               </div>
-              <button className="py-3 px-6 bg-secondary hover:bg-secondary/80 text-foreground border border-border rounded-xl font-medium transition-colors text-sm whitespace-nowrap">
+              <button className="py-3 px-6 bg-secondary hover:bg-secondary/80 text-foreground border border-border rounded-xl font-medium transition-all active:scale-95 text-sm whitespace-nowrap">
                 キーを生成する
               </button>
             </div>
