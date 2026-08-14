@@ -42,6 +42,7 @@ export const viewport: Viewport = {
 
 import { Header } from '@/components/header'
 import { Toaster } from 'sonner'
+import { BackToTop } from '@/components/back-to-top'
 
 export default function RootLayout({
   children,
@@ -54,6 +55,7 @@ export default function RootLayout({
         <div className="ambient-bg" aria-hidden="true" />
         <Header />
         {children}
+        <BackToTop />
         <Toaster position="top-center" richColors />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
