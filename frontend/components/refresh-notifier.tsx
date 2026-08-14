@@ -22,7 +22,7 @@ export function RefreshNotifier() {
         toast.success("ページを更新しました", {
           position: "top-center",
           duration: 2000,
-          style: { padding: '8px 20px', minHeight: '36px', fontSize: '14px', borderRadius: '100px', width: 'fit-content', minWidth: 'auto' }
+          style: { padding: '8px 24px', minHeight: '36px', fontSize: '14px', borderRadius: '100px', width: 'max-content', margin: '0 auto' }
         })
       }, 500)
 
