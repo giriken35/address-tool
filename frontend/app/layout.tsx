@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
   description:
-    '面倒なエクセルの住所表記揺れを数秒で一括統一。緯度経度の抽出にも対応した完全無料の正規化ツール。',
+    'エクセルの住所表記揺れを一括で統一！',
   keywords: [
     '住所',
     '表記揺れ',
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     url: 'https://address-tool-qpli.vercel.app',
     siteName: '住所データ自動整形ツール',
     title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
-    description: '面倒なエクセルの住所表記揺れを数秒で一括統一。緯度経度の抽出にも対応した完全無料のツール。',
+    description: 'エクセルの住所表記揺れを一括で統一！',
   },
   twitter: {
     card: 'summary_large_image',
     title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
-    description: '面倒なエクセルの住所表記揺れを数秒で一括統一。完全無料で登録不要！',
+    description: 'エクセルの住所表記揺れを一括で統一！',
   },
 }
 
