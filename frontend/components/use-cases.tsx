@@ -88,7 +88,7 @@ export function UseCases() {
   }
 
   return (
-    <section className="mt-16 mx-auto max-w-5xl px-4 sm:px-6">
+    <section id="features" className="mt-16 mx-auto max-w-5xl px-4 sm:px-6 scroll-mt-32">
       <div className="text-center mb-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground">こんな業務の効率化に最適です</h2>
         <p className="mt-4 text-sm sm:text-base text-muted-foreground font-medium">

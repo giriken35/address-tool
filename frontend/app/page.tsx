@@ -8,6 +8,8 @@ import { StickyHeader } from "@/components/sticky-header"
 import { ArchitectureSection } from "@/components/architecture-section"
 import { ComparisonSection } from "@/components/comparison-section"
 import { AiComparisonSection } from "@/components/ai-comparison-section"
+import { FaqSection } from "@/components/faq-section"
+import { ContactSection } from "@/components/contact-section"
 import { createClient } from '@/utils/supabase/server'
 
 export default async function Page() {
@@ -191,14 +193,21 @@ export default async function Page() {
           </div>
         </div>
       </section>
+
+      {/* FAQ セクション */}
+      <FaqSection />
+
+      {/* お問い合わせセクション */}
+      <ContactSection />
+      
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
         <div className="mb-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
           <Link href="/terms" className="hover:text-brand transition-colors">利用規約</Link>
           <Link href="/privacy" className="hover:text-brand transition-colors">プライバシーポリシー</Link>
           <Link href="/legal" className="hover:text-brand transition-colors">特定商取引法に基づく表記</Link>
-          <Link href="/faq" className="hover:text-brand transition-colors">よくある質問 (FAQ)</Link>
-          <Link href="/contact" className="hover:text-brand transition-colors">お問い合わせ</Link>
+          <a href="#faq" className="hover:text-brand transition-colors">よくある質問 (FAQ)</a>
+          <a href="#contact" className="hover:text-brand transition-colors">お問い合わせ</a>
         </div>
         <p>
           住所表記揺れ 一括正規化ツール　|　
