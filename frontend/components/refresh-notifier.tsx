@@ -19,8 +19,12 @@ export function RefreshNotifier() {
       // 視覚的に「更新している感」を出すために少し待機してからメッセージ表示
       const timer = setTimeout(() => {
         setIsRefreshing(false)
-        toast.success("ページを更新しました")
-      }, 600)
+        toast.success("ページを更新しました", {
+          position: "top-center",
+          duration: 2000,
+          style: { padding: '12px 16px', fontSize: '14px', borderRadius: '100px', width: 'auto', margin: '0 auto' }
+        })
+      }, 500)
 
       return () => clearTimeout(timer)
     }
@@ -31,10 +35,10 @@ export function RefreshNotifier() {
 
   // 更新中用のフルスクリーンスピナー
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/50 backdrop-blur-sm transition-opacity duration-300">
-      <div className="flex flex-col items-center gap-4 rounded-2xl bg-card border border-border px-10 py-8 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-        <Loader2 className="h-10 w-10 animate-spin text-brand" />
-        <p className="text-sm font-bold text-foreground tracking-wider">更新中...</p>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/20 transition-opacity duration-300">
+      <div className="flex items-center gap-3 rounded-full bg-card/90 backdrop-blur-md border border-border/50 px-6 py-3 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-200">
+        <Loader2 className="h-5 w-5 animate-spin text-brand" />
+        <p className="text-sm font-bold text-foreground">更新中...</p>
       </div>
     </div>
   )
