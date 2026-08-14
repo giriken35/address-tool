@@ -7,6 +7,12 @@ export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // F5更新時などにスクロール位置を復元せず、強制的に一番上に戻す
+    if (typeof window !== 'undefined' && 'scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
+
     const handleScroll = () => {
       // 400px以上スクロールしたら表示
       if (window.scrollY > 400) {
