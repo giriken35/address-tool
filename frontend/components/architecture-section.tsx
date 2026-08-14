@@ -33,7 +33,7 @@ export function ArchitectureSection() {
             {/* 矢印 1 (統一されたプロフェッショナルなデザイン) */}
             <div className="flex flex-col items-center my-3">
               <div className="w-[2px] h-6 bg-brand/30"></div>
-              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-[11px] font-bold text-foreground shadow-sm flex items-center gap-1.5 z-10">
+              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-bold text-foreground shadow-sm flex items-center gap-1.5 z-10">
                 <Lock className="h-3 w-3 text-brand" /> HTTPS暗号化通信で送信
               </div>
               <div className="w-[2px] h-6 bg-brand/30"></div>
@@ -69,7 +69,7 @@ export function ArchitectureSection() {
             {/* 矢印 2 (上の矢印と完全に統一されたデザイン) */}
             <div className="flex flex-col items-center my-3">
               <div className="w-[2px] h-6 bg-brand/30"></div>
-              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-[11px] font-bold text-muted-foreground shadow-sm z-10">
+              <div className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-bold text-muted-foreground shadow-sm z-10">
                 処理件数(ログ)のみ記録
               </div>
               <div className="w-[2px] h-6 bg-brand/30"></div>

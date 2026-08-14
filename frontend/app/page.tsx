@@ -160,7 +160,7 @@ export default async function Page() {
                 <DatabaseZap className="h-5 w-5" />
               </div>
               <h3 className="mb-2 font-bold text-foreground text-sm">重複・配送エラーの防止</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 「1丁目2番地」と「1-2」といった<strong>住所の表記揺れ</strong>は、名寄せ時の重複登録やDMの配送エラーの大きな原因に。無料で一括変換し、クリーンなデータ基盤を保ちます。
               </p>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
@@ -171,7 +171,7 @@ export default async function Page() {
                 <Map className="h-5 w-5" />
               </div>
               <h3 className="mb-2 font-bold text-foreground text-sm">瞬時の商圏分析（ジオコーディング）</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 正規化と同時に<strong>「緯度・経度」を自動抽出</strong>。TableauやGoogleマイマップなどの地図アプリに取り込むことで、エリアマーケティングや商圏分析がすぐに行えます。
               </p>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-2/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
@@ -182,7 +182,7 @@ export default async function Page() {
                 <Terminal className="h-5 w-5" />
               </div>
               <h3 className="mb-2 font-bold text-foreground text-sm">自社システムへの組み込み</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 専用の開発者向けAPIを活用し、自社のCRMやSFAシステムに直接連携。入力された住所データをリアルタイムで正規化・空間データ化します。
               </p>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-blue-500/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
@@ -204,7 +204,7 @@ export default async function Page() {
           住所表記揺れ 一括正規化ツール　|　
           データは正規化処理のため安全にAPIへ送信されますが、一切保存されません。
         </p>
-        <p className="mt-1 text-[10px] opacity-70">
+        <p className="mt-1 text-xs opacity-70">
           ※本サービスは、デジタル庁の「アドレス・ベース・レジストリ」および国土地理院のオープンデータを利用しています。
         </p>
         <p className="mt-3">Built with Next.js &amp; Tailwind CSS</p>

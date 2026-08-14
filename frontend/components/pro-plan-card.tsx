@@ -36,7 +36,7 @@ export function ProPlanCard() {
           <span className="text-sm font-bold text-brand">読み込み中...</span>
         </div>
       )}
-      <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-[10px] font-bold text-white shadow-md">
+      <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-xs font-bold text-white shadow-md">
         ビジネス向け
       </div>
       <div className="mb-4">

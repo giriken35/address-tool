@@ -124,7 +124,7 @@ export function UseCases() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mb-2 font-bold text-foreground text-sm">{title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed hidden sm:block">
+                <p className="text-sm text-muted-foreground leading-relaxed hidden sm:block">
                   {desc}
                 </p>
               </div>
