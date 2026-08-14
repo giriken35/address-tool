@@ -105,7 +105,7 @@ export default async function Page() {
       <ComparisonSection />
 
       {/* 料金プラン（さりげない説明） */}
-      <section id="pricing" className="mt-20 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
+      <section id="pricing" className="scroll-mt-32 mt-20 mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur-sm sm:p-10">
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground">料金プラン / 開発者API</h2>
           <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
