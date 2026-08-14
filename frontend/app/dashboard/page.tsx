@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { LogOut, Key, Database, CreditCard, User as UserIcon } from 'lucide-react'
 import Link from 'next/link'
+import { UpgradeButton } from '@/components/upgrade-button'
 
 export const metadata = {
   title: 'マイページ | 住所データ自動整形ツール',
@@ -88,9 +89,9 @@ export default async function DashboardPage() {
               <p className="text-xs text-muted-foreground mt-3">毎月1日にリセットされます。</p>
             </div>
 
-            <button className="w-full sm:w-auto py-2.5 px-6 bg-brand hover:bg-brand/90 text-white rounded-xl font-medium transition-colors text-sm shadow-sm">
+            <UpgradeButton className="w-full sm:w-auto py-2.5 px-6 bg-brand hover:bg-brand/90 text-white rounded-xl font-medium transition-colors text-sm shadow-sm">
               無制限のProプランにアップグレード (¥5,000/月)
-            </button>
+            </UpgradeButton>
           </div>
 
           {/* Account Profile */}
