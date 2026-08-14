@@ -7,6 +7,7 @@ import { ProPlanCard } from "@/components/pro-plan-card"
 import { StickyHeader } from "@/components/sticky-header"
 import { ArchitectureSection } from "@/components/architecture-section"
 import { ComparisonSection } from "@/components/comparison-section"
+import { AiComparisonSection } from "@/components/ai-comparison-section"
 import { createClient } from '@/utils/supabase/server'
 
 export default async function Page() {
@@ -94,6 +95,9 @@ export default async function Page() {
 
       {/* セキュリティ・アーキテクチャ */}
       <ArchitectureSection />
+
+      {/* 生成AI（ChatGPTなど）との違い */}
+      <AiComparisonSection />
 
       {/* 競合比較 */}
       <ComparisonSection />
