@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://address-tool.com', // TODO: 実際のドメインに置き換えてください
+    url: 'https://address-tool-qpli.vercel.app',
     siteName: '住所データ自動整形ツール',
     title: '住所データ自動整形ツール | 住所表記揺れを瞬時に一括正規化',
     description: 'エクセルの面倒な住所クレンジングを数秒で完了。「１丁目２番地」や「1-2」などの表記揺れを一括統一し、緯度・経度も自動抽出。',
