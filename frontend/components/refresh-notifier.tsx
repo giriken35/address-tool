@@ -22,7 +22,7 @@ export function RefreshNotifier() {
         toast.success("ページを更新しました", {
           position: "top-center",
           duration: 2000,
-          style: { padding: '12px 16px', fontSize: '14px', borderRadius: '100px', width: 'auto', margin: '0 auto' }
+          style: { padding: '4px 16px', minHeight: '36px', fontSize: '14px', borderRadius: '100px', width: 'auto', margin: '0 auto' }
         })
       }, 500)
 
@@ -35,9 +35,9 @@ export function RefreshNotifier() {
 
   // 更新中用のフルスクリーンスピナー
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/20 transition-opacity duration-300">
-      <div className="flex items-center gap-3 rounded-full bg-card/90 backdrop-blur-md border border-border/50 px-6 py-3 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-200">
-        <Loader2 className="h-5 w-5 animate-spin text-brand" />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/40 backdrop-blur-[2px] transition-opacity duration-300">
+      <div className="flex items-center gap-3 rounded-full bg-card/90 backdrop-blur-md border border-border/50 px-5 py-2.5 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-200">
+        <Loader2 className="h-4 w-4 animate-spin text-brand" />
         <p className="text-sm font-bold text-foreground">更新中...</p>
       </div>
     </div>
