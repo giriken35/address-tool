@@ -76,9 +76,9 @@ export function ArchitectureSection() {
               <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-brand/30"></div>
             </div>
 
-            {/* 出力/DB (半透明でデータが残らないことを強調) */}
-            <div className="w-full max-w-[280px] rounded-xl bg-card border-2 border-dashed border-border p-3 flex items-center justify-center gap-2 text-sm font-bold text-muted-foreground shadow-sm opacity-60">
-              <Database className="h-4 w-4" /> データベース (Supabase)
+            {/* 出力/DB (上部のボックスと統一したデザイン) */}
+            <div className="w-full max-w-[280px] rounded-xl bg-gradient-to-r from-surface to-card border border-border p-4 flex items-center justify-center gap-2 text-sm font-bold text-foreground shadow-md transition-transform hover:scale-105">
+              <Database className="h-5 w-5 text-muted-foreground" /> データベース (Supabase)
             </div>
 
           </div>
