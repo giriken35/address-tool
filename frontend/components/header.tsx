@@ -24,7 +24,13 @@ export function Header() {
         <Link 
           href="/" 
           className="group flex items-center gap-2.5 rounded-xl px-2 py-1.5 -ml-2 transition-all hover:bg-white/10 active:scale-95 z-50"
-          onClick={closeMenu}
+          onClick={(e) => {
+            closeMenu()
+            if (window.location.pathname === '/') {
+              e.preventDefault()
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+          }}
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand to-brand-2 text-white shadow-sm">
             <Map className="h-4 w-4" />
