@@ -1,9 +1,9 @@
-import { ShieldCheck, Database, Zap } from "lucide-react"
+import { ShieldCheck, Database, Zap, Server, ArrowDown } from "lucide-react"
 
 export function ArchitectureSection() {
   return (
     <section className="mt-12 mx-auto max-w-5xl px-4 sm:px-6 scroll-mt-32" id="security">
-      <div className="rounded-3xl border border-border bg-gradient-to-br from-surface to-card p-8 sm:p-12 shadow-sm relative overflow-hidden">
+      <div className="rounded-3xl border border-border bg-gradient-to-br from-surface to-card p-6 sm:p-12 shadow-sm relative overflow-hidden">
         {/* 背景の装飾 */}
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
         
@@ -20,45 +20,58 @@ export function ArchitectureSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
-          {/* 左側：図解イメージ */}
-          <div className="rounded-2xl border border-border/50 bg-background/50 p-6 backdrop-blur-sm">
-            <div className="space-y-4">
-              {/* Client */}
-              <div className="flex items-center gap-4">
-                <div className="flex-1 rounded-xl bg-card border border-border p-3 text-center text-sm font-semibold text-foreground shadow-sm">
-                  お客様の環境 (ブラウザ / 自社システム)
+          {/* 左側：図解イメージ（フローチャート風に改善） */}
+          <div className="rounded-2xl border border-border/50 bg-background/50 p-8 backdrop-blur-sm flex flex-col items-center">
+            
+            {/* 入力 */}
+            <div className="w-full max-w-[280px] rounded-xl bg-card border border-border p-3 text-center text-sm font-bold text-foreground shadow-sm flex items-center justify-center gap-2">
+               <Server className="h-4 w-4 text-muted-foreground" />
+               お客様の環境 (自社システム等)
+            </div>
+
+            {/* 矢印 1 */}
+            <div className="flex flex-col items-center my-2">
+              <div className="w-px h-6 bg-border"></div>
+              <div className="rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-medium text-muted-foreground shadow-sm relative z-10 -my-2">
+                HTTPS暗号化通信で送信
+              </div>
+              <div className="w-px h-6 bg-border"></div>
+              <ArrowDown className="h-4 w-4 text-border -mt-1" />
+            </div>
+
+            {/* 処理（揮発） */}
+            <div className="w-full max-w-[320px] relative rounded-xl border-2 border-brand/30 bg-brand/5 p-5 text-center shadow-[0_0_15px_-3px_rgba(108,99,255,0.15)]">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface px-3 py-0.5 rounded-full border border-brand/20 text-xs font-bold text-brand shadow-sm whitespace-nowrap">
+                メモリ上の揮発処理エリア
+              </div>
+              <div className="flex justify-center gap-3 mt-3 mb-4">
+                <div className="flex items-center gap-1.5 rounded-lg bg-background px-3 py-2 text-xs font-medium text-foreground shadow-sm border border-border">
+                  <Zap className="h-4 w-4 text-brand fill-brand/20" /> 高速API認証
+                </div>
+                <div className="flex items-center gap-1.5 rounded-lg bg-background px-3 py-2 text-xs font-medium text-foreground shadow-sm border border-border">
+                  <ShieldCheck className="h-4 w-4 text-brand" /> 正規化処理
                 </div>
               </div>
-              {/* Arrow */}
-              <div className="flex justify-center text-muted-foreground text-xs font-mono">
-                ↓ 住所データ送信 (HTTPS暗号化)
-              </div>
-              {/* Server Processing Area */}
-              <div className="relative rounded-xl border-2 border-dashed border-brand/40 bg-brand/5 p-5 text-center">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface px-2 text-xs font-bold text-brand">
-                  メモリ上の揮発処理エリア
-                </div>
-                <div className="flex justify-center gap-2 mb-3 mt-1">
-                  <div className="flex items-center gap-1 rounded bg-background px-2 py-1.5 text-xs text-foreground shadow-sm border border-border">
-                    <Zap className="h-3.5 w-3.5 text-brand" /> 高速API認証
-                  </div>
-                  <div className="flex items-center gap-1 rounded bg-background px-2 py-1.5 text-xs text-foreground shadow-sm border border-border">
-                    正規化エンジン
-                  </div>
-                </div>
-                <p className="text-[11px] font-bold text-brand mt-2 bg-brand/10 py-1 rounded">※処理完了後、瞬時にメモリから完全破棄</p>
-              </div>
-              {/* Arrow */}
-              <div className="flex justify-center text-muted-foreground text-xs font-mono">
-                ↓ 処理件数(数値)のみ送信 / 住所は保存しない
-              </div>
-              {/* DB */}
-              <div className="flex items-center gap-4">
-                <div className="flex-1 rounded-xl bg-card border border-border p-3 flex items-center justify-center gap-2 text-sm font-semibold text-foreground shadow-sm opacity-60">
-                  <Database className="h-4 w-4" /> データベース (Supabase)
-                </div>
+              <div className="text-xs font-bold text-brand bg-brand/10 py-1.5 px-2 rounded-md">
+                処理後、瞬時にメモリから完全破棄
               </div>
             </div>
+
+            {/* 矢印 2 */}
+            <div className="flex flex-col items-center my-2">
+              <div className="w-px h-6 bg-border"></div>
+              <div className="rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-medium text-muted-foreground shadow-sm relative z-10 -my-2">
+                処理件数(ログ)のみ記録
+              </div>
+              <div className="w-px h-6 bg-border"></div>
+              <ArrowDown className="h-4 w-4 text-border -mt-1" />
+            </div>
+
+            {/* 出力/DB */}
+            <div className="w-full max-w-[280px] rounded-xl bg-card border border-border p-3 flex items-center justify-center gap-2 text-sm font-semibold text-muted-foreground shadow-sm opacity-70">
+              <Database className="h-4 w-4" /> データベース (Supabase)
+            </div>
+
           </div>
 
           {/* 右側：3つのポイント */}

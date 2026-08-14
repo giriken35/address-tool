@@ -12,53 +12,54 @@ export function ComparisonSection() {
         </p>
       </div>
 
-      <div className="overflow-x-auto pb-4">
-        <div className="min-w-[800px] rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
-          <table className="w-full text-sm text-left">
-            <thead className="bg-surface/50 text-muted-foreground border-b border-border">
-              <tr>
-                <th className="p-4 font-medium w-1/4">機能・特徴</th>
-                <th className="p-4 font-bold text-brand bg-brand/5 border-l border-r border-brand/20 w-1/4 text-center">当サービス (Proプラン)</th>
-                <th className="p-4 font-medium w-1/4 text-center">A社 (大手地図系API)</th>
-                <th className="p-4 font-medium w-1/4 text-center">B社 (Kintoneプラグイン等)</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              <tr>
-                <td className="p-4 font-medium">料金</td>
-                <td className="p-4 text-center font-bold text-foreground bg-brand/5 border-l border-r border-brand/20">月額 5,000円<br/><span className="text-xs text-muted-foreground font-normal">（会社全体で使い放題）</span></td>
-                <td className="p-4 text-center text-muted-foreground">月額 50,000円〜<br/><span className="text-xs">（または1ユーザー毎課金）</span></td>
-                <td className="p-4 text-center text-muted-foreground">月額 2,000円〜<br/><span className="text-xs">（機能限定的）</span></td>
-              </tr>
-              <tr>
-                <td className="p-4 font-medium">表記ゆれ補正<br/><span className="text-xs text-muted-foreground font-normal">（例：1-2 → 1丁目2番地）</span></td>
-                <td className="p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-5 w-5 text-brand" /></td>
-                <td className="p-4 text-center"><CheckCircle2 className="inline h-5 w-5 text-green-500" /></td>
-                <td className="p-4 text-center"><MinusCircle className="inline h-5 w-5 text-muted-foreground" /><br/><span className="text-xs text-muted-foreground">※郵便番号からの住所入力のみ</span></td>
-              </tr>
-              <tr>
-                <td className="p-4 font-medium">緯度経度抽出<br/><span className="text-xs text-muted-foreground font-normal">（ジオコーディング）</span></td>
-                <td className="p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-5 w-5 text-brand" /></td>
-                <td className="p-4 text-center"><CheckCircle2 className="inline h-5 w-5 text-green-500" /></td>
-                <td className="p-4 text-center"><XCircle className="inline h-5 w-5 text-red-500" /></td>
-              </tr>
-              <tr>
-                <td className="p-4 font-medium">データ保存・ログ</td>
-                <td className="p-4 text-center bg-brand/5 border-l border-r border-brand/20 font-bold text-brand">
-                  一切保存しない<br/><span className="text-xs font-normal">（完全揮発・高セキュリティ）</span>
-                </td>
-                <td className="p-4 text-center text-muted-foreground">サーバーに記録</td>
-                <td className="p-4 text-center text-muted-foreground">自社環境に依存</td>
-              </tr>
-              <tr>
-                <td className="p-4 font-medium">API連携</td>
-                <td className="p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-5 w-5 text-brand" /></td>
-                <td className="p-4 text-center"><CheckCircle2 className="inline h-5 w-5 text-green-500" /></td>
-                <td className="p-4 text-center"><MinusCircle className="inline h-5 w-5 text-muted-foreground" /></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      {/* スクロールなしで収まるように最適化したテーブル */}
+      <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
+        <table className="w-full text-xs sm:text-sm text-left table-fixed">
+          <thead className="bg-surface/50 text-muted-foreground border-b border-border">
+            <tr>
+              <th className="p-2 sm:p-4 font-medium w-[28%]">機能・特徴</th>
+              <th className="p-2 sm:p-4 font-bold text-brand bg-brand/5 border-l border-r border-brand/20 w-[28%] text-center">当サービス<br className="sm:hidden"/><span className="hidden sm:inline"> </span>(Pro)</th>
+              <th className="p-2 sm:p-4 font-medium w-[22%] text-center">A社<br className="sm:hidden"/><span className="hidden sm:inline"> </span>(地図API)</th>
+              <th className="p-2 sm:p-4 font-medium w-[22%] text-center">B社<br className="sm:hidden"/><span className="hidden sm:inline"> </span>(プラグイン)</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            <tr>
+              <td className="p-2 sm:p-4 font-medium">料金</td>
+              <td className="p-2 sm:p-4 text-center font-bold text-foreground bg-brand/5 border-l border-r border-brand/20">
+                月額 5,000円<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（使い放題）</span>
+              </td>
+              <td className="p-2 sm:p-4 text-center text-muted-foreground">月額 5万円〜</td>
+              <td className="p-2 sm:p-4 text-center text-muted-foreground">月額 2千円〜</td>
+            </tr>
+            <tr>
+              <td className="p-2 sm:p-4 font-medium">表記ゆれ補正<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（1-2 → 1丁目...）</span></td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-brand mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-green-500 mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center"><MinusCircle className="inline h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground mx-auto" /><br/><span className="hidden sm:block text-[10px] text-muted-foreground mt-1">※郵便番号のみ</span></td>
+            </tr>
+            <tr>
+              <td className="p-2 sm:p-4 font-medium">緯度経度抽出<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（ジオコーディング）</span></td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-brand mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-green-500 mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center"><XCircle className="inline h-4 w-4 sm:h-5 sm:w-5 text-red-500 mx-auto" /></td>
+            </tr>
+            <tr>
+              <td className="p-2 sm:p-4 font-medium">データ保存</td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20 font-bold text-brand">
+                保存しない<br/><span className="text-[10px] sm:text-xs font-normal">（完全揮発）</span>
+              </td>
+              <td className="p-2 sm:p-4 text-center text-muted-foreground">記録される</td>
+              <td className="p-2 sm:p-4 text-center text-muted-foreground">自社依存</td>
+            </tr>
+            <tr>
+              <td className="p-2 sm:p-4 font-medium">API連携</td>
+              <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-brand mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center"><CheckCircle2 className="inline h-4 w-4 sm:h-5 sm:w-5 text-green-500 mx-auto" /></td>
+              <td className="p-2 sm:p-4 text-center"><MinusCircle className="inline h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground mx-auto" /></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   )
