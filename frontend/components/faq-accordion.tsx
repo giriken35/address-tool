@@ -47,7 +47,24 @@ const faqs = [
   },
   {
     question: "プロプランの解約はいつでも可能ですか？",
-    answer: "はい、いつでも解約可能です。契約期間の縛りはなく、解約手続き後も次回の更新日までは引き続きプロプランの全機能をご利用いただけます。"
+    answer: (
+      <div className="space-y-4">
+        <p>はい、いつでも解約可能です。契約期間の縛りはなく、解約手続き後も次回の更新日までは引き続きプロプランの全機能をご利用いただけます。</p>
+        <div className="bg-background rounded-xl p-4 border border-border/50 shadow-inner">
+          <p className="text-xs font-bold mb-3 text-foreground">【ご解約スケジュールの例】</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs font-medium">
+            <div className="bg-brand/10 text-brand px-3 py-2 rounded-lg text-center w-full sm:w-auto border border-brand/20">8月15日<br/>初回決済</div>
+            <div className="text-brand/40 hidden sm:block">━━━━</div>
+            <div className="text-brand/40 sm:hidden">▼</div>
+            <div className="bg-red-500/10 text-red-600 px-3 py-2 rounded-lg text-center w-full sm:w-auto border border-red-500/20">9月10日<br/>解約手続き</div>
+            <div className="text-brand/40 hidden sm:block">━━━━</div>
+            <div className="text-brand/40 sm:hidden">▼</div>
+            <div className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-center w-full sm:w-auto border border-border">9月15日まで<br/>利用可能</div>
+          </div>
+        </div>
+        <p className="text-xs opacity-80">※解約した瞬間に使えなくなるわけではなく、お支払い済みの期間（次回更新日の前日）まではそのままご利用いただけます。日割りでの返金はございません。</p>
+      </div>
+    )
   }
 ]
 
@@ -73,9 +90,9 @@ export function FaqAccordion() {
           >
             <button
               onClick={() => toggle(index)}
-              className="flex w-full items-center justify-between px-6 py-5 text-left font-bold text-foreground focus:outline-none"
+              className="flex w-full items-center justify-between px-6 py-5 text-left font-bold text-foreground focus:outline-none select-text cursor-pointer"
             >
-              <span className="text-[15px] sm:text-base">{faq.question}</span>
+              <span className="text-[15px] sm:text-base select-text">{faq.question}</span>
               <span className={`ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors ${isOpen ? "bg-brand text-white" : "bg-muted text-muted-foreground"}`}>
                 {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
               </span>
@@ -86,7 +103,7 @@ export function FaqAccordion() {
               }`}
             >
               <div className="overflow-hidden">
-                <div className="whitespace-pre-wrap px-6 pb-6 pt-1 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+                <div className="whitespace-pre-wrap px-6 pb-6 pt-1 text-sm leading-relaxed text-muted-foreground sm:text-[15px] select-text">
                   {faq.answer}
                 </div>
               </div>
