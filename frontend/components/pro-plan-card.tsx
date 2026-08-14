@@ -1,41 +1,11 @@
-"use client"
-
-import { useState } from "react"
-import { Loader2 } from "lucide-react"
+import Link from "next/link"
 
 export function ProPlanCard() {
-  const [loading, setLoading] = useState(false)
-
-  const handleUpgrade = async () => {
-    if (loading) return
-    setLoading(true)
-    try {
-      const res = await fetch('/api/checkout', { method: 'POST' })
-      const data = await res.json()
-      if (data.url) {
-        window.open(data.url, '_blank')
-        setLoading(false)
-      } else {
-        alert('Stripeの決済設定がまだ完了していません。Vercelの環境変数を設定してください。')
-        setLoading(false)
-      }
-    } catch (e) {
-      alert('エラーが発生しました')
-      setLoading(false)
-    }
-  }
-
   return (
-    <div 
-      onClick={handleUpgrade}
-      className={`relative rounded-2xl border-2 border-brand/60 bg-gradient-to-br from-brand/5 to-brand-2/10 p-6 shadow-[0_0_30px_-5px_rgba(108,99,255,0.3)] cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.5)] sm:scale-105 sm:z-10 ${loading ? 'opacity-80 pointer-events-none' : ''}`}
+    <Link 
+      href="/checkout"
+      className="relative block rounded-2xl border-2 border-brand/60 bg-gradient-to-br from-brand/5 to-brand-2/10 p-6 shadow-[0_0_30px_-5px_rgba(108,99,255,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.5)] sm:scale-105 sm:z-10"
     >
-      {loading && (
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl bg-background/50 backdrop-blur-sm">
-          <Loader2 className="h-8 w-8 animate-spin text-brand mb-2" />
-          <span className="text-sm font-bold text-brand">読み込み中...</span>
-        </div>
-      )}
       <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-xs font-bold text-white shadow-md">
         ビジネス向け
       </div>
@@ -64,6 +34,6 @@ export function ProPlanCard() {
       <div className="mt-6 flex items-center justify-center rounded-xl bg-brand/10 py-3 text-sm font-bold text-brand transition-colors hover:bg-brand hover:text-white">
         今すぐアップグレードする →
       </div>
-    </div>
+    </Link>
   )
 }
