@@ -13,7 +13,7 @@ export function AiComparisonSection() {
             <BotOff className="h-7 w-7" />
           </div>
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-            「ChatGPTに任せればいいのでは？」<br className="sm:hidden" />への明確な答え
+            「流行りの生成AIに任せればいいのでは？」<br className="sm:hidden" />への明確な答え
           </h2>
           <p className="mt-4 text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
             生成AIが進化する現代において、あえて「専用アルゴリズム」を使うべき決定的な理由があります。顧客リストなどの重要データをLLM（大規模言語モデル）に投げることには、以下の大きなリスクが伴います。
