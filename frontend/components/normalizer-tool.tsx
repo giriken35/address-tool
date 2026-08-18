@@ -24,7 +24,7 @@ import { toast } from "sonner"
 function StepHeader({ n, title }: { n: number; title: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-brand-2 text-xs font-bold text-white">
+      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-brand-2 text-xs sm:text-sm font-bold text-white">
         {n}
       </span>
       <h2 className="text-base font-semibold text-foreground">{title}</h2>
@@ -264,21 +264,21 @@ export function NormalizerTool() {
       {/* STEP 1 */}
       <Panel>
         <StepHeader n={1} title="CSVファイルをアップロード" />
-        <p className="mb-4 mt-1 pl-10 text-xs text-muted-foreground">
+        <p className="mb-4 mt-1 pl-10 text-xs sm:text-sm text-muted-foreground">
           UTF-8 / Shift-JIS の CSV に対応しています。
           <span className="block mt-1 opacity-80">※無料お試し版は1回の処理につき最大100件まで。（無制限のAPI/Proプランは右上のリンクから）</span>
         </p>
         <FileDropzone onFile={handleFile} fileName={fileName} onClear={handleClear} />
 
         {error && (
-          <div className="mt-3 flex items-center gap-2 rounded-xl border border-destructive/40 bg-destructive/8 px-4 py-3 text-sm text-destructive">
+          <div className="mt-3 flex items-center gap-2 rounded-xl border border-destructive/40 bg-destructive/8 px-4 py-3 text-sm sm:text-base text-destructive">
             <AlertCircle className="h-4 w-4 shrink-0" />
             {error}
           </div>
         )}
 
         {parsed && (
-          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-brand-2/30 bg-brand-2/8 px-4 py-3 text-xs">
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-brand-2/30 bg-brand-2/8 px-4 py-3 text-xs sm:text-sm">
             <span className="inline-flex items-center gap-1.5 font-semibold text-brand-2">
               <CheckCircle2 className="h-4 w-4" /> 読み込み完了
             </span>
@@ -297,15 +297,15 @@ export function NormalizerTool() {
         {!parsed && (
           <div className="mt-6 flex flex-col items-center gap-3 rounded-xl border border-dashed border-brand/40 bg-brand/5 px-5 py-5 text-center sm:flex-row sm:justify-between sm:text-left">
             <div>
-              <p className="text-sm font-bold text-brand">まずは試してみる</p>
-              <p className="mt-0.5 text-xs text-muted-foreground text-pretty">
+              <p className="text-sm sm:text-base font-bold text-brand">まずは試してみる</p>
+              <p className="mt-0.5 text-xs sm:text-sm text-muted-foreground text-pretty">
                 表記揺れを含んだダミーデータを使って、一瞬で住所が綺麗になる動作を体験できます。
               </p>
             </div>
             <button
               type="button"
               onClick={tryStack}
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand/30 bg-white px-4 py-2.5 text-sm font-bold text-brand shadow-sm transition-all hover:bg-brand/10 hover:shadow-md hover:shadow-brand/10 active:scale-95"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand/30 bg-white px-4 py-2.5 text-sm sm:text-base font-bold text-brand shadow-sm transition-all hover:bg-brand/10 hover:shadow-md hover:shadow-brand/10 active:scale-95"
             >
               <FileDown className="h-4 w-4" />
               ワンクリックで動作を試す
@@ -322,10 +322,10 @@ export function NormalizerTool() {
             <div className="mt-4 space-y-4 pl-0 sm:pl-10">
               <div className="mb-4">
                 <div className="mb-3">
-                  <label className="block text-sm font-bold text-foreground">
+                  <label className="block text-sm sm:text-base font-bold text-foreground">
                     【対象の住所列】
                   </label>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
                     複数ある場合はすべて選択できます
                   </p>
                 </div>
@@ -339,7 +339,7 @@ export function NormalizerTool() {
                     return (
                       <label
                         key={c}
-                        className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                        className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 text-sm sm:text-base transition-colors ${
                           isForbidden 
                             ? "opacity-50 cursor-not-allowed bg-surface/30 border-border/50" 
                             : `cursor-pointer hover:bg-surface-2 ${addressCols.includes(c) ? "border-brand bg-brand/5 text-foreground" : "border-border bg-surface text-muted-foreground"}`
@@ -370,10 +370,10 @@ export function NormalizerTool() {
 
               <div className="pt-4 border-t border-border/50">
                 <div className="mb-3">
-                  <label className="block text-sm font-bold text-foreground">
+                  <label className="block text-sm sm:text-base font-bold text-foreground">
                     【対象の郵便番号列】
                   </label>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
                     任意：正規化したい場合は選択してください
                   </p>
                 </div>
@@ -391,7 +391,7 @@ export function NormalizerTool() {
                     return (
                       <label
                         key={c}
-                        className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                        className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 text-sm sm:text-base transition-colors ${
                           isForbidden 
                             ? "opacity-50 cursor-not-allowed bg-surface/30 border-border/50" 
                             : `cursor-pointer hover:bg-surface-2 ${zipCols.includes(c) ? "border-brand bg-brand/5 text-foreground" : "border-border bg-surface text-muted-foreground"}`
@@ -418,15 +418,15 @@ export function NormalizerTool() {
                     )
                   })}
                 </div>
-                <p className="mt-2 text-xs text-muted-foreground">※ 半角数字・ハイフンあり（例: 123-4567）の標準形式に自動整形されます。</p>
+                <p className="mt-2 text-xs sm:text-sm text-muted-foreground">※ 半角数字・ハイフンあり（例: 123-4567）の標準形式に自動整形されます。</p>
               </div>
 
               <div className="pt-4 border-t border-border/50">
                 <div className="mb-3">
-                  <label className="block text-sm font-bold text-foreground">
+                  <label className="block text-sm sm:text-base font-bold text-foreground">
                     【追加オプション】
                   </label>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
                     任意：不要な処理はチェックを外してください
                   </p>
                 </div>
@@ -440,14 +440,14 @@ export function NormalizerTool() {
             <StepHeader n={3} title="一括正規化を実行" />
             <div className="mt-4 pl-0 sm:pl-10">
               {isLimited && (
-                <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+                <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm sm:text-base text-amber-900">
                   <div className="flex items-start gap-3">
                     <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
                     <div>
                       {isAnon ? (
                         <>
                           <h4 className="font-bold">無料のお試し枠（30件）を越える件数が入っています</h4>
-                          <p className="mt-1 text-xs text-amber-800">
+                          <p className="mt-1 text-xs sm:text-sm text-amber-800">
                             31件目以降のデータはカットされます。無料で100件まで処理するには、アカウントを作成してログインしてください。
                           </p>
                           <Button asChild variant="default" className="mt-3 bg-amber-500 hover:bg-amber-600 font-bold text-white shadow-sm">
@@ -457,7 +457,7 @@ export function NormalizerTool() {
                       ) : (
                         <>
                           <h4 className="font-bold">無料版の制限（月100件）に到達しました</h4>
-                          <p className="mt-1 text-xs text-amber-800">
+                          <p className="mt-1 text-xs sm:text-sm text-amber-800">
                             制限を超えたデータはカットされています。無制限のCSV一括処理をご希望の場合は、プロプランへのアップグレードをご検討ください。
                           </p>
                           <Button
@@ -503,7 +503,7 @@ export function NormalizerTool() {
                         style={{ width: `${progress}%` }}
                       />
                     </div>
-                    <span className="text-xs font-semibold text-muted-foreground w-10 text-right">
+                    <span className="text-xs sm:text-sm font-semibold text-muted-foreground w-10 text-right">
                       {progress}%
                     </span>
                   </div>
@@ -518,7 +518,7 @@ export function NormalizerTool() {
               <Panel>
                 <div className="mb-4 flex items-center justify-between">
                   <StepHeader n={4} title="結果プレビュー" />
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-2/12 px-3 py-1 text-xs font-medium text-brand-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-2/12 px-3 py-1 text-xs sm:text-sm font-medium text-brand-2">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     {changeCount.toLocaleString()} 件を変更
                   </span>
@@ -541,7 +541,7 @@ export function NormalizerTool() {
                       <Download className="mr-2 h-4 w-4 shrink-0" />
                       <span>✨ 元のデータを残す</span>
                     </Button>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       新しい列として追加します。元の住所と見比べたい方に安全でおすすめです。
                     </p>
                   </div>
@@ -553,7 +553,7 @@ export function NormalizerTool() {
                       <Replace className="mr-2 h-4 w-4 shrink-0 text-amber-400" />
                       <span>⚠️ 古い住所を上書き</span>
                     </Button>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       古い住所を消去します。そのまま発送ソフト等に取り込みたい方向け。
                     </p>
                   </div>

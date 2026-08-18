@@ -14,7 +14,7 @@ export function ComparisonSection() {
 
       {/* スクロールなしで収まるように最適化したテーブル */}
       <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
-        <table className="w-full text-xs sm:text-sm text-left table-fixed">
+        <table className="w-full text-xs sm:text-sm sm:text-base text-left table-fixed">
           <thead className="bg-surface/50 text-muted-foreground border-b border-border">
             <tr>
               <th className="p-2 sm:p-4 font-medium w-[28%]">機能・特徴</th>
@@ -27,19 +27,19 @@ export function ComparisonSection() {
             <tr>
               <td className="p-2 sm:p-4 font-medium">料金</td>
               <td className="p-2 sm:p-4 text-center font-bold text-foreground bg-brand/5 border-l border-r border-brand/20">
-                月額 5,000円<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（使い放題）</span>
+                月額 5,000円<br/><span className="text-[10px] sm:text-xs sm:text-sm text-muted-foreground font-normal">（使い放題）</span>
               </td>
               <td className="p-2 sm:p-4 text-center text-muted-foreground">月額 5万円〜</td>
               <td className="p-2 sm:p-4 text-center text-muted-foreground">月額 2千円〜</td>
             </tr>
             <tr>
-              <td className="p-2 sm:p-4 font-medium">表記ゆれ補正<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（1-2 → 1丁目...）</span></td>
+              <td className="p-2 sm:p-4 font-medium">表記ゆれ補正<br/><span className="text-[10px] sm:text-xs sm:text-sm text-muted-foreground font-normal">（1-2 → 1丁目...）</span></td>
               <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><span className="text-xl sm:text-2xl font-black text-brand">◯</span></td>
               <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-black text-green-500">◯</span></td>
               <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-bold text-muted-foreground">△</span><br/><span className="hidden sm:block text-[10px] text-muted-foreground mt-1">※郵便番号のみ</span></td>
             </tr>
             <tr>
-              <td className="p-2 sm:p-4 font-medium">緯度経度抽出<br/><span className="text-[10px] sm:text-xs text-muted-foreground font-normal">（ジオコーディング）</span></td>
+              <td className="p-2 sm:p-4 font-medium">緯度経度抽出<br/><span className="text-[10px] sm:text-xs sm:text-sm text-muted-foreground font-normal">（ジオコーディング）</span></td>
               <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20"><span className="text-xl sm:text-2xl font-black text-brand">◯</span></td>
               <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-black text-green-500">◯</span></td>
               <td className="p-2 sm:p-4 text-center"><span className="text-xl sm:text-2xl font-bold text-red-500">✕</span></td>
@@ -47,7 +47,7 @@ export function ComparisonSection() {
             <tr>
               <td className="p-2 sm:p-4 font-medium">データ保存</td>
               <td className="p-2 sm:p-4 text-center bg-brand/5 border-l border-r border-brand/20 font-bold text-brand">
-                保存しない<br/><span className="text-[10px] sm:text-xs font-normal">（完全揮発）</span>
+                保存しない<br/><span className="text-[10px] sm:text-xs sm:text-sm font-normal">（完全揮発）</span>
               </td>
               <td className="p-2 sm:p-4 text-center text-muted-foreground">記録される</td>
               <td className="p-2 sm:p-4 text-center text-muted-foreground">自社依存</td>

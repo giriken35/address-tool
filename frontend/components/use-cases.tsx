@@ -123,8 +123,8 @@ export function UseCases() {
                 <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${colors.iconBg}`}>
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mb-2 font-bold text-foreground text-sm">{title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed hidden sm:block">
+                <h3 className="mb-2 font-bold text-foreground text-sm sm:text-base">{title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed hidden sm:block">
                   {desc}
                 </p>
               </div>
@@ -149,34 +149,34 @@ export function UseCases() {
             <div className="bg-surface/50 rounded-xl border border-border overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="p-6 border-b md:border-b-0 md:border-r border-border">
-                  <div className="text-sm font-semibold text-muted-foreground mb-4 flex items-center gap-2">
+                  <div className="text-sm sm:text-base font-semibold text-muted-foreground mb-4 flex items-center gap-2">
                     <AlertCircle className="h-4 w-4 text-destructive" />
                     ユーザーの入力（表記ゆれ・エラー原因）
                   </div>
                   <div className="space-y-3">
-                    <div className="p-3 bg-background rounded-lg border border-destructive/20 text-sm font-mono line-through text-muted-foreground">東京都　港区芝公園４ー２ー８</div>
-                    <div className="p-3 bg-background rounded-lg border border-destructive/20 text-sm font-mono line-through text-muted-foreground">東京都港区芝公園4丁目2-8</div>
-                    <div className="p-3 bg-background rounded-lg border border-destructive/20 text-sm font-mono line-through text-muted-foreground">東京都港区芝公園 ４−２−８</div>
+                    <div className="p-3 bg-background rounded-lg border border-destructive/20 text-sm sm:text-base font-mono line-through text-muted-foreground">東京都　港区芝公園４ー２ー８</div>
+                    <div className="p-3 bg-background rounded-lg border border-destructive/20 text-sm sm:text-base font-mono line-through text-muted-foreground">東京都港区芝公園4丁目2-8</div>
+                    <div className="p-3 bg-background rounded-lg border border-destructive/20 text-sm sm:text-base font-mono line-through text-muted-foreground">東京都港区芝公園 ４−２−８</div>
                   </div>
                 </div>
                 <div className="p-6 bg-brand/5 relative">
                   <div className="absolute top-1/2 -left-4 -translate-y-1/2 hidden md:flex h-8 w-8 items-center justify-center rounded-full bg-brand text-brand-foreground shadow-lg">
                     <ArrowRight className="h-4 w-4" />
                   </div>
-                  <div className="text-sm font-semibold text-brand mb-4 flex items-center gap-2">
+                  <div className="text-sm sm:text-base font-semibold text-brand mb-4 flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4" />
                     APIによる一括正規化（伝票フォーマット）
                   </div>
                   <div className="h-full flex flex-col justify-center space-y-3">
-                    <div className="p-4 bg-background rounded-lg border border-brand/30 text-sm font-mono text-foreground font-medium shadow-sm flex items-center justify-between">
+                    <div className="p-4 bg-background rounded-lg border border-brand/30 text-sm sm:text-base font-mono text-foreground font-medium shadow-sm flex items-center justify-between">
                       <span>東京都港区芝公園4-2-8</span>
-                      <span className="text-xs text-brand bg-brand/10 px-2 py-1 rounded">クレンジング済</span>
+                      <span className="text-xs sm:text-sm text-brand bg-brand/10 px-2 py-1 rounded">クレンジング済</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
+            <p className="text-sm sm:text-base font-medium text-foreground mt-6 text-center leading-relaxed">
               全角スペースやハイフンの揺れを瞬時に補正。<br/>ヤマト運輸や佐川急便の伝票システムへそのまま流し込めます。
             </p>
           </div>
@@ -189,7 +189,7 @@ export function UseCases() {
               名寄せによる重複発送（コストの無駄）を削減
             </h3>
             <div className="bg-surface/50 rounded-xl border border-border p-6 overflow-x-auto">
-              <table className="w-full text-sm text-left whitespace-nowrap">
+              <table className="w-full text-sm sm:text-base text-left whitespace-nowrap">
                 <thead>
                   <tr className="border-b border-border/50 text-muted-foreground">
                     <th className="pb-3 pr-6 font-medium">顧客ID</th>
@@ -205,7 +205,7 @@ export function UseCases() {
                     <td className="py-4 pr-6">山田 太郎</td>
                     <td className="py-4 pr-6">大阪府大阪市北区梅田１丁目１番地</td>
                     <td className="py-4 pr-6 font-mono font-medium text-brand-2">大阪府大阪市北区梅田1-1</td>
-                    <td className="py-4 text-center"><span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground">新規</span></td>
+                    <td className="py-4 text-center"><span className="inline-flex items-center px-2 py-1 rounded-full text-xs sm:text-sm font-medium bg-secondary text-secondary-foreground">新規</span></td>
                   </tr>
                   <tr className="bg-destructive/5">
                     <td className="py-4 pr-6 text-muted-foreground font-mono">C-1088</td>
@@ -213,7 +213,7 @@ export function UseCases() {
                     <td className="py-4 pr-6">大阪府大阪市北区梅田 1-1</td>
                     <td className="py-4 pr-6 font-mono font-medium text-brand-2">大阪府大阪市北区梅田1-1</td>
                     <td className="py-4 text-center">
-                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-destructive/10 text-destructive border border-destructive/20">
+                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs sm:text-sm font-medium bg-destructive/10 text-destructive border border-destructive/20">
                         <AlertCircle className="h-3 w-3" />
                         重複警告
                       </span>
@@ -222,7 +222,7 @@ export function UseCases() {
                 </tbody>
               </table>
             </div>
-            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
+            <p className="text-sm sm:text-base font-medium text-foreground mt-6 text-center leading-relaxed">
               表記違いによる「同一人物への複数回送付」を事前に検知し、DM発送コストを大幅に削減します。
             </p>
           </div>
@@ -243,9 +243,9 @@ export function UseCases() {
                     <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
                   </div>
-                  <span className="text-xs text-[#8b949e] font-mono ml-2">Request (JSON)</span>
+                  <span className="text-xs sm:text-sm text-[#8b949e] font-mono ml-2">Request (JSON)</span>
                 </div>
-                <div className="p-4 text-sm font-mono text-[#e6edf3] overflow-x-auto">
+                <div className="p-4 text-sm sm:text-base font-mono text-[#e6edf3] overflow-x-auto">
                   <pre>
 <span className="text-[#ff7b72]">POST</span> /api/v1/normalize
 <span className="text-[#ff7b72]">Content-Type:</span> application/json
@@ -261,9 +261,9 @@ export function UseCases() {
                   <ArrowRight className="h-4 w-4" />
                 </div>
                 <div className="bg-[#161b22] px-4 py-2 border-b border-[#30363d] flex items-center">
-                  <span className="text-xs text-[#8b949e] font-mono">Response (JSON)</span>
+                  <span className="text-xs sm:text-sm text-[#8b949e] font-mono">Response (JSON)</span>
                 </div>
-                <div className="p-4 text-sm font-mono text-[#e6edf3] overflow-x-auto">
+                <div className="p-4 text-sm sm:text-base font-mono text-[#e6edf3] overflow-x-auto">
                   <pre>
 {`{`}
 {`  "pref": "北海道",`}
@@ -277,7 +277,7 @@ export function UseCases() {
               </div>
               </div>
             </div>
-            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
+            <p className="text-sm sm:text-base font-medium text-foreground mt-6 text-center leading-relaxed">
               SalesforceやHubSpotなどのAPIに繋ぐ前に中継させるだけで、住所データを自動で構造化。<br/>都道府県・市区町村レベルでの正確なセグメント配信や分析が可能になります。
             </p>
           </div>
@@ -295,7 +295,7 @@ export function UseCases() {
               </div>
               <div className="relative z-10 max-w-lg mx-auto">
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="flex-1 p-3 bg-background rounded border border-border shadow-sm text-sm">
+                  <div className="flex-1 p-3 bg-background rounded border border-border shadow-sm text-sm sm:text-base">
                     <span className="text-muted-foreground mr-2">住所:</span>
                     <span className="font-mono">愛知県名古屋市中区栄3-1-1</span>
                   </div>
@@ -304,7 +304,7 @@ export function UseCases() {
                   <div className="h-6 w-px bg-amber-500/30"></div>
                 </div>
                 <div className="flex justify-center mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-600 border border-amber-500/20">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-amber-500/10 text-amber-600 border border-amber-500/20">
                     <Database className="h-3 w-3" />
                     自動ジオコーディング
                   </span>
@@ -314,17 +314,17 @@ export function UseCases() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-background rounded-lg border border-amber-500/20 shadow-sm flex flex-col items-center">
-                    <span className="text-xs text-muted-foreground mb-1">緯度 (Latitude)</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground mb-1">緯度 (Latitude)</span>
                     <span className="text-lg font-mono font-medium text-amber-600">35.1685</span>
                   </div>
                   <div className="p-4 bg-background rounded-lg border border-amber-500/20 shadow-sm flex flex-col items-center">
-                    <span className="text-xs text-muted-foreground mb-1">経度 (Longitude)</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground mb-1">経度 (Longitude)</span>
                     <span className="text-lg font-mono font-medium text-amber-600">136.9042</span>
                   </div>
                 </div>
               </div>
             </div>
-            <p className="text-sm font-medium text-foreground mt-6 text-center leading-relaxed">
+            <p className="text-sm sm:text-base font-medium text-foreground mt-6 text-center leading-relaxed">
               表記ゆれの修正と同時に、高精度な緯度・経度データを自動付与。<br/>TableauなどのBIツールに読み込ませるだけで、地図上への正確なプロットが即座に完了します。
             </p>
           </div>

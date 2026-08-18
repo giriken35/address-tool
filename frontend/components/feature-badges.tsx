@@ -56,8 +56,8 @@ export function FeatureBadges() {
           >
             <Icon className="h-5 w-5" strokeWidth={2} />
           </div>
-          <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+          <h3 className="text-sm sm:text-base font-semibold text-foreground">{title}</h3>
+          <p className="mt-1 text-sm sm:text-base leading-relaxed text-muted-foreground">{desc}</p>
           <div
             className={`pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 ${
               tone === "teal" ? "bg-brand-2/20 opacity-0" : "bg-brand/20 opacity-0"

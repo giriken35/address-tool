@@ -27,7 +27,7 @@ export function AiComparisonSection() {
               <ShieldAlert className="h-5 w-5" />
             </div>
             <h3 className="mb-2 font-bold text-foreground">機密情報の漏洩リスク</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               顧客の「住所・氏名」などの個人情報を生成AIのプロンプトに入力すると、AIの学習データとして吸収されるリスクがあり、企業のコンプライアンス違反に直結します。<br/>
               <strong className="text-foreground mt-2 block">当ツールなら：完全にブラウザ内処理（ゼロ・リテンション）で安全。</strong>
             </p>
@@ -39,7 +39,7 @@ export function AiComparisonSection() {
               <AlertTriangle className="h-5 w-5" />
             </div>
             <h3 className="mb-2 font-bold text-foreground">データの欠損（嘘）</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               LLMに数千件のデータを処理させると、「ランダムに数行スキップされる」「存在しない架空の郵便番号をでっち上げる（ハルシネーション）」といった致命的なエラーが高確率で発生します。<br/>
               <strong className="text-foreground mt-2 block">当ツールなら：確定的なアルゴリズムにより、1件も漏らさず100%正確に処理。</strong>
             </p>
@@ -51,7 +51,7 @@ export function AiComparisonSection() {
               <Zap className="h-5 w-5" />
             </div>
             <h3 className="mb-2 font-bold text-foreground">速度とAPIコスト</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               AIに大量の住所を処理させると非常に時間がかかり、従量課金のAPIトークン代も膨大になります。<br/>
               <strong className="text-foreground mt-2 block">当ツールなら：1万件の処理もわずか数秒で完了し、定額（または無料）で利用できます。</strong>
             </p>

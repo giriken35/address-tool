@@ -15,7 +15,7 @@ export function ContactSection() {
         </div>
 
         <div className="rounded-2xl border border-brand/20 bg-brand/5 p-6 text-center">
-          <p className="text-sm font-medium text-brand mb-2">サポート窓口メールアドレス</p>
+          <p className="text-sm sm:text-base font-medium text-brand mb-2">サポート窓口メールアドレス</p>
           {/* TODO: 実際のメールアドレスに書き換えてください */}
           <a 
             href="mailto:support@example.com" 
@@ -23,7 +23,7 @@ export function ContactSection() {
           >
             support@example.com
           </a>
-          <p className="mt-4 text-xs text-muted-foreground">
+          <p className="mt-4 text-xs sm:text-sm text-muted-foreground">
             ※クリックするとメールソフトが起動します。<br />
             ※「support@example.com」はお客様の実際のメールアドレスに変更してください。
           </p>
@@ -31,7 +31,7 @@ export function ContactSection() {
 
         <div className="mt-8 space-y-4 rounded-2xl border border-border bg-surface p-6">
           <h3 className="font-semibold text-foreground">よくあるお問い合わせ例</h3>
-          <ul className="space-y-3 text-sm text-muted-foreground">
+          <ul className="space-y-3 text-sm sm:text-base text-muted-foreground">
             <li className="flex items-start gap-2">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-2"></span>
               APIの仕様や自社システム（CRM等）への組み込みについて
