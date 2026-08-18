@@ -27,7 +27,7 @@ export default async function Page() {
 
         <div className="relative">
           <div className="mb-4 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand/50 bg-brand/10 px-3 py-1.5 text-xs font-bold text-brand shadow-[0_0_15px_-3px_rgba(108,99,255,0.3)] backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/50 bg-brand/10 px-3 py-1.5 text-xs sm:text-sm font-bold text-brand shadow-[0_0_15px_-3px_rgba(108,99,255,0.3)] backdrop-blur">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
@@ -35,15 +35,15 @@ export default async function Page() {
               無料・登録不要
             </div>
             <div className="flex items-center gap-4">
-              <a href="#pricing" className="text-xs font-semibold text-brand hover:text-brand-2 hover:underline hidden sm:inline-block">
+              <a href="#pricing" className="text-xs sm:text-sm font-semibold text-brand hover:text-brand-2 hover:underline hidden sm:inline-block">
                 料金プラン / 開発者API
               </a>
               {user ? (
-                <Link href="/dashboard" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-all active:scale-95">
+                <Link href="/dashboard" className="text-sm font-bold bg-brand text-white px-5 py-2 rounded-full shadow-sm hover:bg-brand/90 transition-all active:scale-95">
                   マイページへ
                 </Link>
               ) : (
-                <Link href="/login" className="text-xs font-bold bg-brand text-white px-4 py-1.5 rounded-full shadow-sm hover:bg-brand/90 transition-all active:scale-95">
+                <Link href="/login" className="text-sm font-bold bg-brand text-white px-5 py-2 rounded-full shadow-sm hover:bg-brand/90 transition-all active:scale-95">
                   ログイン / 登録
                 </Link>
               )}
@@ -123,7 +123,7 @@ export default async function Page() {
                 <span className="text-xs text-muted-foreground">/ ずっと</span>
               </p>
             </div>
-            <ul className="mb-8 space-y-3 text-sm text-muted-foreground">
+            <ul className="mb-8 space-y-3 text-sm sm:text-base text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand"></span>
                 1回あたり <strong className="text-foreground">最大100件</strong> まで処理可能
@@ -138,7 +138,7 @@ export default async function Page() {
               </li>
             </ul>
             <div className="mt-auto">
-              <a href="#tool-section" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm font-semibold text-brand transition-all hover:bg-brand/10 active:scale-95">
+              <a href="#tool-section" className="flex w-full items-center justify-center rounded-xl border border-brand bg-brand/5 px-4 py-2.5 text-sm sm:text-base font-semibold text-brand transition-all hover:bg-brand/10 active:scale-95">
                 ページ上部で今すぐ試す（無料）
               </a>
             </div>
@@ -161,8 +161,8 @@ export default async function Page() {
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
                 <DatabaseZap className="h-5 w-5" />
               </div>
-              <h3 className="mb-2 font-bold text-foreground text-sm">重複・配送エラーの防止</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <h3 className="mb-2 font-bold text-foreground text-base">重複・配送エラーの防止</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 「1丁目2番地」と「1-2」といった<strong>住所の表記揺れ</strong>は、名寄せ時の重複登録やDMの配送エラーの大きな原因に。無料で一括変換し、クリーンなデータ基盤を保ちます。
               </p>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
@@ -172,8 +172,8 @@ export default async function Page() {
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-2/10 text-brand-2">
                 <Map className="h-5 w-5" />
               </div>
-              <h3 className="mb-2 font-bold text-foreground text-sm">瞬時の商圏分析（ジオコーディング）</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <h3 className="mb-2 font-bold text-foreground text-base">瞬時の商圏分析（ジオコーディング）</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 正規化と同時に<strong>「緯度・経度」を自動抽出</strong>。TableauやGoogleマイマップなどの地図アプリに取り込むことで、エリアマーケティングや商圏分析がすぐに行えます。
               </p>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-2/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
@@ -183,8 +183,8 @@ export default async function Page() {
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
                 <Terminal className="h-5 w-5" />
               </div>
-              <h3 className="mb-2 font-bold text-foreground text-sm">自社システムへの組み込み</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <h3 className="mb-2 font-bold text-foreground text-base">自社システムへの組み込み</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 専用の開発者向けAPIを活用し、自社のCRMやSFAシステムに直接連携。入力された住所データをリアルタイムで正規化・空間データ化します。
               </p>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-blue-500/20 blur-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
@@ -201,7 +201,7 @@ export default async function Page() {
       <ContactSection />
       
       {/* フッター */}
-      <footer className="mt-10 border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
+      <footer className="mt-10 border-t border-border pt-6 text-center text-sm leading-relaxed text-muted-foreground">
         <div className="mb-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
           <Link href="/terms" className="hover:text-brand transition-colors">利用規約</Link>
           <Link href="/privacy" className="hover:text-brand transition-colors">プライバシーポリシー</Link>

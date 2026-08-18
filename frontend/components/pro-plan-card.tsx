@@ -6,7 +6,7 @@ export function ProPlanCard() {
       href="/checkout"
       className="relative block rounded-2xl border-2 border-brand/60 bg-gradient-to-br from-brand/5 to-brand-2/10 p-6 shadow-[0_0_30px_-5px_rgba(108,99,255,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(108,99,255,0.5)] sm:scale-105 sm:z-10 active:scale-[0.98] sm:active:scale-100"
     >
-      <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-xs font-bold text-white shadow-md">
+      <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand to-brand-2 px-3 py-1 text-xs sm:text-sm font-bold text-white shadow-md">
         ビジネス向け
       </div>
       <div className="mb-4">
@@ -16,7 +16,7 @@ export function ProPlanCard() {
           <span className="text-xs text-muted-foreground">/ 月</span>
         </p>
       </div>
-      <ul className="space-y-3 text-sm text-muted-foreground">
+      <ul className="space-y-3 text-sm sm:text-base text-muted-foreground">
         <li className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-brand-2"></span>
           <strong className="text-foreground">無制限</strong> のCSV一括処理
@@ -31,7 +31,7 @@ export function ProPlanCard() {
         </li>
       </ul>
       
-      <div className="mt-6 flex items-center justify-center rounded-xl bg-brand/10 py-3 text-sm font-bold text-brand transition-colors hover:bg-brand hover:text-white">
+      <div className="mt-6 flex items-center justify-center rounded-xl bg-brand/10 py-3 text-sm sm:text-base font-bold text-brand transition-colors hover:bg-brand hover:text-white">
         今すぐアップグレードする →
       </div>
     </Link>
