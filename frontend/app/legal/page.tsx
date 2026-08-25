@@ -20,8 +20,11 @@ export default function LegalPage() {
             <table className="w-full text-sm text-left">
               <tbody className="divide-y divide-border">
                 <tr>
-                  <th className="py-4 px-6 bg-muted/50 font-medium text-foreground w-1/3 border-r border-border">販売事業者（兼 運営統括責任者）</th>
-                  <td className="py-4 px-6 text-muted-foreground">片桐 健弥</td>
+                  <th className="py-4 px-6 bg-muted/50 font-medium text-foreground w-1/3 border-r border-border align-top">
+                    販売事業者<br />
+                    <span className="text-xs">（兼 運営統括責任者）</span>
+                  </th>
+                  <td className="py-4 px-6 text-muted-foreground align-top">片桐 健弥</td>
                 </tr>
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">所在地</th>
