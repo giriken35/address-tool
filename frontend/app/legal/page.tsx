@@ -20,11 +20,7 @@ export default function LegalPage() {
             <table className="w-full text-sm text-left">
               <tbody className="divide-y divide-border">
                 <tr>
-                  <th className="py-4 px-6 bg-muted/50 font-medium text-foreground w-1/3 border-r border-border">販売事業者</th>
-                  <td className="py-4 px-6 text-muted-foreground">片桐 健弥</td>
-                </tr>
-                <tr>
-                  <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">運営統括責任者</th>
+                  <th className="py-4 px-6 bg-muted/50 font-medium text-foreground w-1/3 border-r border-border">販売事業者（兼 運営統括責任者）</th>
                   <td className="py-4 px-6 text-muted-foreground">片桐 健弥</td>
                 </tr>
                 <tr>
@@ -38,8 +34,7 @@ export default function LegalPage() {
                 <tr>
                   <th className="py-4 px-6 bg-muted/50 font-medium text-foreground border-r border-border">電話番号</th>
                   <td className="py-4 px-6 text-muted-foreground">
-                    090-6127-3280<br/>
-                    <span className="text-xs opacity-80">※サービスに関するお問い合わせは、原則としてメールにてお願いいたします。</span>
+                    お客様からのご請求に基づき、遅滞なく電子メールにて開示いたします。開示をご希望される場合は、下記のメールアドレスよりお申し出ください。
                   </td>
                 </tr>
                 <tr>
