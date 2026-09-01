@@ -10,23 +10,23 @@ export function ContactSection() {
           </div>
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">お問い合わせ</h2>
           <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground text-balance">
-            プロプラン（API）のご利用相談や、ツールに関するご質問などがございましたら、以下のメールアドレスよりお気軽にお問い合わせください。
+            プロプラン（API）のご利用相談や、ツールに関するご質問などがございましたら、以下のフォームよりお気軽にお問い合わせください。
           </p>
         </div>
 
-        <div className="rounded-2xl border border-brand/20 bg-brand/5 p-6 text-center">
-          <p className="text-sm sm:text-base font-medium text-brand mb-2">サポート窓口メールアドレス</p>
-          {/* TODO: 実際のメールアドレスに書き換えてください */}
+        <div className="rounded-2xl border border-brand/20 bg-brand/5 p-8 text-center flex flex-col items-center justify-center">
           <a 
-            href="mailto:support@example.com" 
-            className="text-xl sm:text-2xl font-bold text-foreground hover:text-brand transition-colors"
+            href="https://forms.gle/eGDqyKDbSsDDnnoc6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-brand px-8 py-4 text-sm sm:text-base font-bold text-white shadow-md transition-all hover:bg-brand/90 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-95"
           >
-            support@example.com
+            お問い合わせフォームを開く（外部サイト）
           </a>
-          <p className="mt-4 text-xs sm:text-sm text-muted-foreground">
-            ※クリックするとメールソフトが起動します。<br />
-            ※「support@example.com」はお客様の実際のメールアドレスに変更してください。
-          </p>
+          <div className="mt-5 text-xs sm:text-sm text-muted-foreground text-left sm:text-center space-y-1">
+            <p>※クリックするとGoogleフォームが別タブで開きます。</p>
+            <p>※お問い合わせへのご返信は、担当より『info@azorb.co』からお送りいたします。</p>
+          </div>
         </div>
 
         <div className="mt-8 space-y-4 rounded-2xl border border-border bg-surface p-6">
