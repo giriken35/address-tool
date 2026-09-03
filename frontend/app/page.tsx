@@ -207,7 +207,7 @@ export default async function Page() {
           <a href="https://azorb-site.vercel.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">プライバシーポリシー</a>
           <a href="https://azorb-site.vercel.app/legal" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">特定商取引法に基づく表記</a>
           <a href="#faq" className="hover:text-brand transition-colors">よくある質問 (FAQ)</a>
-          <a href="#contact" className="hover:text-brand transition-colors">お問い合わせ</a>
+          <a href="https://forms.gle/eGDqyKDbSsDDnnoc6" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">お問い合わせ</a>
         </div>
         <p>
           住所表記揺れ 一括正規化ツール　|　
