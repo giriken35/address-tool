@@ -203,9 +203,9 @@ export default async function Page() {
       {/* フッター */}
       <footer className="mt-10 border-t border-border pt-6 text-center text-sm leading-relaxed text-muted-foreground">
         <div className="mb-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <a href="https://azorb-site.vercel.app/terms" className="hover:text-brand transition-colors">利用規約</a>
-          <a href="https://azorb-site.vercel.app/privacy" className="hover:text-brand transition-colors">プライバシーポリシー</a>
-          <a href="https://azorb-site.vercel.app/legal" className="hover:text-brand transition-colors">特定商取引法に基づく表記</a>
+          <a href="https://azorb-site.vercel.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">利用規約</a>
+          <a href="https://azorb-site.vercel.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">プライバシーポリシー</a>
+          <a href="https://azorb-site.vercel.app/legal" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">特定商取引法に基づく表記</a>
           <a href="#faq" className="hover:text-brand transition-colors">よくある質問 (FAQ)</a>
           <a href="#contact" className="hover:text-brand transition-colors">お問い合わせ</a>
         </div>
